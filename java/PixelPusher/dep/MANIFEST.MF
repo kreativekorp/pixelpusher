@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Kreative Software)
+Main-Class: com.kreative.pixelpusher.cli.PixelPusherCLI
+Class-Path: nrserial.jar PixelPusher.jar dep/nrserial.jar dep/PixelPusher.jar
