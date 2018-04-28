@@ -317,6 +317,16 @@
 		<color r="192" g="128" b="255" />
 	</color-pattern>
 
+	<color-pattern name="U.N. Owen?">
+		<color r="0"   g="255" b="255" />
+		<color r="0"   g="128" b="255" />
+		<color r="192" g="0"   b="255" />
+		<color r="255" g="0"   b="128" />
+		<color r="255" g="128" b="0"   />
+		<color r="255" g="255" b="0"   />
+		<color r="0"   g="255" b="0"   />
+	</color-pattern>
+
 	<blink-pattern name="Steady" framedur="1000" strands="1">
 		<frame levels="255"/>
 	</blink-pattern>

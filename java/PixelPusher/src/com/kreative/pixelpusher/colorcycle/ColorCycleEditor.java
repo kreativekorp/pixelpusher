@@ -21,7 +21,9 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.ListSelectionModel;
@@ -31,6 +33,8 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import com.kreative.pixelpusher.common.ColorPopupMenu;
+import com.kreative.pixelpusher.mmxl.MMXLColorPattern;
+import com.kreative.pixelpusher.mmxl.MMXLParser;
 import com.kreative.pixelpusher.sequence.PixelSequenceEditor;
 
 public class ColorCycleEditor<T extends ColorCycleSequence> extends PixelSequenceEditor<T> {
@@ -61,6 +65,8 @@ public class ColorCycleEditor<T extends ColorCycleSequence> extends PixelSequenc
 	private JButton colorRemove;
 	private JButton colorLeft;
 	private JButton colorRight;
+	private JButton colorPreset;
+	private JPopupMenu colorPresetMenu;
 	private boolean updating;
 	
 	private JPanel makeMainPanel() {
@@ -108,11 +114,13 @@ public class ColorCycleEditor<T extends ColorCycleSequence> extends PixelSequenc
 		colorRemove = squareOff(new JButton("\u2212"), "Remove Color");
 		colorLeft = squareOff(new JButton("\u25C0"), "Move Left");
 		colorRight = squareOff(new JButton("\u25B6"), "Move Right");
+		colorPreset = squareOff(new JButton("\u25BC"), "Color Presets");
 		JPanel colorButtonPanel = new JPanel(new GridLayout(1,0,4,4));
 		colorButtonPanel.add(colorAdd);
 		colorButtonPanel.add(colorRemove);
 		colorButtonPanel.add(colorLeft);
 		colorButtonPanel.add(colorRight);
+		colorButtonPanel.add(colorPreset);
 		JPanel colorEditPanel = new JPanel(new BorderLayout(4,4));
 		colorEditPanel.add(colorColor, BorderLayout.CENTER);
 		colorEditPanel.add(colorButtonPanel, BorderLayout.LINE_END);
@@ -120,6 +128,28 @@ public class ColorCycleEditor<T extends ColorCycleSequence> extends PixelSequenc
 		colorPanel.add(colorLabel, BorderLayout.LINE_START);
 		colorPanel.add(colorPane, BorderLayout.CENTER);
 		colorPanel.add(valignMiddle(colorEditPanel), BorderLayout.LINE_END);
+		
+		colorPresetMenu = new JPopupMenu();
+		MMXLParser mmxlp = new MMXLParser(); mmxlp.parse();
+		for (String name : mmxlp.getColorPatternNames()) {
+			final MMXLColorPattern pattern = mmxlp.getColorPattern(name);
+			if (pattern.length() > 1) {
+				JMenuItem mi = new JMenuItem(name);
+				mi.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						int n = pattern.length();
+						pixelSet.setColorCount(n);
+						colorModel.clear();
+						for (int i = 0; i < n; i++) {
+							pixelSet.setColor(i, pattern.color(i));
+							colorModel.addElement(pattern.color(i));
+						}
+					}
+				});
+				colorPresetMenu.add(mi);
+			}
+		}
 		
 		JPanel main = new JPanel(new BorderLayout(8,8));
 		main.add(valignMiddle(speedPanel), BorderLayout.LINE_START);
@@ -239,6 +269,13 @@ public class ColorCycleEditor<T extends ColorCycleSequence> extends PixelSequenc
 					}
 					updating = false;
 				}
+			}
+		});
+		colorPreset.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Component c = (Component)e.getSource();
+				colorPresetMenu.show(c, 0, c.getHeight());
 			}
 		});
 		
