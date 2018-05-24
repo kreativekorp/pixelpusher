@@ -1,6 +1,7 @@
 com.kreative.pixelpusher.colorcycle.ColorCycleFactory
 com.kreative.pixelpusher.colorcycle.ColorFaderFactory
 com.kreative.pixelpusher.colorcycle.ColorScrollerFactory
+com.kreative.pixelpusher.clock.ClockFactory
 com.kreative.pixelpusher.xlm.XLMFactory
 com.kreative.pixelpusher.mmxl.MMXLFactory
 com.kreative.pixelpusher.marquee.MarqueeFactory
