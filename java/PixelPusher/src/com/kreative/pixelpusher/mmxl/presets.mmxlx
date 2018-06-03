@@ -336,7 +336,40 @@
 		<frame levels="0  "/>
 	</blink-pattern>
 
-	<blink-pattern name="Fade" framedur="100" strands="1">
+	<blink-pattern name="Fast Fade" framedur="50" strands="1">
+		<frame levels="255"/>
+		<frame levels="238"/>
+		<frame levels="221"/>
+		<frame levels="204"/>
+		<frame levels="187"/>
+		<frame levels="170"/>
+		<frame levels="153"/>
+		<frame levels="136"/>
+		<frame levels="119"/>
+		<frame levels="102"/>
+		<frame levels="85 "/>
+		<frame levels="68 "/>
+		<frame levels="51 "/>
+		<frame levels="34 "/>
+		<frame levels="17 "/>
+		<frame levels="0  "/>
+		<frame levels="17 "/>
+		<frame levels="34 "/>
+		<frame levels="51 "/>
+		<frame levels="68 "/>
+		<frame levels="85 "/>
+		<frame levels="102"/>
+		<frame levels="119"/>
+		<frame levels="136"/>
+		<frame levels="153"/>
+		<frame levels="170"/>
+		<frame levels="187"/>
+		<frame levels="204"/>
+		<frame levels="221"/>
+		<frame levels="238"/>
+	</blink-pattern>
+
+	<blink-pattern name="Slow Fade" framedur="100" strands="1">
 		<frame levels="255"/>
 		<frame levels="255"/>
 		<frame levels="255"/>
@@ -636,6 +669,73 @@
 	</blink-pattern>
 
 	<blink-pattern name="Twinkle Flash B" framedur="80" strands="4">
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   255 0   0  "/>
+	</blink-pattern>
+
+	<blink-pattern name="Twinkle Flash C" framedur="80" strands="4">
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   255 0   0  "/>
 		<frame levels="0   0   255 255"/>
 		<frame levels="0   0   255 255"/>
 		<frame levels="0   0   255 255"/>
