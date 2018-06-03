@@ -4,6 +4,5 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="dep/nrserial.jar"/>
 	<classpathentry kind="lib" path="dep/PixelPusher.jar"/>
-	<classpathentry kind="src" path="/ImageTool"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
