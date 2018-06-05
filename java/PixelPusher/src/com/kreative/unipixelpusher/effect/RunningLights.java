@@ -56,6 +56,7 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 					ps.setPixel(i, getColor(ph++, ci));
 					if (ph >= 6) { ph = 0; ci++; }
 				}
+				ps.push();
 			}
 			
 			@Override
@@ -73,6 +74,7 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 					ps.setPixel(i, getColor(ph++, ci));
 					if (ph >= 6) { ph = 0; ci++; }
 				}
+				ps.push();
 			}
 			
 			@Override
