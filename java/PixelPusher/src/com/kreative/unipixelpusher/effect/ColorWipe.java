@@ -11,7 +11,7 @@ public class ColorWipe extends AbstractPixelSequence.ColorPattern {
 			int ci = (int)(frame / n);
 			int si = (int)(frame % n);
 			int color = ((ci & 1) != 0) ? 0 : color(ci >> 1);
-			for (int i = 0; i < si; i++) {
+			for (int i = 0; i <= si; i++) {
 				ps.setPixel(i, color);
 			}
 			ps.push();
@@ -34,7 +34,7 @@ public class ColorWipe extends AbstractPixelSequence.ColorPattern {
 		int ci = (int)(frame / n);
 		int si = (int)(frame % n);
 		int color = color(ci);
-		for (int i = 0; i < si; i++) {
+		for (int i = 0; i <= si; i++) {
 			ps.setPixel(i, color);
 		}
 		ps.push();
