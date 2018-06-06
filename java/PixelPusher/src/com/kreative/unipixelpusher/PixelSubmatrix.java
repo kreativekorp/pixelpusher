@@ -73,4 +73,9 @@ public class PixelSubmatrix extends AbstractPixelMatrix {
 	public void push() {
 		parent.push();
 	}
+	
+	@Override
+	public StringType type() {
+		return parent.type();
+	}
 }

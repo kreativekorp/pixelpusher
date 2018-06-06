@@ -56,4 +56,9 @@ public class PixelSubstring extends AbstractPixelString {
 	public void push() {
 		parent.push();
 	}
+	
+	@Override
+	public StringType type() {
+		return parent.type();
+	}
 }

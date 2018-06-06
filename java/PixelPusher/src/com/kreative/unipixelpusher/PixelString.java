@@ -9,4 +9,5 @@ public interface PixelString {
 	public void setPixel(int i, int color);
 	public void setPixel(int row, int col, int color);
 	public void push();
+	public StringType type();
 }
