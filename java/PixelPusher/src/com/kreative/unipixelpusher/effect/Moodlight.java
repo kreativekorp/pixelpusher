@@ -11,7 +11,7 @@ public class Moodlight extends AbstractPixelSequence.ColorPattern {
 	protected int[] toColor = null;
 	
 	@Override
-	protected void updateFrame(PixelString ps, long dnu1, boolean dnu2) {
+	public void updateFrame(PixelString ps, long dnu1, boolean dnu2) {
 		int n = ps.length();
 		if (fromColor == null || fromColor.length != n || toColor == null || toColor.length != n) {
 			fromColor = new int[n];
@@ -34,12 +34,12 @@ public class Moodlight extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameCount(PixelString ps) {
+	public long getFrameCount(PixelString ps) {
 		return 0;
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 3;
 	}
 	

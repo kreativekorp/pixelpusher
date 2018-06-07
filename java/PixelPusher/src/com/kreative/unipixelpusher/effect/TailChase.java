@@ -7,7 +7,7 @@ import com.kreative.unipixelpusher.PixelString;
 public abstract class TailChase extends AbstractPixelSequence.ColorPattern {
 	public static class Left extends TailChase {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
 			int f = (int)(frame % n);
 			for (int i = 0; i < n; i++) {
@@ -26,7 +26,7 @@ public abstract class TailChase extends AbstractPixelSequence.ColorPattern {
 	
 	public static class Right extends TailChase {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
 			int f = (int)(frame % n);
 			for (int i = 0; i < n; i++) {
@@ -44,12 +44,12 @@ public abstract class TailChase extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameCount(PixelString ps) {
+	public long getFrameCount(PixelString ps) {
 		return ps.length();
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 10;
 	}
 }

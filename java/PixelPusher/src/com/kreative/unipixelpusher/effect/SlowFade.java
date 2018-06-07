@@ -7,7 +7,7 @@ import com.kreative.unipixelpusher.PixelString;
 public abstract class SlowFade extends AbstractPixelSequence.ColorPattern {
 	public static class InOut extends FastFade {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int m = (int)((frame >> 8) & 0x03);
 			switch (m) {
 				case 0: m = (int)(frame & 0xFF); break;
@@ -22,7 +22,7 @@ public abstract class SlowFade extends AbstractPixelSequence.ColorPattern {
 		}
 		
 		@Override
-		protected long getFrameCount(PixelString ps) {
+		public long getFrameCount(PixelString ps) {
 			return 0x400;
 		}
 		
@@ -34,7 +34,7 @@ public abstract class SlowFade extends AbstractPixelSequence.ColorPattern {
 	
 	public static class Cycle extends FastFade {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int ci = (int)(frame >> 9);
 			int sf = ((frame & 0x100) != 0) ? 255 : (int)(frame & 0xFF);
 			int color = ColorUtilities.blend(color(ci), color(ci + 1), sf, 0x100);
@@ -45,7 +45,7 @@ public abstract class SlowFade extends AbstractPixelSequence.ColorPattern {
 		}
 		
 		@Override
-		protected long getFrameCount(PixelString ps) {
+		public long getFrameCount(PixelString ps) {
 			return length() << 9;
 		}
 		
@@ -57,7 +57,7 @@ public abstract class SlowFade extends AbstractPixelSequence.ColorPattern {
 	
 	public static class CycleInOut extends FastFade {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int ci = (int)(frame >> 10);
 			int m = (int)((frame >> 8) & 0x03);
 			switch (m) {
@@ -74,7 +74,7 @@ public abstract class SlowFade extends AbstractPixelSequence.ColorPattern {
 		}
 		
 		@Override
-		protected long getFrameCount(PixelString ps) {
+		public long getFrameCount(PixelString ps) {
 			return length() << 10;
 		}
 		
@@ -85,7 +85,7 @@ public abstract class SlowFade extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 5;
 	}
 }

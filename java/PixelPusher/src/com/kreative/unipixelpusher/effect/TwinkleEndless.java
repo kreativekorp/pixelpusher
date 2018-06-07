@@ -8,7 +8,7 @@ public class TwinkleEndless extends AbstractPixelSequence.ColorPattern {
 	protected Random random = new Random();
 	
 	@Override
-	protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 		if (frameChanged) {
 			int si = random.nextInt(ps.length());
 			int ci = random.nextInt(length());
@@ -18,12 +18,12 @@ public class TwinkleEndless extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameCount(PixelString ps) {
+	public long getFrameCount(PixelString ps) {
 		return 0;
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 100;
 	}
 	

@@ -5,7 +5,7 @@ import com.kreative.unipixelpusher.PixelString;
 
 public class Blink extends AbstractPixelSequence.ColorPattern {
 	@Override
-	protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 		if ((frame & 1) != 0) {
 			for (int i = 0, n = ps.length(); i < n; i++) {
 				ps.setPixel(i, color(i));
@@ -19,12 +19,12 @@ public class Blink extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameCount(PixelString ps) {
+	public long getFrameCount(PixelString ps) {
 		return 2;
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 1000;
 	}
 	

@@ -13,7 +13,7 @@ public class Fire extends AbstractPixelSequence {
 	protected int[] heat = null;
 	
 	@Override
-	protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 		int n = ps.length();
 		if (heat == null || heat.length != n) heat = new int[n];
 		if (frameChanged) {
@@ -60,12 +60,12 @@ public class Fire extends AbstractPixelSequence {
 	}
 	
 	@Override
-	protected long getFrameCount(PixelString ps) {
+	public long getFrameCount(PixelString ps) {
 		return 0;
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return SPEED;
 	}
 	

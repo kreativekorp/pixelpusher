@@ -7,9 +7,9 @@ public abstract class AbstractPixelSequence implements PixelSequence.SpeedAdjust
 	protected long frameTime;
 	protected long frame;
 	
-	protected abstract void updateFrame(PixelString ps, long frame, boolean frameChanged);
-	protected abstract long getFrameCount(PixelString ps);
-	protected abstract long getFrameDuration();
+	public abstract void updateFrame(PixelString ps, long frame, boolean frameChanged);
+	public abstract long getFrameCount(PixelString ps);
+	public abstract long getFrameDuration();
 	
 	@Override
 	public void update(PixelString ps, long tick) {

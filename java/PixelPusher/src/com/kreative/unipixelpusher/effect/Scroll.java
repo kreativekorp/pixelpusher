@@ -6,7 +6,7 @@ import com.kreative.unipixelpusher.PixelString;
 public abstract class Scroll extends AbstractPixelSequence.ColorPattern {
 	public static class Left extends Scroll {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int f = (int)frame;
 			for (int i = 0, n = ps.length(); i < n; i++) {
 				ps.setPixel(i, color(f++));
@@ -22,7 +22,7 @@ public abstract class Scroll extends AbstractPixelSequence.ColorPattern {
 	
 	public static class Right extends Scroll {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int f = (int)(length() - frame - 1);
 			for (int i = 0, n = ps.length(); i < n; i++) {
 				ps.setPixel(i, color(f++));
@@ -37,12 +37,12 @@ public abstract class Scroll extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameCount(PixelString ps) {
+	public long getFrameCount(PixelString ps) {
 		return length();
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 50;
 	}
 }

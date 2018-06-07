@@ -6,7 +6,7 @@ import com.kreative.unipixelpusher.PixelString;
 public abstract class Hop extends AbstractPixelSequence.ColorPattern {
 	public static class Left extends Hop {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
 			int sf = (int)(n - frame - 1);
 			for (int i = 0; i < n; i++) {
@@ -23,7 +23,7 @@ public abstract class Hop extends AbstractPixelSequence.ColorPattern {
 	
 	public static class Right extends Hop {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
 			int sf = (int)frame;
 			for (int i = 0; i < n; i++) {
@@ -39,12 +39,12 @@ public abstract class Hop extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameCount(PixelString ps) {
+	public long getFrameCount(PixelString ps) {
 		return ps.length();
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 50;
 	}
 }

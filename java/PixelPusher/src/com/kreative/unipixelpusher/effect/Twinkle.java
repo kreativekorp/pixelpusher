@@ -17,7 +17,7 @@ public class Twinkle extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 		if (frameChanged) {
 			if (frame == 0) {
 				for (int i = 0, n = ps.length(); i < n; i++) {
@@ -31,12 +31,12 @@ public class Twinkle extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameCount(PixelString ps) {
+	public long getFrameCount(PixelString ps) {
 		return (count > 0) ? count : ((ps.length() + 5) / 6);
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 100;
 	}
 	

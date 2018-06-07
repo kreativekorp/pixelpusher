@@ -5,7 +5,7 @@ import com.kreative.unipixelpusher.PixelString;
 
 public class Oscillate extends AbstractPixelSequence.ColorPattern {
 	@Override
-	protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 		int n = ps.length();
 		int sf = (int)((frame < n) ? (n - frame - 1) : (frame - n));
 		for (int i = 0; i < n; i++) {
@@ -15,12 +15,12 @@ public class Oscillate extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameCount(PixelString ps) {
+	public long getFrameCount(PixelString ps) {
 		return ps.length() << 1;
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 50;
 	}
 	

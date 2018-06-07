@@ -6,7 +6,7 @@ import com.kreative.unipixelpusher.PixelString;
 public abstract class Walk extends AbstractPixelSequence.ColorPattern {
 	public static class Left extends Walk {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
 			int nf = n << 1;
 			int sf = (int)(nf - frame - 1);
@@ -19,7 +19,7 @@ public abstract class Walk extends AbstractPixelSequence.ColorPattern {
 		}
 		
 		@Override
-		protected long getFrameCount(PixelString ps) {
+		public long getFrameCount(PixelString ps) {
 			return ps.length() << 1;
 		}
 		
@@ -31,7 +31,7 @@ public abstract class Walk extends AbstractPixelSequence.ColorPattern {
 	
 	public static class Right extends Walk {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
 			int sf = (int)frame;
 			int i1 = sf >> 1;
@@ -43,7 +43,7 @@ public abstract class Walk extends AbstractPixelSequence.ColorPattern {
 		}
 		
 		@Override
-		protected long getFrameCount(PixelString ps) {
+		public long getFrameCount(PixelString ps) {
 			return ps.length() << 1;
 		}
 		
@@ -55,7 +55,7 @@ public abstract class Walk extends AbstractPixelSequence.ColorPattern {
 	
 	public static class LeftRight extends Walk {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
 			int nf = n << 1;
 			int sf = (int)((frame < nf) ? (nf - frame - 1) : (frame - nf));
@@ -68,7 +68,7 @@ public abstract class Walk extends AbstractPixelSequence.ColorPattern {
 		}
 		
 		@Override
-		protected long getFrameCount(PixelString ps) {
+		public long getFrameCount(PixelString ps) {
 			return ps.length() << 2;
 		}
 		
@@ -79,7 +79,7 @@ public abstract class Walk extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 50;
 	}
 }

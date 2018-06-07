@@ -6,7 +6,7 @@ import com.kreative.unipixelpusher.PixelString;
 public class Cycle extends AbstractPixelSequence.ColorPattern {
 	public static class OnOff extends Cycle {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int color = ((frame & 1) != 0) ? color((int)(frame >> 1)) : 0;
 			for (int i = 0, n = ps.length(); i < n; i++) {
 				ps.setPixel(i, color);
@@ -15,7 +15,7 @@ public class Cycle extends AbstractPixelSequence.ColorPattern {
 		}
 		
 		@Override
-		protected long getFrameCount(PixelString ps) {
+		public long getFrameCount(PixelString ps) {
 			return length() << 1;
 		}
 		
@@ -26,7 +26,7 @@ public class Cycle extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 		int color = color((int)frame);
 		for (int i = 0, n = ps.length(); i < n; i++) {
 			ps.setPixel(i, color);
@@ -35,12 +35,12 @@ public class Cycle extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameCount(PixelString ps) {
+	public long getFrameCount(PixelString ps) {
 		return length();
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 1000;
 	}
 	

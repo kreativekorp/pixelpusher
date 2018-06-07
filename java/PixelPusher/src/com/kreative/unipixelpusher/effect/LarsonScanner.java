@@ -17,7 +17,7 @@ public abstract class LarsonScanner extends AbstractPixelSequence.ColorPattern {
 	
 	public static class A extends LarsonScanner {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
 			int e = (eyeSize > 0 && eyeSize + 2 < n) ? eyeSize : (n < 12) ? 1 : 4;
 			int n1 = n - e - 2;
@@ -28,7 +28,7 @@ public abstract class LarsonScanner extends AbstractPixelSequence.ColorPattern {
 		}
 		
 		@Override
-		protected long getFrameCount(PixelString ps) {
+		public long getFrameCount(PixelString ps) {
 			int n = ps.length();
 			int e = (eyeSize > 0 && eyeSize + 2 < n) ? eyeSize : (n < 12) ? 1 : 4;
 			return (n - e - 2 + 5) * 2;
@@ -42,7 +42,7 @@ public abstract class LarsonScanner extends AbstractPixelSequence.ColorPattern {
 	
 	public static class B extends LarsonScanner {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
 			int e = (eyeSize > 0 && eyeSize + 2 < n) ? eyeSize : (n < 20) ? 1 : 8;
 			int n1 = n - e - 2;
@@ -57,7 +57,7 @@ public abstract class LarsonScanner extends AbstractPixelSequence.ColorPattern {
 		}
 		
 		@Override
-		protected long getFrameCount(PixelString ps) {
+		public long getFrameCount(PixelString ps) {
 			int n = ps.length();
 			int e = (eyeSize > 0 && eyeSize + 2 < n) ? eyeSize : (n < 20) ? 1 : 8;
 			return (n - e - 2 + 5) * 6;
@@ -70,7 +70,7 @@ public abstract class LarsonScanner extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 10;
 	}
 	

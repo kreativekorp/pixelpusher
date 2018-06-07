@@ -8,7 +8,7 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 	public static abstract class A extends RunningLights {
 		public static class Left extends A {
 			@Override
-			protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+			public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 				int ph = (int)(frame % 6);
 				int ci = 0;
 				for (int i = 0, n = ps.length(); i < n; i++) {
@@ -25,7 +25,7 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 		
 		public static class Right extends A {
 			@Override
-			protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+			public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 				int ph = 5 - (int)(frame % 6);
 				int ci = 0;
 				for (int i = 0, n = ps.length(); i < n; i++) {
@@ -41,7 +41,7 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 		}
 		
 		@Override
-		protected long getFrameCount(PixelString ps) {
+		public long getFrameCount(PixelString ps) {
 			return 6;
 		}
 	}
@@ -49,7 +49,7 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 	public static abstract class B extends RunningLights {
 		public static class Left extends B {
 			@Override
-			protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+			public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 				int ph = (int)(frame % 6);
 				int ci = (int)(frame / 6);
 				for (int i = 0, n = ps.length(); i < n; i++) {
@@ -67,7 +67,7 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 		
 		public static class Right extends B {
 			@Override
-			protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+			public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 				int ph = 5 - (int)(frame % 6);
 				int ci = length() - (int)(frame / 6);
 				for (int i = 0, n = ps.length(); i < n; i++) {
@@ -84,13 +84,13 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 		}
 		
 		@Override
-		protected long getFrameCount(PixelString ps) {
+		public long getFrameCount(PixelString ps) {
 			return length() * 6;
 		}
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 50;
 	}
 	

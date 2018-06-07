@@ -6,7 +6,7 @@ import com.kreative.unipixelpusher.PixelString;
 public class ColorWipe extends AbstractPixelSequence.ColorPattern {
 	public static class OnOff extends ColorWipe {
 		@Override
-		protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
 			int ci = (int)(frame / n);
 			int si = (int)(frame % n);
@@ -18,7 +18,7 @@ public class ColorWipe extends AbstractPixelSequence.ColorPattern {
 		}
 		
 		@Override
-		protected long getFrameCount(PixelString ps) {
+		public long getFrameCount(PixelString ps) {
 			return ps.length() * length() * 2;
 		}
 		
@@ -29,7 +29,7 @@ public class ColorWipe extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 		int n = ps.length();
 		int ci = (int)(frame / n);
 		int si = (int)(frame % n);
@@ -41,12 +41,12 @@ public class ColorWipe extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameCount(PixelString ps) {
+	public long getFrameCount(PixelString ps) {
 		return ps.length() * length();
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 50;
 	}
 	

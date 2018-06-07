@@ -9,7 +9,7 @@ public class SnowSparkle extends AbstractPixelSequence.ColorPattern {
 	protected Random random = new Random();
 	
 	@Override
-	protected void updateFrame(PixelString ps, long frame, boolean frameChanged) {
+	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 		int n = ps.length();
 		for (int i = 0; i < n; i++) {
 			ps.setPixel(i, ColorUtilities.multiply(color(i), 88));
@@ -22,12 +22,12 @@ public class SnowSparkle extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	@Override
-	protected long getFrameCount(PixelString ps) {
+	public long getFrameCount(PixelString ps) {
 		return 11;
 	}
 	
 	@Override
-	protected long getFrameDuration() {
+	public long getFrameDuration() {
 		return 20;
 	}
 	
