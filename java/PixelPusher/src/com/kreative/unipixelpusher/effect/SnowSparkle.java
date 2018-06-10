@@ -6,6 +6,8 @@ import com.kreative.unipixelpusher.ColorUtilities;
 import com.kreative.unipixelpusher.PixelString;
 
 public class SnowSparkle extends AbstractPixelSequence.ColorPattern {
+	public static final String name = "Snow Sparkle";
+	
 	protected Random random = new Random();
 	
 	@Override
@@ -33,6 +35,6 @@ public class SnowSparkle extends AbstractPixelSequence.ColorPattern {
 	
 	@Override
 	public String toString() {
-		return "Snow Sparkle";
+		return name;
 	}
 }

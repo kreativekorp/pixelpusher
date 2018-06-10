@@ -5,6 +5,8 @@ import com.kreative.unipixelpusher.PixelString;
 
 public abstract class Walk extends AbstractPixelSequence.ColorPattern {
 	public static class Left extends Walk {
+		public static final String name = "Walk Left";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
@@ -25,11 +27,13 @@ public abstract class Walk extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Walk Left";
+			return name;
 		}
 	}
 	
 	public static class Right extends Walk {
+		public static final String name = "Walk Right";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
@@ -49,11 +53,13 @@ public abstract class Walk extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Walk Right";
+			return name;
 		}
 	}
 	
 	public static class LeftRight extends Walk {
+		public static final String name = "Walk Left/Right";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
@@ -74,7 +80,7 @@ public abstract class Walk extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Walk Left/Right";
+			return name;
 		}
 	}
 	

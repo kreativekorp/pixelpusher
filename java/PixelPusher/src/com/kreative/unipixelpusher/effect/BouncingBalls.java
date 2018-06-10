@@ -16,6 +16,8 @@ public abstract class BouncingBalls implements PixelSequence.ColorPattern {
 	protected long  [] timeSinceBounce = null;
 	
 	public static class A extends BouncingBalls {
+		public static final String name = "Bouncing Balls";
+		
 		protected int count = 0;
 		
 		public int getCount() {
@@ -33,11 +35,13 @@ public abstract class BouncingBalls implements PixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Bouncing Balls";
+			return name;
 		}
 	}
 	
 	public static class B extends BouncingBalls {
+		public static final String name = "Multicolor Bouncing Balls";
+		
 		@Override
 		public void update(PixelString ps, long tick) {
 			render(ps, tick, (colorPattern != null) ? colorPattern.length : 3, true);
@@ -45,7 +49,7 @@ public abstract class BouncingBalls implements PixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Multicolor Bouncing Balls";
+			return name;
 		}
 	}
 	

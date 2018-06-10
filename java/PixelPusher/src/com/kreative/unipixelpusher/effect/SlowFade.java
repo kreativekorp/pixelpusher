@@ -5,7 +5,9 @@ import com.kreative.unipixelpusher.ColorUtilities;
 import com.kreative.unipixelpusher.PixelString;
 
 public abstract class SlowFade extends AbstractPixelSequence.ColorPattern {
-	public static class InOut extends FastFade {
+	public static class InOut extends SlowFade {
+		public static final String name = "Slow Fade In/Out";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int m = (int)((frame >> 8) & 0x03);
@@ -28,11 +30,13 @@ public abstract class SlowFade extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Slow Fade In/Out";
+			return name;
 		}
 	}
 	
-	public static class Cycle extends FastFade {
+	public static class Cycle extends SlowFade {
+		public static final String name = "Slow Fade Cycle";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int ci = (int)(frame >> 9);
@@ -51,11 +55,13 @@ public abstract class SlowFade extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Slow Fade Cycle";
+			return name;
 		}
 	}
 	
-	public static class CycleInOut extends FastFade {
+	public static class CycleInOut extends SlowFade {
+		public static final String name = "Slow Fade Cycle In/Out";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int ci = (int)(frame >> 10);
@@ -80,7 +86,7 @@ public abstract class SlowFade extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Slow Fade Cycle In/Out";
+			return name;
 		}
 	}
 	

@@ -5,6 +5,8 @@ import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
 public class Fire extends AbstractPixelSequence {
+	public static final String name = "Fire";
+	
 	protected static final int COOLING = 55;
 	protected static final int SPARKING = 120;
 	protected static final int SPEED = 15;
@@ -71,6 +73,6 @@ public class Fire extends AbstractPixelSequence {
 	
 	@Override
 	public String toString() {
-		return "Fire";
+		return name;
 	}
 }

@@ -4,6 +4,8 @@ import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
 public class Steady implements PixelSequence.ColorPattern {
+	public static final String name = "Steady";
+	
 	protected int[] colorPattern = new int[]{-1};
 	
 	@Override
@@ -37,6 +39,6 @@ public class Steady implements PixelSequence.ColorPattern {
 	
 	@Override
 	public String toString() {
-		return "Steady";
+		return name;
 	}
 }

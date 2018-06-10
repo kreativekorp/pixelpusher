@@ -16,6 +16,8 @@ public abstract class LarsonScanner extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	public static class A extends LarsonScanner {
+		public static final String name = "Larson Scanner A";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
@@ -36,11 +38,13 @@ public abstract class LarsonScanner extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Larson Scanner A";
+			return name;
 		}
 	}
 	
 	public static class B extends LarsonScanner {
+		public static final String name = "Larson Scanner B";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
@@ -65,7 +69,7 @@ public abstract class LarsonScanner extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Larson Scanner B";
+			return name;
 		}
 	}
 	

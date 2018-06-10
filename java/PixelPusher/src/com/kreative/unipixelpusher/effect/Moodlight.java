@@ -6,6 +6,8 @@ import com.kreative.unipixelpusher.ColorUtilities;
 import com.kreative.unipixelpusher.PixelString;
 
 public class Moodlight extends AbstractPixelSequence.ColorPattern {
+	public static final String name = "Moodlight";
+	
 	protected Random random = new Random();
 	protected int[] fromColor = null;
 	protected int[] toColor = null;
@@ -45,6 +47,6 @@ public class Moodlight extends AbstractPixelSequence.ColorPattern {
 	
 	@Override
 	public String toString() {
-		return "Moodlight";
+		return name;
 	}
 }

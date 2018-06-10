@@ -6,6 +6,8 @@ import com.kreative.unipixelpusher.PixelString;
 
 public abstract class TailChase extends AbstractPixelSequence.ColorPattern {
 	public static class Left extends TailChase {
+		public static final String name = "Tail Chase Left";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
@@ -20,11 +22,13 @@ public abstract class TailChase extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Tail Chase Left";
+			return name;
 		}
 	}
 	
 	public static class Right extends TailChase {
+		public static final String name = "Tail Chase Right";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
@@ -39,7 +43,7 @@ public abstract class TailChase extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Tail Chase Right";
+			return name;
 		}
 	}
 	

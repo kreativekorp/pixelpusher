@@ -5,6 +5,8 @@ import com.kreative.unipixelpusher.PixelString;
 
 public class ColorWipe extends AbstractPixelSequence.ColorPattern {
 	public static class OnOff extends ColorWipe {
+		public static final String name = "Color Wipe On/Off";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
@@ -24,9 +26,11 @@ public class ColorWipe extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Color Wipe On/Off";
+			return name;
 		}
 	}
+	
+	public static final String name = "Color Wipe";
 	
 	@Override
 	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
@@ -52,6 +56,6 @@ public class ColorWipe extends AbstractPixelSequence.ColorPattern {
 	
 	@Override
 	public String toString() {
-		return "Color Wipe";
+		return name;
 	}
 }

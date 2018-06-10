@@ -5,6 +5,8 @@ import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
 public class MeteorRain extends AbstractPixelSequence.ColorPattern {
+	public static final String name = "Meteor Rain";
+	
 	protected Random random = new Random();
 	protected int meteorSize = 0;
 	
@@ -50,6 +52,6 @@ public class MeteorRain extends AbstractPixelSequence.ColorPattern {
 	
 	@Override
 	public String toString() {
-		return "Meteor Rain";
+		return name;
 	}
 }

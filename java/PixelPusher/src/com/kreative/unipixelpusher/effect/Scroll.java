@@ -5,6 +5,8 @@ import com.kreative.unipixelpusher.PixelString;
 
 public abstract class Scroll extends AbstractPixelSequence.ColorPattern {
 	public static class Left extends Scroll {
+		public static final String name = "Scroll Left";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int f = (int)frame;
@@ -16,11 +18,13 @@ public abstract class Scroll extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Scroll Left";
+			return name;
 		}
 	}
 	
 	public static class Right extends Scroll {
+		public static final String name = "Scroll Right";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int f = (int)(length() - frame - 1);
@@ -32,7 +36,7 @@ public abstract class Scroll extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Scroll Right";
+			return name;
 		}
 	}
 	

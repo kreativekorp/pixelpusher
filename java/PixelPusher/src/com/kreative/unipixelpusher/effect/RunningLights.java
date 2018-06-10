@@ -7,6 +7,8 @@ import com.kreative.unipixelpusher.PixelString;
 public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 	public static abstract class A extends RunningLights {
 		public static class Left extends A {
+			public static final String name = "Running Lights A Left";
+			
 			@Override
 			public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 				int ph = (int)(frame % 6);
@@ -19,11 +21,13 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 			
 			@Override
 			public String toString() {
-				return "Running Lights A Left";
+				return name;
 			}
 		}
 		
 		public static class Right extends A {
+			public static final String name = "Running Lights A Right";
+			
 			@Override
 			public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 				int ph = 5 - (int)(frame % 6);
@@ -36,7 +40,7 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 			
 			@Override
 			public String toString() {
-				return "Running Lights A Right";
+				return name;
 			}
 		}
 		
@@ -48,6 +52,8 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 	
 	public static abstract class B extends RunningLights {
 		public static class Left extends B {
+			public static final String name = "Running Lights B Left";
+			
 			@Override
 			public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 				int ph = (int)(frame % 6);
@@ -61,11 +67,13 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 			
 			@Override
 			public String toString() {
-				return "Running Lights B Left";
+				return name;
 			}
 		}
 		
 		public static class Right extends B {
+			public static final String name = "Running Lights B Right";
+			
 			@Override
 			public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 				int ph = 5 - (int)(frame % 6);
@@ -79,7 +87,7 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 			
 			@Override
 			public String toString() {
-				return "Running Lights B Right";
+				return name;
 			}
 		}
 		

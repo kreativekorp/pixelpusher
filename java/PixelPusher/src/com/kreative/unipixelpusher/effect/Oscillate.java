@@ -4,6 +4,8 @@ import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
 public class Oscillate extends AbstractPixelSequence.ColorPattern {
+	public static final String name = "Oscillate";
+	
 	@Override
 	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 		int n = ps.length();
@@ -26,6 +28,6 @@ public class Oscillate extends AbstractPixelSequence.ColorPattern {
 	
 	@Override
 	public String toString() {
-		return "Oscillate";
+		return name;
 	}
 }

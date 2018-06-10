@@ -5,6 +5,8 @@ import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
 public class Twinkle extends AbstractPixelSequence.ColorPattern {
+	public static final String name = "Twinkle";
+	
 	protected Random random = new Random();
 	protected int count = 0;
 	
@@ -42,6 +44,6 @@ public class Twinkle extends AbstractPixelSequence.ColorPattern {
 	
 	@Override
 	public String toString() {
-		return "Twinkle";
+		return name;
 	}
 }

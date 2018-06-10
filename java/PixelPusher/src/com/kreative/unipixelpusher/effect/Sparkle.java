@@ -5,6 +5,8 @@ import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
 public class Sparkle implements PixelSequence.ColorPattern {
+	public static final String name = "Sparkle";
+	
 	protected Random random = new Random();
 	protected int[] colorPattern = new int[]{-1};
 	
@@ -42,6 +44,6 @@ public class Sparkle implements PixelSequence.ColorPattern {
 	
 	@Override
 	public String toString() {
-		return "Sparkle";
+		return name;
 	}
 }

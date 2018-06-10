@@ -6,6 +6,8 @@ import com.kreative.unipixelpusher.PixelString;
 
 public abstract class FastFade extends AbstractPixelSequence.ColorPattern {
 	public static class InOut extends FastFade {
+		public static final String name = "Fast Fade In/Out";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int m = (int)(((frame & 0x100) != 0) ? (~frame) : frame) & 0xFF;
@@ -22,11 +24,13 @@ public abstract class FastFade extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Fast Fade In/Out";
+			return name;
 		}
 	}
 	
 	public static class Cycle extends FastFade {
+		public static final String name = "Fast Fade Cycle";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int ci = (int)(frame >> 8);
@@ -45,11 +49,13 @@ public abstract class FastFade extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Fast Fade Cycle";
+			return name;
 		}
 	}
 	
 	public static class CycleInOut extends FastFade {
+		public static final String name = "Fast Fade Cycle In/Out";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int ci = (int)(frame >> 9);
@@ -68,7 +74,7 @@ public abstract class FastFade extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Fast Fade Cycle In/Out";
+			return name;
 		}
 	}
 	

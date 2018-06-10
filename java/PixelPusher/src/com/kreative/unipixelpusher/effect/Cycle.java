@@ -5,6 +5,8 @@ import com.kreative.unipixelpusher.PixelString;
 
 public class Cycle extends AbstractPixelSequence.ColorPattern {
 	public static class OnOff extends Cycle {
+		public static final String name = "Cycle On/Off";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int color = ((frame & 1) != 0) ? color((int)(frame >> 1)) : 0;
@@ -21,9 +23,11 @@ public class Cycle extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Cycle On/Off";
+			return name;
 		}
 	}
+	
+	public static final String name = "Cycle";
 	
 	@Override
 	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
@@ -46,6 +50,6 @@ public class Cycle extends AbstractPixelSequence.ColorPattern {
 	
 	@Override
 	public String toString() {
-		return "Cycle";
+		return name;
 	}
 }

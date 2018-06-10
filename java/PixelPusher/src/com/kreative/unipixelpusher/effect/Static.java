@@ -5,6 +5,8 @@ import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
 public class Static implements PixelSequence.ColorPattern {
+	public static final String name = "Static";
+	
 	protected Random random = new Random();
 	protected int[] colorPattern = new int[]{-1};
 	
@@ -40,6 +42,6 @@ public class Static implements PixelSequence.ColorPattern {
 	
 	@Override
 	public String toString() {
-		return "Static";
+		return name;
 	}
 }

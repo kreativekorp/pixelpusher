@@ -5,6 +5,8 @@ import com.kreative.unipixelpusher.PixelString;
 
 public abstract class Hop extends AbstractPixelSequence.ColorPattern {
 	public static class Left extends Hop {
+		public static final String name = "Hop Left";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
@@ -17,11 +19,13 @@ public abstract class Hop extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Hop Left";
+			return name;
 		}
 	}
 	
 	public static class Right extends Hop {
+		public static final String name = "Hop Right";
+		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 			int n = ps.length();
@@ -34,7 +38,7 @@ public abstract class Hop extends AbstractPixelSequence.ColorPattern {
 		
 		@Override
 		public String toString() {
-			return "Hop Right";
+			return name;
 		}
 	}
 	

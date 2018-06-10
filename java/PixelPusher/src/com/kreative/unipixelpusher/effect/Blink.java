@@ -4,6 +4,8 @@ import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
 public class Blink extends AbstractPixelSequence.ColorPattern {
+	public static final String name = "Blink";
+	
 	@Override
 	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
 		if ((frame & 1) != 0) {
@@ -30,6 +32,6 @@ public class Blink extends AbstractPixelSequence.ColorPattern {
 	
 	@Override
 	public String toString() {
-		return "Blink";
+		return name;
 	}
 }

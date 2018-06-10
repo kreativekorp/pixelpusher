@@ -5,6 +5,8 @@ import com.kreative.unipixelpusher.ColorUtilities;
 import com.kreative.unipixelpusher.PixelString;
 
 public class MMXLSequence extends AbstractPixelSequence.ColorPattern {
+	public static final String name = "MoreMore Christmas Lights (MMXL)";
+	
 	protected long frameDuration;
 	protected int[][] levels;
 	
@@ -71,6 +73,6 @@ public class MMXLSequence extends AbstractPixelSequence.ColorPattern {
 	
 	@Override
 	public String toString() {
-		return "MoreMore Christmas Lights (MMXL)";
+		return name;
 	}
 }
