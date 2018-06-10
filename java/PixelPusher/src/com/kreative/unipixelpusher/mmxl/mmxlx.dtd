@@ -1,0 +1,35 @@
+<!--
+	Date: 2017/07/11 10:00:00 PDT
+	Author: Rebecca Bettencourt <support@kreativekorp.com>
+-->
+
+<!-- - - - - - - - - - - - - MOREMORE CHRISTMAS LIGHTS (MMXL) - - - - - - - - - - - - -->
+
+<!ELEMENT mmxl (color-pattern|blink-pattern)*>
+
+<!ELEMENT color-pattern (color*)>
+<!ATTLIST color-pattern
+	name CDATA #REQUIRED
+	order (repeating|random) "repeating"
+>
+
+<!ELEMENT color EMPTY>
+<!ATTLIST color
+	r CDATA "0"
+	g CDATA "0"
+	b CDATA "0"
+	a CDATA "255"
+	p CDATA "1"
+>
+
+<!ELEMENT blink-pattern (frame*)>
+<!ATTLIST blink-pattern
+	name CDATA #REQUIRED
+	framedur CDATA "1000"
+	strands CDATA "1"
+>
+
+<!ELEMENT frame EMPTY>
+<!ATTLIST frame
+	levels CDATA "255"
+>

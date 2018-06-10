@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mmxl PUBLIC "-//Kreative//DTD MoreMoreXmasLights 1.0//EN" "http://www.kreativekorp.com/dtd/mmxlx.dtd">
+<mmxl>
+
+	<color-pattern name="Crystal">
+		<color r="255" g="255" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Warm White">
+		<color r="255" g="221" b="153" />
+	</color-pattern>
+
+	<color-pattern name="Icicle">
+		<color r="0"   g="128" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Multicolor Mini">
+		<color r="255" g="0"   b="0"   />
+		<color r="0"   g="0"   b="255" />
+		<color r="0"   g="255" b="0"   />
+		<color r="255" g="0"   b="255" />
+		<color r="255" g="192" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Multicolor Solid">
+		<color r="255" g="0"   b="0"   />
+		<color r="0"   g="0"   b="255" />
+		<color r="255" g="255" b="255" />
+		<color r="255" g="128" b="0"   />
+		<color r="0"   g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Multicolor Translucent">
+		<color r="255" g="0"   b="0"   />
+		<color r="0"   g="0"   b="255" />
+		<color r="0"   g="255" b="0"   />
+		<color r="255" g="255" b="0"   />
+		<color r="255" g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Rainbow">
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="128" b="0"   />
+		<color r="255" g="255" b="0"   />
+		<color r="0"   g="255" b="0"   />
+		<color r="0"   g="255" b="255" />
+		<color r="0"   g="0"   b="255" />
+		<color r="128" g="0"   b="255" />
+		<color r="255" g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Pastel">
+		<color r="255" g="128" b="128" />
+		<color r="255" g="192" b="128" />
+		<color r="255" g="255" b="128" />
+		<color r="128" g="255" b="128" />
+		<color r="128" g="255" b="255" />
+		<color r="128" g="128" b="255" />
+		<color r="192" g="128" b="255" />
+		<color r="255" g="128" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Candy Cane">
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="255" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Noel">
+		<color r="255" g="0"   b="0"   />
+		<color r="0"   g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Cabana">
+		<color r="0"   g="0"   b="255" />
+		<color r="255" g="255" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Surf &amp; Turf">
+		<color r="0"   g="0"   b="255" />
+		<color r="0"   g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Autumn">
+		<color r="153" g="102" b="51"  />
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="128" b="0"   />
+		<color r="255" g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Pumpkin">
+		<color r="255" g="128" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Summer">
+		<color r="255" g="255" b="0"   />
+		<color r="255" g="255" b="128" />
+	</color-pattern>
+
+	<color-pattern name="Independence">
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="255" b="255" />
+		<color r="0"   g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Spring">
+		<color r="255" g="255" b="255" />
+		<color r="255" g="255" b="0"   />
+		<color r="128" g="255" b="0"   />
+		<color r="0"   g="255" b="0"   />
+		<color r="128" g="255" b="128" />
+		<color r="255" g="255" b="128" />
+	</color-pattern>
+
+	<color-pattern name="True Love">
+		<color r="255" g="255" b="255" />
+		<color r="255" g="128" b="255" />
+		<color r="255" g="0"   b="255" />
+		<color r="255" g="0"   b="128" />
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="128" b="128" />
+	</color-pattern>
+
+	<color-pattern name="Winter">
+		<color r="255" g="255" b="255" />
+		<color r="0"   g="255" b="255" />
+		<color r="0"   g="128" b="255" />
+		<color r="0"   g="0"   b="255" />
+		<color r="128" g="128" b="255" />
+		<color r="128" g="255" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Tammy Day">
+		<color r="128" g="0"   b="255" />
+		<color r="192" g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Rainbow Deluxe">
+		<color r="255" g="0"   b="128" />
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="64"  b="0"   />
+		<color r="255" g="128" b="0"   />
+		<color r="255" g="192" b="0"   />
+		<color r="255" g="255" b="0"   />
+		<color r="128" g="255" b="0"   />
+		<color r="0"   g="255" b="0"   />
+		<color r="0"   g="255" b="128" />
+		<color r="0"   g="255" b="255" />
+		<color r="0"   g="128" b="255" />
+		<color r="0"   g="0"   b="255" />
+		<color r="64"  g="0"   b="255" />
+		<color r="128" g="0"   b="255" />
+		<color r="192" g="0"   b="255" />
+		<color r="255" g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Beckie's Colors">
+		<color r="192" g="128" b="255" />
+		<color r="255" g="128" b="255" />
+		<color r="128" g="255" b="255" />
+		<color r="255" g="255" b="128" />
+		<color r="255" g="255" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Primaries">
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="255" b="0"   />
+		<color r="0"   g="0"   b="255" />
+		<color r="0"   g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Powell Station">
+		<color r="255" g="128" b="0"   />
+		<color r="255" g="0"   b="255" />
+		<color r="255" g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Festive Bow Tree">
+		<color r="255" g="0"   b="255" />
+		<color r="255" g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Red Alert">
+		<color r="255" g="0"   b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Under Construction">
+		<color r="255" g="192" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Clover">
+		<color r="0"   g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Blue Light Special">
+		<color r="0"   g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Law &amp; Order">
+		<color r="255" g="0"   b="0"   />
+		<color r="0"   g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Barber Pole">
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="255" b="255" />
+		<color r="0"   g="0"   b="255" />
+		<color r="255" g="255" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Genova">
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="255" b="255" />
+		<color r="0"   g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Mosswood 1">
+		<color r="0"   g="255" b="0"   /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="255" b="255" /><!-- trans -->
+		<color r="255" g="128" b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- trans -->
+		<color r="255" g="255" b="0"   /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="255" g="255" b="255" /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="0"   g="255" b="0"   /><!-- trans -->
+		<color r="0"   g="255" b="0"   /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- solid -->
+		<color r="0"   g="255" b="0"   /><!-- solid -->
+		<color r="255" g="255" b="0"   /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="0"   g="0"   b="255" /><!-- solid -->
+	</color-pattern>
+
+	<color-pattern name="Mosswood 2">
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="0"   g="0"   b="255" /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="0"   g="255" b="128" /><!-- solid --><!-- aquamarine bulb is best bulb <3 -->
+		<color r="255" g="128" b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- trans -->
+		<color r="0"   g="255" b="0"   /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- solid -->
+		<color r="0"   g="255" b="0"   /><!-- solid -->
+		<color r="255" g="255" b="255" /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="255" g="255" b="255" /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="255" g="255" b="0"   /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="0"   g="255" b="0"   /><!-- trans -->
+		<color r="255" g="128" b="0"   /><!-- solid -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="255" g="255" b="255" /><!-- trans -->
+	</color-pattern>
+
+	<color-pattern name="Magic">
+		<color r="192" g="0"   b="255" />
+		<color r="64"  g="0"   b="255" />
+		<color r="255" g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Laughter">
+		<color r="255" g="128" b="255" />
+		<color r="255" g="0"   b="255" />
+		<color r="0"   g="255" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Loyalty">
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="128" b="0"   />
+		<color r="255" g="255" b="0"   />
+		<color r="0"   g="255" b="0"   />
+		<color r="0"   g="0"   b="255" />
+		<color r="128" g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Honesty">
+		<color r="255" g="128" b="0"   />
+		<color r="255" g="255" b="128" />
+		<color r="0"   g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Generosity">
+		<color r="255" g="255" b="255" />
+		<color r="128" g="0"   b="255" />
+		<color r="0"   g="128" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Kindness">
+		<color r="255" g="255" b="128" />
+		<color r="255" g="128" b="255" />
+		<color r="0"   g="255" b="128" />
+	</color-pattern>
+
+	<color-pattern name="Harmony">
+		<color r="255" g="128" b="255" />
+		<color r="255" g="192" b="128" />
+		<color r="255" g="255" b="128" />
+		<color r="255" g="255" b="255" />
+		<color r="128" g="255" b="255" />
+		<color r="192" g="128" b="255" />
+	</color-pattern>
+
+	<color-pattern name="U.N. Owen?">
+		<color r="0"   g="255" b="255" />
+		<color r="0"   g="128" b="255" />
+		<color r="192" g="0"   b="255" />
+		<color r="255" g="0"   b="128" />
+		<color r="255" g="128" b="0"   />
+		<color r="255" g="255" b="0"   />
+		<color r="0"   g="255" b="0"   />
+	</color-pattern>
+
+	<blink-pattern name="Steady" framedur="1000" strands="1">
+		<frame levels="255"/>
+	</blink-pattern>
+
+	<blink-pattern name="Blink" framedur="1000" strands="1">
+		<frame levels="255"/>
+		<frame levels="0  "/>
+	</blink-pattern>
+
+	<blink-pattern name="Fast Fade" framedur="50" strands="1">
+		<frame levels="255"/>
+		<frame levels="238"/>
+		<frame levels="221"/>
+		<frame levels="204"/>
+		<frame levels="187"/>
+		<frame levels="170"/>
+		<frame levels="153"/>
+		<frame levels="136"/>
+		<frame levels="119"/>
+		<frame levels="102"/>
+		<frame levels="85 "/>
+		<frame levels="68 "/>
+		<frame levels="51 "/>
+		<frame levels="34 "/>
+		<frame levels="17 "/>
+		<frame levels="0  "/>
+		<frame levels="17 "/>
+		<frame levels="34 "/>
+		<frame levels="51 "/>
+		<frame levels="68 "/>
+		<frame levels="85 "/>
+		<frame levels="102"/>
+		<frame levels="119"/>
+		<frame levels="136"/>
+		<frame levels="153"/>
+		<frame levels="170"/>
+		<frame levels="187"/>
+		<frame levels="204"/>
+		<frame levels="221"/>
+		<frame levels="238"/>
+	</blink-pattern>
+
+	<blink-pattern name="Slow Fade" framedur="100" strands="1">
+		<frame levels="255"/>
+		<frame levels="255"/>
+		<frame levels="255"/>
+		<frame levels="255"/>
+		<frame levels="255"/>
+		<frame levels="255"/>
+		<frame levels="255"/>
+		<frame levels="255"/>
+		<frame levels="255"/>
+		<frame levels="255"/>
+		<frame levels="255"/>
+		<frame levels="255"/>
+		<frame levels="255"/>
+		<frame levels="255"/>
+		<frame levels="238"/>
+		<frame levels="221"/>
+		<frame levels="204"/>
+		<frame levels="187"/>
+		<frame levels="170"/>
+		<frame levels="153"/>
+		<frame levels="136"/>
+		<frame levels="119"/>
+		<frame levels="102"/>
+		<frame levels="85 "/>
+		<frame levels="68 "/>
+		<frame levels="51 "/>
+		<frame levels="34 "/>
+		<frame levels="17 "/>
+		<frame levels="0  "/>
+		<frame levels="0  "/>
+		<frame levels="0  "/>
+		<frame levels="0  "/>
+		<frame levels="0  "/>
+		<frame levels="0  "/>
+		<frame levels="0  "/>
+		<frame levels="0  "/>
+		<frame levels="0  "/>
+		<frame levels="0  "/>
+		<frame levels="0  "/>
+		<frame levels="0  "/>
+		<frame levels="0  "/>
+		<frame levels="0  "/>
+		<frame levels="17 "/>
+		<frame levels="34 "/>
+		<frame levels="51 "/>
+		<frame levels="68 "/>
+		<frame levels="85 "/>
+		<frame levels="102"/>
+		<frame levels="119"/>
+		<frame levels="136"/>
+		<frame levels="153"/>
+		<frame levels="170"/>
+		<frame levels="187"/>
+		<frame levels="204"/>
+		<frame levels="221"/>
+		<frame levels="238"/>
+	</blink-pattern>
+
+	<blink-pattern name="Chase 1 of 2" framedur="200" strands="2">
+		<frame levels="255 0  "/>
+		<frame levels="0   255"/>
+	</blink-pattern>
+
+	<blink-pattern name="Chase 1 of 3" framedur="160" strands="3">
+		<frame levels="255 0   0  "/>
+		<frame levels="0   255 0  "/>
+		<frame levels="0   0   255"/>
+	</blink-pattern>
+
+	<blink-pattern name="Chase 1 of 4" framedur="120" strands="4">
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+	</blink-pattern>
+
+	<blink-pattern name="Chase 2 of 3" framedur="160" strands="3">
+		<frame levels="255 255 0  "/>
+		<frame levels="0   255 255"/>
+		<frame levels="255 0   255"/>
+	</blink-pattern>
+
+	<blink-pattern name="Chase 2 of 4" framedur="120" strands="4">
+		<frame levels="255 255 0   0  "/>
+		<frame levels="0   255 255 0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   255"/>
+	</blink-pattern>
+
+	<blink-pattern name="Chase 3 of 4" framedur="120" strands="4">
+		<frame levels="255 255 255 0  "/>
+		<frame levels="0   255 255 255"/>
+		<frame levels="255 0   255 255"/>
+		<frame levels="255 255 0   255"/>
+	</blink-pattern>
+
+	<blink-pattern name="Slo Glo 3" framedur="100" strands="3">
+		<frame levels="17  0   255"/>
+		<frame levels="34  0   255"/>
+		<frame levels="51  0   255"/>
+		<frame levels="68  0   255"/>
+		<frame levels="85  0   255"/>
+		<frame levels="102 0   255"/>
+		<frame levels="119 0   255"/>
+		<frame levels="136 0   238"/>
+		<frame levels="153 0   221"/>
+		<frame levels="170 0   204"/>
+		<frame levels="187 0   187"/>
+		<frame levels="204 0   170"/>
+		<frame levels="221 0   153"/>
+		<frame levels="238 0   136"/>
+		<frame levels="255 0   119"/>
+		<frame levels="255 0   102"/>
+		<frame levels="255 0   85 "/>
+		<frame levels="255 0   68 "/>
+		<frame levels="255 0   51 "/>
+		<frame levels="255 0   34 "/>
+		<frame levels="255 0   17 "/>
+		<frame levels="255 17  0  "/>
+		<frame levels="255 34  0  "/>
+		<frame levels="255 51  0  "/>
+		<frame levels="255 68  0  "/>
+		<frame levels="255 85  0  "/>
+		<frame levels="255 102 0  "/>
+		<frame levels="255 119 0  "/>
+		<frame levels="238 136 0  "/>
+		<frame levels="221 153 0  "/>
+		<frame levels="204 170 0  "/>
+		<frame levels="187 187 0  "/>
+		<frame levels="170 204 0  "/>
+		<frame levels="153 221 0  "/>
+		<frame levels="136 238 0  "/>
+		<frame levels="119 255 0  "/>
+		<frame levels="102 255 0  "/>
+		<frame levels="85  255 0  "/>
+		<frame levels="68  255 0  "/>
+		<frame levels="51  255 0  "/>
+		<frame levels="34  255 0  "/>
+		<frame levels="17  255 0  "/>
+		<frame levels="0   255 17 "/>
+		<frame levels="0   255 34 "/>
+		<frame levels="0   255 51 "/>
+		<frame levels="0   255 68 "/>
+		<frame levels="0   255 85 "/>
+		<frame levels="0   255 102"/>
+		<frame levels="0   255 119"/>
+		<frame levels="0   238 136"/>
+		<frame levels="0   221 153"/>
+		<frame levels="0   204 170"/>
+		<frame levels="0   187 187"/>
+		<frame levels="0   170 204"/>
+		<frame levels="0   153 221"/>
+		<frame levels="0   136 238"/>
+		<frame levels="0   119 255"/>
+		<frame levels="0   102 255"/>
+		<frame levels="0   85  255"/>
+		<frame levels="0   68  255"/>
+		<frame levels="0   51  255"/>
+		<frame levels="0   34  255"/>
+		<frame levels="0   17  255"/>
+	</blink-pattern>
+
+	<blink-pattern name="Slo Glo 4" framedur="100" strands="4">
+		<frame levels="17  0   0   255"/>
+		<frame levels="34  0   0   255"/>
+		<frame levels="51  0   0   255"/>
+		<frame levels="68  0   0   255"/>
+		<frame levels="85  0   0   255"/>
+		<frame levels="102 0   0   255"/>
+		<frame levels="119 0   0   255"/>
+		<frame levels="136 0   0   238"/>
+		<frame levels="153 0   0   221"/>
+		<frame levels="170 0   0   204"/>
+		<frame levels="187 0   0   187"/>
+		<frame levels="204 0   0   170"/>
+		<frame levels="221 0   0   153"/>
+		<frame levels="238 0   0   136"/>
+		<frame levels="255 0   0   119"/>
+		<frame levels="255 0   0   102"/>
+		<frame levels="255 0   0   85 "/>
+		<frame levels="255 0   0   68 "/>
+		<frame levels="255 0   0   51 "/>
+		<frame levels="255 0   0   34 "/>
+		<frame levels="255 0   0   17 "/>
+		<frame levels="255 17  0   0  "/>
+		<frame levels="255 34  0   0  "/>
+		<frame levels="255 51  0   0  "/>
+		<frame levels="255 68  0   0  "/>
+		<frame levels="255 85  0   0  "/>
+		<frame levels="255 102 0   0  "/>
+		<frame levels="255 119 0   0  "/>
+		<frame levels="238 136 0   0  "/>
+		<frame levels="221 153 0   0  "/>
+		<frame levels="204 170 0   0  "/>
+		<frame levels="187 187 0   0  "/>
+		<frame levels="170 204 0   0  "/>
+		<frame levels="153 221 0   0  "/>
+		<frame levels="136 238 0   0  "/>
+		<frame levels="119 255 0   0  "/>
+		<frame levels="102 255 0   0  "/>
+		<frame levels="85  255 0   0  "/>
+		<frame levels="68  255 0   0  "/>
+		<frame levels="51  255 0   0  "/>
+		<frame levels="34  255 0   0  "/>
+		<frame levels="17  255 0   0  "/>
+		<frame levels="0   255 17  0  "/>
+		<frame levels="0   255 34  0  "/>
+		<frame levels="0   255 51  0  "/>
+		<frame levels="0   255 68  0  "/>
+		<frame levels="0   255 85  0  "/>
+		<frame levels="0   255 102 0  "/>
+		<frame levels="0   255 119 0  "/>
+		<frame levels="0   238 136 0  "/>
+		<frame levels="0   221 153 0  "/>
+		<frame levels="0   204 170 0  "/>
+		<frame levels="0   187 187 0  "/>
+		<frame levels="0   170 204 0  "/>
+		<frame levels="0   153 221 0  "/>
+		<frame levels="0   136 238 0  "/>
+		<frame levels="0   119 255 0  "/>
+		<frame levels="0   102 255 0  "/>
+		<frame levels="0   85  255 0  "/>
+		<frame levels="0   68  255 0  "/>
+		<frame levels="0   51  255 0  "/>
+		<frame levels="0   34  255 0  "/>
+		<frame levels="0   17  255 0  "/>
+		<frame levels="0   0   255 17 "/>
+		<frame levels="0   0   255 34 "/>
+		<frame levels="0   0   255 51 "/>
+		<frame levels="0   0   255 68 "/>
+		<frame levels="0   0   255 85 "/>
+		<frame levels="0   0   255 102"/>
+		<frame levels="0   0   255 119"/>
+		<frame levels="0   0   238 136"/>
+		<frame levels="0   0   221 153"/>
+		<frame levels="0   0   204 170"/>
+		<frame levels="0   0   187 187"/>
+		<frame levels="0   0   170 204"/>
+		<frame levels="0   0   153 221"/>
+		<frame levels="0   0   136 238"/>
+		<frame levels="0   0   119 255"/>
+		<frame levels="0   0   102 255"/>
+		<frame levels="0   0   85  255"/>
+		<frame levels="0   0   68  255"/>
+		<frame levels="0   0   51  255"/>
+		<frame levels="0   0   34  255"/>
+		<frame levels="0   0   17  255"/>
+	</blink-pattern>
+
+	<blink-pattern name="Waves 3" framedur="60" strands="3">
+		<frame levels="0   204 204"/>
+		<frame levels="51  255 153"/>
+		<frame levels="102 255 102"/>
+		<frame levels="153 255 51 "/>
+		<frame levels="204 204 0  "/>
+		<frame levels="255 153 51 "/>
+		<frame levels="255 102 102"/>
+		<frame levels="255 51  153"/>
+		<frame levels="204 0   204"/>
+		<frame levels="153 51  255"/>
+		<frame levels="102 102 255"/>
+		<frame levels="51  153 255"/>
+	</blink-pattern>
+
+	<blink-pattern name="Waves 4" framedur="60" strands="4">
+		<frame levels="0   153 255 153"/>
+		<frame levels="51  204 255 102"/>
+		<frame levels="102 255 204 51 "/>
+		<frame levels="153 255 153 0  "/>
+		<frame levels="204 255 102 51 "/>
+		<frame levels="255 204 51  102"/>
+		<frame levels="255 153 0   153"/>
+		<frame levels="255 102 51  204"/>
+		<frame levels="204 51  102 255"/>
+		<frame levels="153 0   153 255"/>
+		<frame levels="102 51  204 255"/>
+		<frame levels="51  102 255 204"/>
+	</blink-pattern>
+
+	<blink-pattern name="Twinkle Flash A" framedur="80" strands="4">
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   255 0   0  "/>
+	</blink-pattern>
+
+	<blink-pattern name="Twinkle Flash B" framedur="80" strands="4">
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   255 0   0  "/>
+	</blink-pattern>
+
+	<blink-pattern name="Twinkle Flash C" framedur="80" strands="4">
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   255 0   0  "/>
+	</blink-pattern>
+
+	<blink-pattern name="Chasing Flash" framedur="80" strands="4">
+		<!-- Chasing -->
+		<frame levels="255 255 0   0  "/>
+		<frame levels="0   255 255 0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   255"/>
+		<frame levels="255 255 0   0  "/>
+		<frame levels="0   255 255 0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   255"/>
+		<frame levels="255 255 0   0  "/>
+		<frame levels="0   255 255 0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   255"/>
+		<frame levels="255 255 0   0  "/>
+		<frame levels="0   255 255 0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="255 0   0   255"/>
+		<!-- Flash -->
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   255 0   0  "/>
+	</blink-pattern>
+
+	<blink-pattern name="Walk 3" framedur="160" strands="3">
+		<frame levels="255 0   0  "/>
+		<frame levels="255 255 0  "/>
+		<frame levels="0   255 0  "/>
+		<frame levels="0   255 255"/>
+		<frame levels="0   0   255"/>
+		<frame levels="255 0   255"/>
+	</blink-pattern>
+
+	<blink-pattern name="Walk 4" framedur="120" strands="4">
+		<frame levels="255 0   0   0  "/>
+		<frame levels="255 255 0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   255 255 0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   255 255"/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="255 0   0   255"/>
+	</blink-pattern>
+
+	<blink-pattern name="Oscillate 3" framedur="160" strands="3">
+		<frame levels="255 0   0  "/>
+		<frame levels="0   255 0  "/>
+		<frame levels="0   0   255"/>
+		<frame levels="0   255 0  "/>
+	</blink-pattern>
+
+	<blink-pattern name="Oscillate 4" framedur="120" strands="4">
+		<frame levels="255 0   0   0  "/>
+		<frame levels="0   255 0   0  "/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   0   0   255"/>
+		<frame levels="0   0   255 0  "/>
+		<frame levels="0   255 0   0  "/>
+	</blink-pattern>
+
+</mmxl>
