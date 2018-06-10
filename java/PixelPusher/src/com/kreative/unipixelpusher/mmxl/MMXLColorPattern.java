@@ -1,6 +1,7 @@
 package com.kreative.unipixelpusher.mmxl;
 
 import java.util.Arrays;
+import com.kreative.unipixelpusher.PixelSequence;
 
 public class MMXLColorPattern {
 	private final String name;
@@ -26,7 +27,7 @@ public class MMXLColorPattern {
 		return colors.length;
 	}
 	
-	public void apply(MMXLSequence sequence) {
+	public void apply(PixelSequence.ColorPattern sequence) {
 		sequence.setColorPattern(deepCopy(colors));
 	}
 	
