@@ -73,7 +73,7 @@ public abstract class AbstractPixelString implements PixelString {
 	protected abstract int getPixelImpl(int i);
 	protected abstract void setPixelImpl(int i, int color);
 	
-	public abstract class WithGammaCurve extends AbstractPixelString implements PixelString.WithGammaCurve {
+	public static abstract class WithGammaCurve extends AbstractPixelString implements PixelString.WithGammaCurve {
 		protected GammaCurve gamma = GammaCurve.LINEAR;
 		
 		@Override
