@@ -41,13 +41,13 @@ public class PixelSubstring extends AbstractPixelString {
 	}
 	
 	@Override
-	public int getPixel(int i) {
+	protected int getPixelImpl(int i) {
 		if (i < 0 || i >= length) return 0;
 		return parent.getPixel(offset + i);
 	}
 	
 	@Override
-	public void setPixel(int i, int color) {
+	protected void setPixelImpl(int i, int color) {
 		if (i < 0 || i >= length) return;
 		parent.setPixel(offset + i, color);
 	}

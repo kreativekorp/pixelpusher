@@ -58,13 +58,13 @@ public class PixelSubmatrix extends AbstractPixelMatrix {
 	}
 	
 	@Override
-	public int getPixel(int row, int col) {
+	protected int getPixelImpl(int row, int col) {
 		if (row < 0 || row >= rowCount || col < 0 || col >= columnCount) return 0;
 		return parent.getPixel(rowOffset + row, columnOffset + col);
 	}
 	
 	@Override
-	public void setPixel(int row, int col, int color) {
+	protected void setPixelImpl(int row, int col, int color) {
 		if (row < 0 || row >= rowCount || col < 0 || col >= columnCount) return;
 		parent.setPixel(rowOffset + row, columnOffset + col, color);
 	}

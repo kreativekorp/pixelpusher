@@ -4,6 +4,7 @@ public abstract class AbstractPixelString implements PixelString {
 	protected int rowCount = 0;
 	protected int columnCount = 0;
 	protected WindingOrder windingOrder = WindingOrder.LTR_TTB;
+	protected boolean reversed = false;
 	
 	@Override
 	public int getRowCount() {
@@ -35,6 +36,14 @@ public abstract class AbstractPixelString implements PixelString {
 		this.windingOrder = windingOrder;
 	}
 	
+	public boolean getReversed() {
+		return this.reversed;
+	}
+	
+	public void setReversed(boolean reversed) {
+		this.reversed = reversed;
+	}
+	
 	@Override
 	public int getPixel(int row, int col) {
 		if (row < 0 || col < 0) return 0;
@@ -49,5 +58,36 @@ public abstract class AbstractPixelString implements PixelString {
 		int rows = getRowCount(), cols = getColumnCount();
 		if (row >= rows || col >= cols) return;
 		setPixel(windingOrder.getIndex(rows, cols, row, col), color);
+	}
+	
+	@Override
+	public int getPixel(int i) {
+		return getPixelImpl(reversed ? (length() - i - 1) : i);
+	}
+	
+	@Override
+	public void setPixel(int i, int color) {
+		setPixelImpl(reversed ? (length() - i - 1) : i, color);
+	}
+	
+	protected abstract int getPixelImpl(int i);
+	protected abstract void setPixelImpl(int i, int color);
+	
+	public abstract class WithGammaCurve extends AbstractPixelString implements PixelString.WithGammaCurve {
+		protected GammaCurve gamma = GammaCurve.LINEAR;
+		
+		@Override
+		public GammaCurve getGammaCurve() {
+			return this.gamma;
+		}
+		
+		@Override
+		public void setGammaCurve(GammaCurve gamma) {
+			this.gamma = gamma;
+		}
+		
+		protected int correct(int color) {
+			return (gamma == null) ? color : gamma.correct(color);
+		}
 	}
 }

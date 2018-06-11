@@ -1,6 +1,7 @@
 package com.kreative.unipixelpusher;
 
 public interface PixelString {
+	public StringType type();
 	public int length();
 	public int getRowCount();
 	public int getColumnCount();
@@ -9,5 +10,9 @@ public interface PixelString {
 	public void setPixel(int i, int color);
 	public void setPixel(int row, int col, int color);
 	public void push();
-	public StringType type();
+	
+	public static interface WithGammaCurve extends PixelString {
+		public GammaCurve getGammaCurve();
+		public void setGammaCurve(GammaCurve gamma);
+	}
 }
