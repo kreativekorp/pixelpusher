@@ -6,4 +6,5 @@ public interface PixelDevice {
 	public DeviceType type();
 	public int getStringCount();
 	public PixelString getString(int i);
+	public Iterable<? extends PixelString> getStrings();
 }
