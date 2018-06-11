@@ -42,7 +42,7 @@ public class PixelPusherDeviceRegistry extends AbstractPixelDeviceRegistry {
 	}
 	
 	@Override
-	public void update() {
+	public synchronized void update() {
 		Set<String> toRemove = new HashSet<String>();
 		toRemove.addAll(deviceMap.keySet());
 		for (PixelPusher pusher : registry.getPushers()) {
@@ -62,17 +62,17 @@ public class PixelPusherDeviceRegistry extends AbstractPixelDeviceRegistry {
 	}
 	
 	@Override
-	public int getDeviceCount() {
+	public synchronized int getDeviceCount() {
 		return deviceList.size();
 	}
 	
 	@Override
-	public PixelDevice getDevice(int i) {
+	public synchronized PixelDevice getDevice(int i) {
 		return deviceList.get(i);
 	}
 	
 	@Override
-	public Iterable<? extends PixelDevice> getDevices() {
+	public synchronized Iterable<? extends PixelDevice> getDevices() {
 		return Collections.unmodifiableCollection(deviceList);
 	}
 }
