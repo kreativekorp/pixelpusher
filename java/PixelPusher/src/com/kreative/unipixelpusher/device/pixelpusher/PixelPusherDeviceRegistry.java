@@ -1,6 +1,7 @@
 package com.kreative.unipixelpusher.device.pixelpusher;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -72,7 +73,7 @@ public class PixelPusherDeviceRegistry extends AbstractPixelDeviceRegistry {
 	}
 	
 	@Override
-	public synchronized Iterable<? extends PixelDevice> getDevices() {
+	public synchronized Collection<? extends PixelDevice> getDevices() {
 		return Collections.unmodifiableCollection(deviceList);
 	}
 }

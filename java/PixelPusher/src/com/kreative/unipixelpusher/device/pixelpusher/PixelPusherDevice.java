@@ -25,13 +25,13 @@ public class PixelPusherDevice implements PixelDevice {
 	
 	@Override
 	public String id() {
-		return pusher.getMacAddress();
+		return "pixelpusher://" + pusher.getMacAddress();
 	}
 	
 	@Override
 	public String name() {
 		if (this.name != null) return this.name;
-		return "PixelPusher " + pusher.getMacAddress();
+		return "PixelPusher @ " + pusher.getMacAddress();
 	}
 	
 	public void setName(String name) {

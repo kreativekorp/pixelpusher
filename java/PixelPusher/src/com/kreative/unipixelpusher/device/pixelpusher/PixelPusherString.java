@@ -59,7 +59,7 @@ public class PixelPusherString extends AbstractPixelString.WithGammaCurve {
 	@Override
 	public void push() {
 		for (int i = 0; i < length; i++) {
-			int c = gamma.correct(buffer[i]);
+			int c = correct(buffer[i]);
 			int a = (c >> 24) & 0xFF;
 			pixels[i].red   = (byte)(((c >> 16) & 0xFF) * a / 255);
 			pixels[i].green = (byte)(((c >>  8) & 0xFF) * a / 255);
