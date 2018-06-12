@@ -10,8 +10,8 @@ public class ColorBarsSequence implements PixelSequence {
 	private static final int[] MAIN_COLORS = {
 		ColorConstants.YELLOW,
 		ColorConstants.CYAN,
-		ColorConstants.GREEN,
 		ColorConstants.ORANGE,
+		ColorConstants.GREEN,
 		ColorConstants.MAGENTA,
 		ColorConstants.RED,
 		ColorConstants.VIOLET,
