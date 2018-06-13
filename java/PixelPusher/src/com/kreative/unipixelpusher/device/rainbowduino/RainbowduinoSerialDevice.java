@@ -62,7 +62,7 @@ public class RainbowduinoSerialDevice implements PixelDevice {
 		try {
 			CommPort port = portId.open("UniPixelPusher", 1000);
 			OutputStream out = port.getOutputStream();
-			return new RainbowduinoMatrix(out, protocol);
+			return new RainbowduinoMatrix(id(), out, protocol);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

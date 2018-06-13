@@ -6,6 +6,7 @@ import com.kreative.unipixelpusher.AbstractPixelString;
 import com.kreative.unipixelpusher.StringType;
 
 public class PixelPusherString extends AbstractPixelString.WithGammaCurve {
+	private String id;
 	private StringType type;
 	private Strip strip;
 	private int length;
@@ -13,6 +14,7 @@ public class PixelPusherString extends AbstractPixelString.WithGammaCurve {
 	private Pixel[] pixels;
 	
 	public PixelPusherString(Strip strip) {
+		this.id = "pixelpusher://" + strip.getMacAddress() + "/" + strip.getStripNumber();
 		this.type = StringType.UNKNOWN;
 		this.strip = strip;
 		this.length = strip.getLength();
@@ -21,6 +23,11 @@ public class PixelPusherString extends AbstractPixelString.WithGammaCurve {
 		for (int i = 0; i < length; i++) {
 			this.pixels[i] = new Pixel();
 		}
+	}
+	
+	@Override
+	public String id() {
+		return this.id;
 	}
 	
 	@Override

@@ -5,12 +5,14 @@ import com.kreative.unipixelpusher.AbstractPixelMatrix;
 import com.kreative.unipixelpusher.StringType;
 
 public class RainbowduinoMatrix extends AbstractPixelMatrix.WithGammaCurve {
+	private String id;
 	private OutputStream out;
 	private int[][] uppBuffer;
 	private int[][] rbdBuffer;
 	private RainbowduinoProtocol protocol;
 	
-	public RainbowduinoMatrix(OutputStream out, RainbowduinoProtocol protocol) {
+	public RainbowduinoMatrix(String id, OutputStream out, RainbowduinoProtocol protocol) {
+		this.id = id;
 		this.out = out;
 		this.uppBuffer = new int[8][8];
 		this.rbdBuffer = new int[8][8];
@@ -23,6 +25,11 @@ public class RainbowduinoMatrix extends AbstractPixelMatrix.WithGammaCurve {
 	
 	public void setProtocol(RainbowduinoProtocol protocol) {
 		this.protocol = protocol;
+	}
+	
+	@Override
+	public String id() {
+		return this.id;
 	}
 	
 	@Override

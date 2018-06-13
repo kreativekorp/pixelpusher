@@ -2,7 +2,7 @@ package com.kreative.unipixelpusher.clock;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.IdentityHashMap;
+import java.util.HashMap;
 import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
@@ -15,7 +15,7 @@ public class DigitalClockSequence implements PixelSequence {
 	private boolean showSeconds = false;
 	private DigitalClockColorMode colorMode = new DigitalClockColorMode.Monochrome();
 	private DigitalClockDisplayMode displayMode = new DigitalClockDisplayMode.Segmented();
-	private IdentityHashMap<PixelString,int[]> lastValues = null;
+	private HashMap<String,int[]> lastValues = null;
 	
 	public boolean getIs24Hour() { return this.is24Hour; }
 	public void setIs24Hour(boolean is24Hour) {
@@ -58,11 +58,11 @@ public class DigitalClockSequence implements PixelSequence {
 		int rows = ps.getRowCount();
 		int cols = ps.getColumnCount();
 		
-		if (lastValues == null) lastValues = new IdentityHashMap<PixelString,int[]>();
-		int[] lastValue = lastValues.get(ps);
+		if (lastValues == null) lastValues = new HashMap<String,int[]>();
+		int[] lastValue = lastValues.get(ps.id());
 		if (lastValue == null || lastValue[6] != rows || lastValue[7] != cols) {
 			lastValue = new int[] { -1, -1, -1, -1, -1, -1, rows, cols };
-			lastValues.put(ps, lastValue);
+			lastValues.put(ps.id(), lastValue);
 			for (int i = 0, n = ps.length(); i < n; i++) ps.setPixel(i, 0);
 		}
 		

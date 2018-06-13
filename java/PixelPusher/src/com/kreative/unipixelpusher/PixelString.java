@@ -1,6 +1,7 @@
 package com.kreative.unipixelpusher;
 
 public interface PixelString {
+	public String id();
 	public StringType type();
 	public int length();
 	public int getRowCount();

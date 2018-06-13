@@ -62,7 +62,7 @@ public class RainbowduinoFileDevice implements PixelDevice {
 	public PixelString getString(int i) {
 		try {
 			OutputStream out = new FileOutputStream(file);
-			return new RainbowduinoMatrix(out, protocol);
+			return new RainbowduinoMatrix(id(), out, protocol);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
