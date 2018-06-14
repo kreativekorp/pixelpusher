@@ -122,7 +122,7 @@ public class AnimationSequence implements PixelSequence {
 	}
 	
 	@Override
-	public void update(PixelString ps, long tick) {
+	public synchronized void update(PixelString ps, long tick) {
 		if (animation == null) return;
 		if (animationHeight < 1) return;
 		if (animationWidth < 1) return;
