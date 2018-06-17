@@ -83,6 +83,7 @@ public class MMXLParser {
 				if (ctype.equalsIgnoreCase("mmxl")) {
 					if (child.hasAttributes() || child.hasChildNodes()) {
 						parseMMXL(child);
+						return;
 					}
 				} else {
 					throw new IOException("Unknown element: " + ctype);

@@ -55,4 +55,8 @@
 			]]>
 		</animation>
 	</message>
+	
+	<message name="Date &amp; Time">
+		<datetime/>
+	</message>
 </messages>

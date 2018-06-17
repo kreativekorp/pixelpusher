@@ -81,6 +81,7 @@ public class MarqueeParser {
 				if (ctype.equalsIgnoreCase("messages")) {
 					if (child.hasAttributes() || child.hasChildNodes()) {
 						parseMessages(parentDir, child);
+						return;
 					}
 				} else {
 					throw new IOException("Unknown element: " + ctype);

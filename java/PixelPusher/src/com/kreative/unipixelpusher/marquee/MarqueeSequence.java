@@ -33,21 +33,29 @@ public class MarqueeSequence extends AbstractPixelSequence {
 		return helloWorld;
 	}
 	
+	private String itemName;
 	private MarqueeItem item;
 	
 	public MarqueeSequence() {
+		this.itemName = "Hello, world!";
 		this.item = createHelloWorld();
 	}
 	
-	public MarqueeSequence(MarqueeItem item) {
+	public MarqueeSequence(String itemName, MarqueeItem item) {
+		this.itemName = itemName;
 		this.item = item;
+	}
+	
+	public synchronized String getMarqueeItemName() {
+		return this.itemName;
 	}
 	
 	public synchronized MarqueeItem getMarqueeItem() {
 		return this.item;
 	}
 	
-	public synchronized void setMarqueeItem(MarqueeItem item) {
+	public synchronized void setMarqueeItem(String itemName, MarqueeItem item) {
+		this.itemName = itemName;
 		this.item = item;
 	}
 	
