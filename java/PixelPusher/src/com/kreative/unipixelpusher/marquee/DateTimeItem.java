@@ -10,15 +10,19 @@ public class DateTimeItem extends TextItem {
 	protected long lastTick;
 	
 	public DateTimeItem() {
-		this(DateFormat.getInstance());
+		this.format = DateFormat.getInstance();
+		this.calendar = null;
+		this.lastTick = 0;
 	}
 	
 	public DateTimeItem(String format) {
-		this(new SimpleDateFormat(format));
+		this.format = new SimpleDateFormat(format);
+		this.calendar = null;
+		this.lastTick = 0;
 	}
 	
 	public DateTimeItem(DateFormat format) {
-		this.format = format;
+		this.format = (format != null) ? format : DateFormat.getInstance();
 		this.calendar = null;
 		this.lastTick = 0;
 	}
