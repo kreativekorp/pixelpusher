@@ -2,12 +2,13 @@ package com.kreative.unipixelpusher.device.rainbowduino;
 
 import java.io.ByteArrayOutputStream;
 
-public interface RainbowduinoProtocol {
+public abstract class RainbowduinoProtocol {
 	public static final CommandMode COMMAND_MODE = new CommandMode();
 	public static final DirectMode2 DIRECT_MODE_2 = new DirectMode2();
 	public static final DirectMode3 DIRECT_MODE_3 = new DirectMode3();
 	public static final RainbowDashboard2 RAINBOW_DASHBOARD_2 = new RainbowDashboard2();
 	public static final RainbowDashboard3 RAINBOW_DASHBOARD_3 = new RainbowDashboard3();
+	
 	public static final RainbowduinoProtocol[] PROTOCOLS = {
 		COMMAND_MODE,
 		DIRECT_MODE_2,
@@ -16,10 +17,25 @@ public interface RainbowduinoProtocol {
 		RAINBOW_DASHBOARD_3,
 	};
 	
-	public byte[] encodeFrame(int[][] pixels);
-	public long getFrameDelay();
+	public static final RainbowduinoProtocol fromString(String s, RainbowduinoProtocol def) {
+		if (s == null) return def;
+		s = s.trim().toLowerCase();
+		if (s.contains("command")) return COMMAND_MODE;
+		if (s.contains("direct")) {
+			if (s.contains("2")) return DIRECT_MODE_2;
+			if (s.contains("3")) return DIRECT_MODE_3;
+		}
+		if (s.contains("dash")) {
+			if (s.contains("2")) return RAINBOW_DASHBOARD_2;
+			if (s.contains("3")) return RAINBOW_DASHBOARD_3;
+		}
+		return def;
+	}
 	
-	public static class CommandMode implements RainbowduinoProtocol {
+	public abstract byte[] encodeFrame(int[][] pixels);
+	public abstract long getFrameDelay();
+	
+	public static class CommandMode extends RainbowduinoProtocol {
 		@Override
 		public byte[] encodeFrame(int[][] pixels) {
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -49,7 +65,7 @@ public interface RainbowduinoProtocol {
 		}
 	}
 	
-	public static class DirectMode2 implements RainbowduinoProtocol {
+	public static class DirectMode2 extends RainbowduinoProtocol {
 		@Override
 		public byte[] encodeFrame(int[][] pixels) {
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -98,7 +114,7 @@ public interface RainbowduinoProtocol {
 		}
 	}
 	
-	public static class DirectMode3 implements RainbowduinoProtocol {
+	public static class DirectMode3 extends RainbowduinoProtocol {
 		@Override
 		public byte[] encodeFrame(int[][] pixels) {
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -138,7 +154,7 @@ public interface RainbowduinoProtocol {
 		}
 	}
 	
-	public static class RainbowDashboard2 implements RainbowduinoProtocol {
+	public static class RainbowDashboard2 extends RainbowduinoProtocol {
 		@Override
 		public byte[] encodeFrame(int[][] pixels) {
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -188,7 +204,7 @@ public interface RainbowduinoProtocol {
 		}
 	}
 	
-	public static class RainbowDashboard3 implements RainbowduinoProtocol {
+	public static class RainbowDashboard3 extends RainbowduinoProtocol {
 		@Override
 		public byte[] encodeFrame(int[][] pixels) {
 			ByteArrayOutputStream out = new ByteArrayOutputStream();

@@ -1,35 +1,17 @@
 package com.kreative.unipixelpusher.device.rainbowduino;
 
 import java.io.OutputStream;
-import java.util.Arrays;
-import java.util.Collections;
 import gnu.io.CommPort;
 import gnu.io.CommPortIdentifier;
-import com.kreative.unipixelpusher.DeviceType;
-import com.kreative.unipixelpusher.PixelDevice;
 import com.kreative.unipixelpusher.PixelString;
 
-public class RainbowduinoSerialDevice implements PixelDevice {
-	private String name;
+public class RainbowduinoSerialDevice extends RainbowduinoDevice {
 	private CommPortIdentifier portId;
-	private RainbowduinoProtocol protocol;
 	
-	public RainbowduinoSerialDevice(CommPortIdentifier portId) {
-		this(portId, RainbowduinoProtocol.RAINBOW_DASHBOARD_2);
-	}
-	
-	public RainbowduinoSerialDevice(CommPortIdentifier portId, RainbowduinoProtocol protocol) {
-		this.name = null;
+	public RainbowduinoSerialDevice(RainbowduinoDeviceRegistry parent, CommPortIdentifier portId) {
+		super(parent);
 		this.portId = portId;
-		this.protocol = protocol;
-	}
-	
-	public RainbowduinoProtocol getProtocol() {
-		return this.protocol;
-	}
-	
-	public void setProtocol(RainbowduinoProtocol protocol) {
-		this.protocol = protocol;
+		duper();
 	}
 	
 	@Override
@@ -43,20 +25,6 @@ public class RainbowduinoSerialDevice implements PixelDevice {
 		return "Rainbowduino @ " + portId.getName();
 	}
 	
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	@Override
-	public DeviceType type() {
-		return DeviceType.MICROCONTROLLER_RAINBOWDUINO;
-	}
-	
-	@Override
-	public int getStringCount() {
-		return 1;
-	}
-	
 	@Override
 	public PixelString getString(int i) {
 		try {
@@ -66,10 +34,5 @@ public class RainbowduinoSerialDevice implements PixelDevice {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-	}
-	
-	@Override
-	public Iterable<? extends PixelString> getStrings() {
-		return Collections.unmodifiableCollection(Arrays.asList(getString(0)));
 	}
 }

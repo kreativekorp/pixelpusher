@@ -13,6 +13,7 @@ import java.util.Set;
 import com.heroicrobot.dropbit.devices.pixelpusher.PixelPusher;
 import com.heroicrobot.dropbit.registry.DeviceRegistry;
 import com.kreative.unipixelpusher.AbstractPixelDeviceRegistry;
+import com.kreative.unipixelpusher.DeviceConfiguration;
 import com.kreative.unipixelpusher.PixelDevice;
 
 public class PixelPusherDeviceRegistry extends AbstractPixelDeviceRegistry {
@@ -21,7 +22,8 @@ public class PixelPusherDeviceRegistry extends AbstractPixelDeviceRegistry {
 	private final DeviceRegistry registry;
 	private final Observer observer;
 	
-	public PixelPusherDeviceRegistry() {
+	public PixelPusherDeviceRegistry(DeviceConfiguration config) {
+		super(config);
 		this.deviceList = new ArrayList<PixelPusherDevice>();
 		this.deviceMap = new HashMap<String,PixelPusherDevice>();
 		this.registry = new DeviceRegistry();
@@ -49,7 +51,7 @@ public class PixelPusherDeviceRegistry extends AbstractPixelDeviceRegistry {
 		for (PixelPusher pusher : registry.getPushers()) {
 			String id = pusher.getMacAddress();
 			if (!toRemove.remove(id)) {
-				PixelPusherDevice device = new PixelPusherDevice(pusher);
+				PixelPusherDevice device = new PixelPusherDevice(this, pusher);
 				deviceList.add(device);
 				deviceMap.put(id, device);
 				pixelDeviceAppeared(device);

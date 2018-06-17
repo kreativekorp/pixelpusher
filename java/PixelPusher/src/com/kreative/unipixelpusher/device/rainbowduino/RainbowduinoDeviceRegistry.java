@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import com.kreative.unipixelpusher.AbstractPixelDeviceRegistry;
+import com.kreative.unipixelpusher.DeviceConfiguration;
 import com.kreative.unipixelpusher.PixelDevice;
 
 public class RainbowduinoDeviceRegistry extends AbstractPixelDeviceRegistry {
@@ -19,7 +20,8 @@ public class RainbowduinoDeviceRegistry extends AbstractPixelDeviceRegistry {
 	private final Map<String,PixelDevice> deviceMap;
 	private final File pipe;
 	
-	public RainbowduinoDeviceRegistry() {
+	public RainbowduinoDeviceRegistry(DeviceConfiguration config) {
+		super(config);
 		this.deviceList = new ArrayList<PixelDevice>();
 		this.deviceMap = new HashMap<String,PixelDevice>();
 		File pipe;
@@ -40,7 +42,7 @@ public class RainbowduinoDeviceRegistry extends AbstractPixelDeviceRegistry {
 		toRemove.addAll(deviceMap.keySet());
 		if (pipe.exists()) {
 			if (!toRemove.remove(pipe.getAbsolutePath())) {
-				RainbowduinoFileDevice device = new RainbowduinoFileDevice(pipe);
+				RainbowduinoFileDevice device = new RainbowduinoFileDevice(this, pipe);
 				deviceList.add(device);
 				deviceMap.put(pipe.getAbsolutePath(), device);
 				pixelDeviceAppeared(device);
@@ -50,7 +52,7 @@ public class RainbowduinoDeviceRegistry extends AbstractPixelDeviceRegistry {
 		while (en.hasMoreElements()) {
 			CommPortIdentifier portId = (CommPortIdentifier)en.nextElement();
 			if (!toRemove.remove(portId.getName())) {
-				RainbowduinoSerialDevice device = new RainbowduinoSerialDevice(portId);
+				RainbowduinoSerialDevice device = new RainbowduinoSerialDevice(this, portId);
 				deviceList.add(device);
 				deviceMap.put(portId.getName(), device);
 				pixelDeviceAppeared(device);

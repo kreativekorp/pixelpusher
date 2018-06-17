@@ -4,7 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractPixelDeviceRegistry implements PixelDeviceRegistry {
-	protected List<PixelDeviceListener> listeners = new ArrayList<PixelDeviceListener>();
+	protected final DeviceConfiguration config;
+	protected final List<PixelDeviceListener> listeners;
+	
+	protected AbstractPixelDeviceRegistry(DeviceConfiguration config) {
+		this.config = config;
+		this.listeners = new ArrayList<PixelDeviceListener>();
+	}
 	
 	@Override
 	public void addPixelDeviceListener(PixelDeviceListener listener) {
