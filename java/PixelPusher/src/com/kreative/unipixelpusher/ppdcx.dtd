@@ -1,0 +1,14 @@
+<!--
+	Date: 2018/06/17 01:04:00 PDT
+	Author: Rebecca Bettencourt <support@kreativekorp.com>
+-->
+
+<!-- - - - - - - - - - - - - PIXELPUSHER DEVICE CONFIGURATION - - - - - - - - - - - - -->
+
+<!ELEMENT device-configuration (device*)>
+
+<!ELEMENT device (param*)>
+<!ATTLIST device id CDATA #REQUIRED>
+
+<!ELEMENT param (#PCDATA)>
+<!ATTLIST param key CDATA #REQUIRED>
