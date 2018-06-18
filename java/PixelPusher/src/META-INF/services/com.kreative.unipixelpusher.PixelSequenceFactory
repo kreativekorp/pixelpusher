@@ -1,0 +1,8 @@
+com.kreative.unipixelpusher.animation.AnimationFactory
+com.kreative.unipixelpusher.audiospectrum.AudioSpectrumFactory
+com.kreative.unipixelpusher.clock.ClockFactory
+com.kreative.unipixelpusher.colorbars.ColorBarsFactory
+com.kreative.unipixelpusher.effect.EffectFactory
+com.kreative.unipixelpusher.marquee.MarqueeFactory
+com.kreative.unipixelpusher.mmxl.MMXLFactory
+com.kreative.unipixelpusher.xlm.XLMFactory
