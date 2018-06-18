@@ -78,9 +78,4 @@ public class PixelSubmatrix extends AbstractPixelMatrix {
 	public String id() {
 		return parent.id() + "#" + rowOffset + "," + columnOffset + ";" + rowCount + "," + columnCount;
 	}
-	
-	@Override
-	public StringType type() {
-		return parent.type();
-	}
 }

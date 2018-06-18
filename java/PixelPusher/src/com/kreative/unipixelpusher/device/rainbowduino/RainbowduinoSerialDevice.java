@@ -3,7 +3,7 @@ package com.kreative.unipixelpusher.device.rainbowduino;
 import java.io.OutputStream;
 import gnu.io.CommPort;
 import gnu.io.CommPortIdentifier;
-import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.DeviceString;
 
 public class RainbowduinoSerialDevice extends RainbowduinoDevice {
 	private CommPortIdentifier portId;
@@ -11,7 +11,7 @@ public class RainbowduinoSerialDevice extends RainbowduinoDevice {
 	public RainbowduinoSerialDevice(RainbowduinoDeviceRegistry parent, CommPortIdentifier portId) {
 		super(parent);
 		this.portId = portId;
-		duper();
+		loadConfig(id());
 	}
 	
 	@Override
@@ -26,11 +26,11 @@ public class RainbowduinoSerialDevice extends RainbowduinoDevice {
 	}
 	
 	@Override
-	public PixelString getString(int i) {
+	public DeviceString getString(int i) {
 		try {
 			CommPort port = portId.open("UniPixelPusher", 1000);
 			OutputStream out = port.getOutputStream();
-			return new RainbowduinoMatrix(id(), out, protocol);
+			return new RainbowduinoMatrix(this, out);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

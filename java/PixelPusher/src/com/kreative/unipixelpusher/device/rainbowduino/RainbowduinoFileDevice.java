@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.DeviceString;
 
 public class RainbowduinoFileDevice extends RainbowduinoDevice {
 	private File file;
@@ -12,7 +12,7 @@ public class RainbowduinoFileDevice extends RainbowduinoDevice {
 	public RainbowduinoFileDevice(RainbowduinoDeviceRegistry parent, File file) {
 		super(parent);
 		this.file = file;
-		duper();
+		loadConfig(id());
 	}
 	
 	@Override
@@ -27,10 +27,10 @@ public class RainbowduinoFileDevice extends RainbowduinoDevice {
 	}
 	
 	@Override
-	public PixelString getString(int i) {
+	public DeviceString getString(int i) {
 		try {
 			OutputStream out = new FileOutputStream(file);
-			return new RainbowduinoMatrix(id(), out, protocol);
+			return new RainbowduinoMatrix(this, out);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

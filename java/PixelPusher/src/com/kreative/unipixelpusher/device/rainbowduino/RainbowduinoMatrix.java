@@ -1,35 +1,44 @@
 package com.kreative.unipixelpusher.device.rainbowduino;
 
+import java.io.IOException;
 import java.io.OutputStream;
-import com.kreative.unipixelpusher.AbstractPixelMatrix;
+import com.kreative.unipixelpusher.AbstractDeviceMatrix;
 import com.kreative.unipixelpusher.StringType;
 
-public class RainbowduinoMatrix extends AbstractPixelMatrix.WithGammaCurve {
-	private String id;
+public class RainbowduinoMatrix extends AbstractDeviceMatrix {
+	private RainbowduinoDevice rbd;
 	private OutputStream out;
 	private int[][] uppBuffer;
 	private int[][] rbdBuffer;
-	private RainbowduinoProtocol protocol;
 	
-	public RainbowduinoMatrix(String id, OutputStream out, RainbowduinoProtocol protocol) {
-		this.id = id;
+	public RainbowduinoMatrix(RainbowduinoDevice parent, OutputStream out) {
+		super(parent);
+		this.rbd = parent;
 		this.out = out;
 		this.uppBuffer = new int[8][8];
 		this.rbdBuffer = new int[8][8];
-		this.protocol = protocol;
+		loadConfig(parent.id());
 	}
 	
-	public RainbowduinoProtocol getProtocol() {
-		return this.protocol;
-	}
-	
-	public void setProtocol(RainbowduinoProtocol protocol) {
-		this.protocol = protocol;
+	@Override
+	public void finalize() {
+		try { out.close(); }
+		catch (IOException e) {}
 	}
 	
 	@Override
 	public String id() {
-		return this.id;
+		return rbd.id();
+	}
+	
+	@Override
+	public String name() {
+		return rbd.name();
+	}
+	
+	@Override
+	public void setName(String name) {
+		rbd.setName(name);
 	}
 	
 	@Override
@@ -65,6 +74,7 @@ public class RainbowduinoMatrix extends AbstractPixelMatrix.WithGammaCurve {
 			}
 		}
 		try {
+			RainbowduinoProtocol protocol = rbd.getProtocol();
 			out.write(protocol.encodeFrame(rbdBuffer));
 			Thread.sleep(protocol.getFrameDelay());
 		} catch (Exception e) {

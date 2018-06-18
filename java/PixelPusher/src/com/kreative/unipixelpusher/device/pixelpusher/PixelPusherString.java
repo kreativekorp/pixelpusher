@@ -2,22 +2,24 @@ package com.kreative.unipixelpusher.device.pixelpusher;
 
 import com.heroicrobot.dropbit.devices.pixelpusher.Pixel;
 import com.heroicrobot.dropbit.devices.pixelpusher.Strip;
-import com.kreative.unipixelpusher.AbstractPixelString;
+import com.kreative.unipixelpusher.AbstractDeviceString;
 import com.kreative.unipixelpusher.StringType;
 
-public class PixelPusherString extends AbstractPixelString.WithGammaCurve {
+public class PixelPusherString extends AbstractDeviceString {
+	private Strip strip;
 	private String id;
 	private StringType type;
-	private Strip strip;
 	private int length;
 	private int[] buffer;
 	private Pixel[] pixels;
 	
-	public PixelPusherString(Strip strip) {
-		this.id = "pixelpusher://" + strip.getMacAddress() + "/" + strip.getStripNumber();
-		this.type = StringType.UNKNOWN;
+	public PixelPusherString(PixelPusherDevice parent, Strip strip) {
+		super(parent);
 		this.strip = strip;
-		this.length = strip.getLength();
+		this.id = "pixelpusher://" + strip.getMacAddress() + "/" + strip.getStripNumber();
+		loadConfig(id);
+		this.type = config.get(id, "type", StringType.class, StringType.UNKNOWN);
+		this.length = config.get(id, "length", strip.getLength());
 		this.buffer = new int[length];
 		this.pixels = new Pixel[length];
 		for (int i = 0; i < length; i++) {
@@ -31,12 +33,20 @@ public class PixelPusherString extends AbstractPixelString.WithGammaCurve {
 	}
 	
 	@Override
+	public String name() {
+		if (this.name != null) return this.name;
+		return Integer.toString(strip.getStripNumber());
+	}
+	
+	@Override
 	public StringType type() {
 		return this.type;
 	}
 	
 	public void setType(StringType type) {
 		this.type = type;
+		config.put(id, "type", type);
+		pixelDeviceChanged();
 	}
 	
 	@Override
@@ -51,6 +61,8 @@ public class PixelPusherString extends AbstractPixelString.WithGammaCurve {
 		for (int i = 0; i < length; i++) {
 			this.pixels[i] = new Pixel();
 		}
+		config.put(id, "length", length);
+		pixelDeviceChanged();
 	}
 	
 	@Override

@@ -3,8 +3,8 @@ package com.kreative.unipixelpusher.device.rainbowduino;
 import java.util.Arrays;
 import java.util.Collections;
 import com.kreative.unipixelpusher.AbstractPixelDevice;
+import com.kreative.unipixelpusher.DeviceString;
 import com.kreative.unipixelpusher.DeviceType;
-import com.kreative.unipixelpusher.PixelString;
 
 public abstract class RainbowduinoDevice extends AbstractPixelDevice {
 	protected String name;
@@ -14,9 +14,12 @@ public abstract class RainbowduinoDevice extends AbstractPixelDevice {
 		super(parent);
 	}
 	
-	protected void duper() {
-		this.name = config.get(id(), "name");
-		this.protocol = RainbowduinoProtocol.fromString(config.get(id(), "protocol"), RainbowduinoProtocol.RAINBOW_DASHBOARD_2);
+	protected void loadConfig(String id) {
+		this.name = config.get(id, "name");
+		this.protocol = RainbowduinoProtocol.fromString(
+			config.get(id, "protocol"),
+			RainbowduinoProtocol.RAINBOW_DASHBOARD_2
+		);
 	}
 	
 	public RainbowduinoProtocol getProtocol() {
@@ -46,7 +49,7 @@ public abstract class RainbowduinoDevice extends AbstractPixelDevice {
 	}
 	
 	@Override
-	public Iterable<? extends PixelString> getStrings() {
+	public Iterable<? extends DeviceString> getStrings() {
 		return Collections.unmodifiableCollection(Arrays.asList(getString(0)));
 	}
 }

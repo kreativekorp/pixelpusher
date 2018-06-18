@@ -61,9 +61,4 @@ public class PixelSubstring extends AbstractPixelString {
 	public String id() {
 		return parent.id() + "#" + offset + ";" + length;
 	}
-	
-	@Override
-	public StringType type() {
-		return parent.type();
-	}
 }
