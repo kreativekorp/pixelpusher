@@ -1,4 +1,4 @@
-package com.kreative.unipixelpusher.marquee;
+package com.kreative.unipixelpusher;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -27,6 +27,8 @@ import org.xml.sax.SAXParseException;
 import com.kreative.imagetool.animation.Animation;
 import com.kreative.imagetool.animation.AnimationIO;
 import com.kreative.imagetool.gif.GIFFile;
+import com.kreative.unipixelpusher.ASCII85InputStream;
+import com.kreative.unipixelpusher.Base64InputStream;
 import com.kreative.unipixelpusher.ColorUtilities;
 
 public class MarqueeParser {
