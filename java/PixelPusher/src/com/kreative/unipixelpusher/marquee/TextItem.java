@@ -6,6 +6,7 @@ import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public abstract class TextItem extends MarqueeItem {
 	private static final Font loadFont(String filename, int size) {
@@ -122,5 +123,38 @@ public abstract class TextItem extends MarqueeItem {
 	protected final synchronized void paintContent(Graphics2D g, int x, int y, long tick) {
 		update(tick);
 		if (image != null) g.drawImage(image, null, x, y);
+	}
+	
+	@Override
+	public synchronized void loadConfiguration(SequenceConfiguration config, String prefix) {
+		super.loadConfiguration(config, prefix);
+		this.foregroundColor = config.get(prefix + ".fgcolor", -1);
+		
+		String family = config.get(prefix + ".font.family", "KK Px7");
+		int style = config.get(prefix + ".font.style", Font.PLAIN);
+		float size = config.get(prefix + ".font.size", 7);
+		String nf = family.replaceAll("\\s+", "").toLowerCase();
+		if (nf.equals("kkfixed4x5")) this.font = FIXED_4x5.deriveFont(style).deriveFont(size);
+		else if (nf.equals("kkfixed4x7")) this.font = FIXED_4x7.deriveFont(style).deriveFont(size);
+		else if (nf.equals("kkpx4")) this.font = PROPORTIONAL_4.deriveFont(style).deriveFont(size);
+		else if (nf.equals("kkpx7")) this.font = PROPORTIONAL_7.deriveFont(style).deriveFont(size);
+		else if (nf.equals("kkpx9")) this.font = PROPORTIONAL_9.deriveFont(style).deriveFont(size);
+		else this.font = new Font(family, style, (int)size);
+		
+		this.fontWeight = config.get(prefix + ".font.weight", 1);
+		this.fontSpacing = config.get(prefix + ".font.spacing", 0);
+		this.prevText = null;
+		this.image = null;
+	}
+	
+	@Override
+	public synchronized void saveConfiguration(SequenceConfiguration config, String prefix) {
+		super.saveConfiguration(config, prefix);
+		config.put(prefix + ".fgcolor", foregroundColor);
+		config.put(prefix + ".font.family", font.getFamily());
+		config.put(prefix + ".font.size", font.getSize());
+		config.put(prefix + ".font.style", font.getStyle());
+		config.put(prefix + ".font.weight", fontWeight);
+		config.put(prefix + ".font.spacing", fontSpacing);
 	}
 }

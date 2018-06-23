@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class MarqueeItemString extends MarqueeItem implements List<MarqueeItem> {
 	protected final List<MarqueeItem> items = new ArrayList<MarqueeItem>();
@@ -58,6 +59,42 @@ public class MarqueeItemString extends MarqueeItem implements List<MarqueeItem> 
 	@Override
 	public long getUpdateInterval() {
 		return 20;
+	}
+	
+	@Override
+	public synchronized void loadConfiguration(SequenceConfiguration config, String prefix) {
+		super.loadConfiguration(config, prefix);
+		this.items.clear();
+		this.image = null;
+		this.lastTick = 0;
+		int n = config.get(prefix + ".items", 0);
+		for (int i = 0; i < n; i++) {
+			try {
+				String is = Integer.toString(i);
+				while (is.length() < 6) is = "0" + is;
+				String key = prefix + ".items.i" + is;
+				MarqueeItem item = config.get(key, MarqueeItem.class).newInstance();
+				item.loadConfiguration(config, key);
+				this.items.add(item);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	@Override
+	public synchronized void saveConfiguration(SequenceConfiguration config, String prefix) {
+		super.saveConfiguration(config, prefix);
+		int n = items.size();
+		config.put(prefix + ".items", n);
+		for (int i = 0; i < n; i++) {
+			MarqueeItem item = items.get(i);
+			String is = Integer.toString(i);
+			while (is.length() < 6) is = "0" + is;
+			String key = prefix + ".items.i" + is;
+			config.put(key, item.getClass());
+			item.saveConfiguration(config, key);
+		}
 	}
 	
 	@Override

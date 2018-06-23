@@ -3,6 +3,7 @@ package com.kreative.unipixelpusher.effect;
 import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.ColorUtilities;
 import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public abstract class LarsonScanner extends AbstractPixelSequence.ColorPattern {
 	protected int eyeSize = 0;
@@ -76,6 +77,18 @@ public abstract class LarsonScanner extends AbstractPixelSequence.ColorPattern {
 	@Override
 	public long getFrameDuration() {
 		return 10;
+	}
+	
+	@Override
+	public void loadConfiguration(SequenceConfiguration config) {
+		super.loadConfiguration(config);
+		this.eyeSize = config.get("eyeSize", 0);
+	}
+	
+	@Override
+	public void saveConfiguration(SequenceConfiguration config) {
+		super.saveConfiguration(config);
+		config.put("eyeSize", eyeSize);
 	}
 	
 	protected void renderFrameA(PixelString ps, int f, int e, int n) {

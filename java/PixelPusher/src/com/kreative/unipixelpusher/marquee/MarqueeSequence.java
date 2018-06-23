@@ -10,6 +10,7 @@ import com.kreative.imagetool.animation.AnimationIO;
 import com.kreative.imagetool.gif.GIFFile;
 import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class MarqueeSequence extends AbstractPixelSequence {
 	public static final String name = "Marquee";
@@ -101,6 +102,30 @@ public class MarqueeSequence extends AbstractPixelSequence {
 	@Override
 	public long getUpdateInterval() {
 		return 20;
+	}
+	
+	@Override
+	public synchronized void loadConfiguration(SequenceConfiguration config) {
+		super.loadConfiguration(config);
+		this.itemName = config.get("itemName");
+		try {
+			this.item = config.get("item", MarqueeItem.class).newInstance();
+			this.item.loadConfiguration(config, "item");
+		} catch (Exception e) {
+			this.item = null;
+		}
+	}
+	
+	@Override
+	public synchronized void saveConfiguration(SequenceConfiguration config) {
+		super.saveConfiguration(config);
+		config.put("itemName", itemName);
+		if (item == null) {
+			config.put("item", (String)null);
+		} else {
+			config.put("item", item.getClass());
+			item.saveConfiguration(config, "item");
+		}
 	}
 	
 	@Override

@@ -8,6 +8,7 @@ import java.nio.channels.FileChannel;
 import com.kreative.unipixelpusher.ColorConstants;
 import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class AudioSpectrumSequence implements PixelSequence {
 	public static final String name = "Audio Spectrum";
@@ -113,6 +114,9 @@ public class AudioSpectrumSequence implements PixelSequence {
 	public long getUpdateInterval() {
 		return 20;
 	}
+	
+	@Override public void loadConfiguration(SequenceConfiguration config) {}
+	@Override public void saveConfiguration(SequenceConfiguration config) {}
 	
 	@Override
 	public String toString() {

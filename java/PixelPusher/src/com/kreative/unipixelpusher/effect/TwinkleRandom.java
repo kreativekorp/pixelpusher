@@ -3,6 +3,7 @@ package com.kreative.unipixelpusher.effect;
 import java.util.Random;
 import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class TwinkleRandom extends AbstractPixelSequence.ColorPattern {
 	public static final String name = "Random Twinkle";
@@ -41,6 +42,18 @@ public class TwinkleRandom extends AbstractPixelSequence.ColorPattern {
 	@Override
 	public long getFrameDuration() {
 		return 100;
+	}
+	
+	@Override
+	public void loadConfiguration(SequenceConfiguration config) {
+		super.loadConfiguration(config);
+		this.count = config.get("count", 0);
+	}
+	
+	@Override
+	public void saveConfiguration(SequenceConfiguration config) {
+		super.saveConfiguration(config);
+		config.put("count", count);
 	}
 	
 	@Override

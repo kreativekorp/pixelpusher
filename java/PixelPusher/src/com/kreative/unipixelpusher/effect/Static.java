@@ -3,6 +3,7 @@ package com.kreative.unipixelpusher.effect;
 import java.util.Random;
 import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class Static implements PixelSequence.ColorPattern {
 	public static final String name = "Static";
@@ -38,6 +39,16 @@ public class Static implements PixelSequence.ColorPattern {
 	@Override
 	public void setColorPattern(int[] colors) {
 		this.colorPattern = colors;
+	}
+	
+	@Override
+	public void loadConfiguration(SequenceConfiguration config) {
+		this.colorPattern = config.get("colorPattern", new int[]{-1});
+	}
+	
+	@Override
+	public void saveConfiguration(SequenceConfiguration config) {
+		config.put("colorPattern", colorPattern);
 	}
 	
 	@Override

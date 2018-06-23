@@ -2,6 +2,7 @@ package com.kreative.unipixelpusher.effect;
 
 import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class Steady implements PixelSequence.ColorPattern {
 	public static final String name = "Steady";
@@ -35,6 +36,16 @@ public class Steady implements PixelSequence.ColorPattern {
 	@Override
 	public void setColorPattern(int[] colors) {
 		this.colorPattern = colors;
+	}
+	
+	@Override
+	public void loadConfiguration(SequenceConfiguration config) {
+		this.colorPattern = config.get("colorPattern", new int[]{-1});
+	}
+	
+	@Override
+	public void saveConfiguration(SequenceConfiguration config) {
+		config.put("colorPattern", colorPattern);
 	}
 	
 	@Override

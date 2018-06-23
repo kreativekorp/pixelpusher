@@ -3,6 +3,7 @@ package com.kreative.unipixelpusher.effect;
 import java.util.Random;
 import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class MeteorRain extends AbstractPixelSequence.ColorPattern {
 	public static final String name = "Meteor Rain";
@@ -48,6 +49,18 @@ public class MeteorRain extends AbstractPixelSequence.ColorPattern {
 	@Override
 	public long getFrameDuration() {
 		return 30;
+	}
+	
+	@Override
+	public void loadConfiguration(SequenceConfiguration config) {
+		super.loadConfiguration(config);
+		this.meteorSize = config.get("meteorSize", 0);
+	}
+	
+	@Override
+	public void saveConfiguration(SequenceConfiguration config) {
+		super.saveConfiguration(config);
+		config.put("meteorSize", meteorSize);
 	}
 	
 	@Override

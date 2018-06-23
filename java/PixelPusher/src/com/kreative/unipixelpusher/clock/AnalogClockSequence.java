@@ -5,6 +5,7 @@ import java.util.GregorianCalendar;
 import com.kreative.unipixelpusher.ColorConstants;
 import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class AnalogClockSequence implements PixelSequence {
 	public static final String name = "Analog Clock";
@@ -57,6 +58,24 @@ public class AnalogClockSequence implements PixelSequence {
 	@Override
 	public long getUpdateInterval() {
 		return 250;
+	}
+	
+	@Override
+	public synchronized void loadConfiguration(SequenceConfiguration config) {
+		this.is24Hour = config.get("is24Hour", false);
+		this.hourColor = config.get("hourColor", ColorConstants.RED);
+		this.minuteColor = config.get("minuteColor", ColorConstants.GREEN);
+		this.secondColor = config.get("secondColor", ColorConstants.BLUE);
+		this.mode = config.get("mode", AnalogClockMode.class, AnalogClockMode.POINT);
+	}
+	
+	@Override
+	public synchronized void saveConfiguration(SequenceConfiguration config) {
+		config.put("is24Hour", is24Hour);
+		config.put("hourColor", hourColor);
+		config.put("minuteColor", minuteColor);
+		config.put("secondColor", secondColor);
+		config.put("mode", mode);
 	}
 	
 	@Override

@@ -1,7 +1,13 @@
 package com.kreative.unipixelpusher.marquee;
 
+import com.kreative.unipixelpusher.SequenceConfiguration;
+
 public class StaticTextItem extends TextItem {
 	protected String text;
+	
+	public StaticTextItem() {
+		this.text = null;
+	}
 	
 	public StaticTextItem(String text) {
 		this.text = text;
@@ -23,5 +29,17 @@ public class StaticTextItem extends TextItem {
 	@Override
 	public long getUpdateInterval() {
 		return 1000;
+	}
+	
+	@Override
+	public synchronized void loadConfiguration(SequenceConfiguration config, String prefix) {
+		super.loadConfiguration(config, prefix);
+		this.text = config.get(prefix + ".text");
+	}
+	
+	@Override
+	public synchronized void saveConfiguration(SequenceConfiguration config, String prefix) {
+		super.saveConfiguration(config, prefix);
+		config.put(prefix + ".text", text);
 	}
 }

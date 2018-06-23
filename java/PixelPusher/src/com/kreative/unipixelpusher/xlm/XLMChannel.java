@@ -1,5 +1,7 @@
 package com.kreative.unipixelpusher.xlm;
 
+import com.kreative.unipixelpusher.SequenceConfiguration;
+
 public class XLMChannel {
 	private int patternLength;
 	private int[] patternColors;
@@ -129,5 +131,28 @@ public class XLMChannel {
 			}
 		}
 		return patternColors[0];
+	}
+	
+	public synchronized void loadConfiguration(SequenceConfiguration config, String prefix) {
+		this.patternColors = config.get(prefix + ".color", new int[]{ -1, 0 });
+		this.patternCounts = config.get(prefix + ".count", new int[]{  1, 1 });
+		this.patternLength = Math.min(patternColors.length, patternCounts.length);
+		this.patternTotal = 0;
+		for (int i = 0; i < patternLength; i++) {
+			this.patternTotal += patternCounts[i];
+		}
+		this.msPerFrame = config.get(prefix + ".speed", 100);
+		this.reversed = config.get(prefix + ".reverse", false);
+		this.stopped = config.get(prefix + ".freeze", false);
+		this.frameTime = 0;
+		this.frame = 0;
+	}
+	
+	public synchronized void saveConfiguration(SequenceConfiguration config, String prefix) {
+		config.put(prefix + ".color", patternColors);
+		config.put(prefix + ".count", patternCounts);
+		config.put(prefix + ".speed", msPerFrame);
+		config.put(prefix + ".reverse", reversed);
+		config.put(prefix + ".freeze", stopped);
 	}
 }

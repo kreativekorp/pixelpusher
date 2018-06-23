@@ -3,6 +3,7 @@ package com.kreative.unipixelpusher.xlm;
 import com.kreative.unipixelpusher.ColorConstants;
 import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class XLMSequence implements PixelSequence {
 	public static final String name = "Explorateria Light Machine (XLM)";
@@ -48,6 +49,31 @@ public class XLMSequence implements PixelSequence {
 	@Override
 	public long getUpdateInterval() {
 		return 20;
+	}
+	
+	@Override
+	public synchronized void loadConfiguration(SequenceConfiguration config) {
+		int n = config.get("channels", 0);
+		if (n > 0) {
+			this.channels = new XLMChannel[n];
+			for (int i = 0; i < n; i++) {
+				this.channels[i] = new XLMChannel(-1);
+				this.channels[i].loadConfiguration(config, "channels.ch" + i);
+			}
+		} else {
+			this.channels = new XLMChannel[] {
+				new XLMChannel(ColorConstants.RED),
+				new XLMChannel(ColorConstants.BLUE)
+			};
+		}
+	}
+	
+	@Override
+	public synchronized void saveConfiguration(SequenceConfiguration config) {
+		config.put("channels", channels.length);
+		for (int i = 0; i < channels.length; i++) {
+			channels[i].saveConfiguration(config, "channels.ch" + i);
+		}
 	}
 	
 	@Override

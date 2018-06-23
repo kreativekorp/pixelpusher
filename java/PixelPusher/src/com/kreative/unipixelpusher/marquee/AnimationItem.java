@@ -3,11 +3,18 @@ package com.kreative.unipixelpusher.marquee;
 import java.awt.Graphics2D;
 import com.kreative.imagetool.animation.Animation;
 import com.kreative.imagetool.animation.AnimationFrame;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class AnimationItem extends MarqueeItem {
 	protected Animation animation;
 	protected long frameTime;
 	protected long frame;
+	
+	public AnimationItem() {
+		this.animation = null;
+		this.frameTime = 0;
+		this.frame = 0;
+	}
 	
 	public AnimationItem(Animation animation) {
 		this.animation = animation;
@@ -61,5 +68,19 @@ public class AnimationItem extends MarqueeItem {
 	@Override
 	public long getUpdateInterval() {
 		return 20;
+	}
+	
+	@Override
+	public synchronized void loadConfiguration(SequenceConfiguration config, String prefix) {
+		super.loadConfiguration(config, prefix);
+		this.animation = config.get(prefix + ".animation", (Animation)null);
+		this.frameTime = 0;
+		this.frame = 0;
+	}
+	
+	@Override
+	public synchronized void saveConfiguration(SequenceConfiguration config, String prefix) {
+		super.saveConfiguration(config, prefix);
+		config.put(prefix + ".animation", animation);
 	}
 }

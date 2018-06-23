@@ -5,6 +5,7 @@ import com.kreative.imagetool.animation.Animation;
 import com.kreative.imagetool.animation.AnimationFrame;
 import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class AnimationSequence implements PixelSequence {
 	public static final String name = "Animation";
@@ -171,6 +172,44 @@ public class AnimationSequence implements PixelSequence {
 	@Override
 	public long getUpdateInterval() {
 		return 20;
+	}
+	
+	@Override
+	public synchronized void loadConfiguration(SequenceConfiguration config) {
+		Animation a = config.get("animation", (Animation)null);
+		if (a != null) {
+			this.setAnimation(a);
+		} else {
+			this.animation = null;
+			this.animationHeight = 0;
+			this.animationWidth = 0;
+			this.animationFrames = 0;
+			this.animationData = null;
+			this.animationMs = null;
+			this.animationFrameTime = 0;
+			this.animationFrame = 0;
+			this.scrollFrameTimeHorizontal = 0;
+			this.scrollFrameHorizontal = 0;
+			this.scrollFrameTimeVertical = 0;
+			this.scrollFrameVertical = 0;
+		}
+		this.wrapHorizontal = config.get("wrapHorizontal", true);
+		this.wrapVertical = config.get("wrapVertical", true);
+		this.scrollDirectionHorizontal = config.get("scrollHorizontal", 0);
+		this.scrollDirectionVertical = config.get("scrollVertical", 0);
+		this.scrollMsHorizontal = config.get("speedHorizontal", 100);
+		this.scrollMsVertical = config.get("speedVertical", 100);
+	}
+	
+	@Override
+	public synchronized void saveConfiguration(SequenceConfiguration config) {
+		config.put("animation", animation);
+		config.put("wrapHorizontal", wrapHorizontal);
+		config.put("wrapVertical", wrapVertical);
+		config.put("scrollHorizontal", scrollDirectionHorizontal);
+		config.put("scrollVertical", scrollDirectionVertical);
+		config.put("speedHorizontal", scrollMsHorizontal);
+		config.put("speedVertical", scrollMsVertical);
 	}
 	
 	@Override

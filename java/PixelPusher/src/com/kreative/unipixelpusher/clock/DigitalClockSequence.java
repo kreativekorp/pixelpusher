@@ -5,6 +5,7 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class DigitalClockSequence implements PixelSequence {
 	public static final String name = "Digital Clock";
@@ -296,6 +297,110 @@ public class DigitalClockSequence implements PixelSequence {
 	@Override
 	public long getUpdateInterval() {
 		return 250;
+	}
+	
+	@Override
+	public void loadConfiguration(SequenceConfiguration config) {
+		this.is24Hour = config.get("is24Hour", false);
+		this.showSeparators = config.get("showSeparators", true);
+		this.flashSeparators = config.get("flashSeparators", true);
+		this.showSeconds = config.get("showSeconds", false);
+		
+		String colorMode = config.get("colorMode", "MONOCHROME");
+		if (colorMode.equalsIgnoreCase("MONOCHROME")) {
+			this.colorMode = new DigitalClockColorMode.Monochrome(
+				config.get("colorMode.color", -1)
+			);
+		} else if (colorMode.equalsIgnoreCase("POSITIONAL")) {
+			this.colorMode = new DigitalClockColorMode.Positional(
+				config.get("colorMode.color.hourTens", -1),
+				config.get("colorMode.color.hourOnes", -1),
+				config.get("colorMode.color.hmSeparator", -1),
+				config.get("colorMode.color.minuteTens", -1),
+				config.get("colorMode.color.minuteOnes", -1),
+				config.get("colorMode.color.msSeparator", -1),
+				config.get("colorMode.color.secondTens", -1),
+				config.get("colorMode.color.secondOnes", -1)
+			);
+		} else if (colorMode.equalsIgnoreCase("SYNAESTHETIC")) {
+			this.colorMode = new DigitalClockColorMode.Synaesthetic(
+				config.get("colorMode.color.digit0", -1),
+				config.get("colorMode.color.digit1", -1),
+				config.get("colorMode.color.digit2", -1),
+				config.get("colorMode.color.digit3", -1),
+				config.get("colorMode.color.digit4", -1),
+				config.get("colorMode.color.digit5", -1),
+				config.get("colorMode.color.digit6", -1),
+				config.get("colorMode.color.digit7", -1),
+				config.get("colorMode.color.digit8", -1),
+				config.get("colorMode.color.digit9", -1),
+				config.get("colorMode.color.hmSeparator", -1),
+				config.get("colorMode.color.msSeparator", -1)
+			);
+		} else {
+			this.colorMode = new DigitalClockColorMode.Monochrome();
+		}
+		
+		String displayMode = config.get("displayMode", "SEGMENTED");
+		if (displayMode.equalsIgnoreCase("SEGMENTED")) {
+			this.displayMode = new DigitalClockDisplayMode.Segmented();
+		} else if (displayMode.equalsIgnoreCase("PIPPED")) {
+			this.displayMode = new DigitalClockDisplayMode.Pipped();
+		} else if (displayMode.equalsIgnoreCase("UNARY")) {
+			this.displayMode = new DigitalClockDisplayMode.Unary();
+		} else {
+			this.displayMode = new DigitalClockDisplayMode.Segmented();
+		}
+		
+		this.lastValues = null;
+	}
+	
+	@Override
+	public void saveConfiguration(SequenceConfiguration config) {
+		config.put("is24Hour", is24Hour);
+		config.put("showSeparators", showSeparators);
+		config.put("flashSeparators", flashSeparators);
+		config.put("showSeconds", showSeconds);
+		
+		if (colorMode instanceof DigitalClockColorMode.Monochrome) {
+			DigitalClockColorMode.Monochrome cm = (DigitalClockColorMode.Monochrome)colorMode;
+			config.put("colorMode", "MONOCHROME");
+			config.put("colorMode.color", cm.color);
+		} else if (colorMode instanceof DigitalClockColorMode.Positional) {
+			DigitalClockColorMode.Positional cm = (DigitalClockColorMode.Positional)colorMode;
+			config.put("colorMode", "POSITIONAL");
+			config.put("colorMode.color.hourTens", cm.hourTens);
+			config.put("colorMode.color.hourOnes", cm.hourOnes);
+			config.put("colorMode.color.hmSeparator", cm.hmSeparator);
+			config.put("colorMode.color.minuteTens", cm.minuteTens);
+			config.put("colorMode.color.minuteOnes", cm.minuteOnes);
+			config.put("colorMode.color.msSeparator", cm.msSeparator);
+			config.put("colorMode.color.secondTens", cm.secondTens);
+			config.put("colorMode.color.secondOnes", cm.secondOnes);
+		} else if (colorMode instanceof DigitalClockColorMode.Synaesthetic) {
+			DigitalClockColorMode.Synaesthetic cm = (DigitalClockColorMode.Synaesthetic)colorMode;
+			config.put("colorMode", "SYNAESTHETIC");
+			config.put("colorMode.color.digit0", cm.color0);
+			config.put("colorMode.color.digit1", cm.color1);
+			config.put("colorMode.color.digit2", cm.color2);
+			config.put("colorMode.color.digit3", cm.color3);
+			config.put("colorMode.color.digit4", cm.color4);
+			config.put("colorMode.color.digit5", cm.color5);
+			config.put("colorMode.color.digit6", cm.color6);
+			config.put("colorMode.color.digit7", cm.color7);
+			config.put("colorMode.color.digit8", cm.color8);
+			config.put("colorMode.color.digit9", cm.color9);
+			config.put("colorMode.color.hmSeparator", cm.hmSeparator);
+			config.put("colorMode.color.msSeparator", cm.msSeparator);
+		}
+		
+		if (displayMode instanceof DigitalClockDisplayMode.Segmented) {
+			config.put("displayMode", "SEGMENTED");
+		} else if (displayMode instanceof DigitalClockDisplayMode.Pipped) {
+			config.put("displayMode", "PIPPED");
+		} else if (displayMode instanceof DigitalClockDisplayMode.Unary) {
+			config.put("displayMode", "UNARY");
+		}
 	}
 	
 	@Override

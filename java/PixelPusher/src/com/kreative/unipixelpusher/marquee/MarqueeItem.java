@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Insets;
 import javax.swing.SwingConstants;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public abstract class MarqueeItem implements SwingConstants {
 	protected int topPadding = 0;
@@ -131,4 +132,24 @@ public abstract class MarqueeItem implements SwingConstants {
 	}
 	
 	public abstract long getUpdateInterval();
+	
+	public synchronized void loadConfiguration(SequenceConfiguration config, String prefix) {
+		this.topPadding = config.get(prefix + ".padding.top", 0);
+		this.leftPadding = config.get(prefix + ".padding.left", 0);
+		this.bottomPadding = config.get(prefix + ".padding.bottom", 0);
+		this.rightPadding = config.get(prefix + ".padding.right", 0);
+		this.horizontalAlignment = config.get(prefix + ".alignment.horizontal", CENTER);
+		this.verticalAlignment = config.get(prefix + ".alignment.vertical", CENTER);
+		this.backgroundColor = config.get(prefix + ".bgcolor", 0);
+	}
+	
+	public synchronized void saveConfiguration(SequenceConfiguration config, String prefix) {
+		config.put(prefix + ".padding.top", topPadding);
+		config.put(prefix + ".padding.left", leftPadding);
+		config.put(prefix + ".padding.bottom", bottomPadding);
+		config.put(prefix + ".padding.right", rightPadding);
+		config.put(prefix + ".alignment.horizontal", horizontalAlignment);
+		config.put(prefix + ".alignment.vertical", verticalAlignment);
+		config.put(prefix + ".bgcolor", backgroundColor);
+	}
 }

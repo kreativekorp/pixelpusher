@@ -46,6 +46,17 @@ public abstract class AbstractPixelSequence implements PixelSequence.SpeedAdjust
 		this.speedAdjust = speedAdjust;
 	}
 	
+	@Override
+	public void loadConfiguration(SequenceConfiguration config) {
+		this.speedAdjust = config.get("speedAdjust", 1f);
+		this.initialized = false;
+	}
+	
+	@Override
+	public void saveConfiguration(SequenceConfiguration config) {
+		config.put("speedAdjust", speedAdjust);
+	}
+	
 	public static abstract class ColorPattern extends AbstractPixelSequence implements PixelSequence.ColorPattern {
 		protected int[] colorPattern = new int[]{-1};
 		
@@ -57,6 +68,18 @@ public abstract class AbstractPixelSequence implements PixelSequence.SpeedAdjust
 		@Override
 		public void setColorPattern(int[] colors) {
 			this.colorPattern = colors;
+		}
+		
+		@Override
+		public void loadConfiguration(SequenceConfiguration config) {
+			super.loadConfiguration(config);
+			this.colorPattern = config.get("colorPattern", new int[]{-1});
+		}
+		
+		@Override
+		public void saveConfiguration(SequenceConfiguration config) {
+			super.saveConfiguration(config);
+			config.put("colorPattern", colorPattern);
 		}
 		
 		protected int color(int index) {

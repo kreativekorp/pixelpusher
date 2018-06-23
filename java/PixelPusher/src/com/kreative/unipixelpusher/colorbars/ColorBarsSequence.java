@@ -3,6 +3,7 @@ package com.kreative.unipixelpusher.colorbars;
 import com.kreative.unipixelpusher.ColorConstants;
 import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class ColorBarsSequence implements PixelSequence {
 	public static final String name = "Color Bars";
@@ -128,6 +129,9 @@ public class ColorBarsSequence implements PixelSequence {
 	public long getUpdateInterval() {
 		return 1000;
 	}
+	
+	@Override public void loadConfiguration(SequenceConfiguration config) {}
+	@Override public void saveConfiguration(SequenceConfiguration config) {}
 	
 	@Override
 	public String toString() {

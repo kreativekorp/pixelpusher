@@ -2,9 +2,14 @@ package com.kreative.unipixelpusher.marquee;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import com.kreative.unipixelpusher.SequenceConfiguration;
 
 public class ImageItem extends MarqueeItem {
 	protected BufferedImage image;
+	
+	public ImageItem() {
+		this.image = null;
+	}
 	
 	public ImageItem(BufferedImage image) {
 		this.image = image;
@@ -36,5 +41,17 @@ public class ImageItem extends MarqueeItem {
 	@Override
 	public long getUpdateInterval() {
 		return 1000;
+	}
+	
+	@Override
+	public synchronized void loadConfiguration(SequenceConfiguration config, String prefix) {
+		super.loadConfiguration(config, prefix);
+		this.image = config.get(prefix + ".image", (BufferedImage)null);
+	}
+	
+	@Override
+	public synchronized void saveConfiguration(SequenceConfiguration config, String prefix) {
+		super.saveConfiguration(config, prefix);
+		config.put(prefix + ".image", image);
 	}
 }
