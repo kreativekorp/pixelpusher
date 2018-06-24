@@ -7,10 +7,12 @@ import com.kreative.unipixelpusher.DeviceString;
 
 public class RainbowduinoSerialDevice extends RainbowduinoDevice {
 	private CommPortIdentifier portId;
+	private RainbowduinoMatrix string;
 	
 	public RainbowduinoSerialDevice(RainbowduinoDeviceRegistry parent, CommPortIdentifier portId) {
 		super(parent);
 		this.portId = portId;
+		this.string = null;
 		loadConfig(id());
 	}
 	
@@ -27,10 +29,13 @@ public class RainbowduinoSerialDevice extends RainbowduinoDevice {
 	
 	@Override
 	public DeviceString getString(int i) {
-		try {
+		if (this.string != null) {
+			return this.string;
+		} else try {
 			CommPort port = portId.open("UniPixelPusher", 1000);
 			OutputStream out = port.getOutputStream();
-			return new RainbowduinoMatrix(this, out);
+			this.string = new RainbowduinoMatrix(this, out);
+			return this.string;
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}

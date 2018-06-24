@@ -8,10 +8,12 @@ import com.kreative.unipixelpusher.DeviceString;
 
 public class RainbowduinoFileDevice extends RainbowduinoDevice {
 	private File file;
+	private RainbowduinoMatrix string;
 	
 	public RainbowduinoFileDevice(RainbowduinoDeviceRegistry parent, File file) {
 		super(parent);
 		this.file = file;
+		this.string = null;
 		loadConfig(id());
 	}
 	
@@ -28,9 +30,12 @@ public class RainbowduinoFileDevice extends RainbowduinoDevice {
 	
 	@Override
 	public DeviceString getString(int i) {
-		try {
+		if (this.string != null) {
+			return this.string;
+		} else try {
 			OutputStream out = new FileOutputStream(file);
-			return new RainbowduinoMatrix(this, out);
+			this.string = new RainbowduinoMatrix(this, out);
+			return this.string;
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
