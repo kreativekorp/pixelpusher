@@ -1,0 +1,44 @@
+<!--
+	Date: 2018/06/25 01:34:40 PDT
+	Author: Rebecca Bettencourt <support@kreativekorp.com>
+-->
+
+<!-- - - - - - - - - - - - - PIXELPUSHER PROGRAM - - - - - - - - - - - - -->
+
+<!ELEMENT program (sequence|device|connection)*>
+
+<!ELEMENT sequence (param*)>
+<!ATTLIST sequence
+	id CDATA #REQUIRED
+	class CDATA #REQUIRED
+>
+
+<!ELEMENT param (#PCDATA)>
+<!ATTLIST param
+	key CDATA #REQUIRED
+>
+
+<!ELEMENT device (string*)>
+<!ATTLIST device
+	id CDATA #REQUIRED
+	device CDATA #REQUIRED
+	name CDATA #IMPLIED
+	type CDATA #IMPLIED
+>
+
+<!ELEMENT string EMPTY>
+<!ATTLIST string
+	id CDATA #REQUIRED
+	string CDATA #REQUIRED
+	name CDATA #IMPLIED
+	type CDATA #IMPLIED
+	length CDATA #IMPLIED
+	row-count CDATA #IMPLIED
+	column-count CDATA #IMPLIED
+>
+
+<!ELEMENT connection EMPTY>
+<!ATTLIST connection
+	sequence CDATA #REQUIRED
+	string CDATA #REQUIRED
+>
