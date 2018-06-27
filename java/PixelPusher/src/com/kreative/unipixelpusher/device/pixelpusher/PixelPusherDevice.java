@@ -9,13 +9,15 @@ import com.kreative.unipixelpusher.DeviceType;
 
 public class PixelPusherDevice extends AbstractPixelDevice {
 	private PixelPusher pusher;
+	private PixelPusherDeviceIdentifier identifier;
 	private String name;
 	private int stringCount;
 	private PixelPusherString[] strings;
 	
-	public PixelPusherDevice(PixelPusherDeviceRegistry parent, PixelPusher pusher) {
+	public PixelPusherDevice(PixelPusherDeviceRegistry parent, PixelPusher pusher, PixelPusherDeviceIdentifier identifier) {
 		super(parent);
 		this.pusher = pusher;
+		this.identifier = identifier;
 		this.name = config.get(id(), "name");
 		this.stringCount = pusher.getNumberOfStrips();
 		this.strings = new PixelPusherString[stringCount];
@@ -26,13 +28,13 @@ public class PixelPusherDevice extends AbstractPixelDevice {
 	
 	@Override
 	public String id() {
-		return "pixelpusher://" + pusher.getMacAddress();
+		return "pixelpusher://" + identifier.getId(pusher);
 	}
 	
 	@Override
 	public String name() {
 		if (this.name != null) return this.name;
-		return "PixelPusher @ " + pusher.getMacAddress();
+		return "PixelPusher @ " + identifier.getName(pusher);
 	}
 	
 	public void setName(String name) {

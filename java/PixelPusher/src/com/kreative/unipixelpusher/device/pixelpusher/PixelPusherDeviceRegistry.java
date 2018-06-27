@@ -17,6 +17,12 @@ import com.kreative.unipixelpusher.DeviceConfiguration;
 import com.kreative.unipixelpusher.PixelDevice;
 
 public class PixelPusherDeviceRegistry extends AbstractPixelDeviceRegistry {
+	private static final PixelPusherDeviceIdentifier[] IDENTIFIERS = {
+		PixelPusherDeviceIdentifier.MAC_ADDRESS,
+		PixelPusherDeviceIdentifier.IP_ADDRESS,
+		PixelPusherDeviceIdentifier.GROUP_CONTROLLER
+	};
+	
 	private final List<PixelPusherDevice> deviceList;
 	private final Map<String,PixelPusherDevice> deviceMap;
 	private final DeviceRegistry registry;
@@ -49,12 +55,14 @@ public class PixelPusherDeviceRegistry extends AbstractPixelDeviceRegistry {
 		Set<String> toRemove = new HashSet<String>();
 		toRemove.addAll(deviceMap.keySet());
 		for (PixelPusher pusher : registry.getPushers()) {
-			String id = pusher.getMacAddress();
-			if (!toRemove.remove(id)) {
-				PixelPusherDevice device = new PixelPusherDevice(this, pusher);
-				deviceList.add(device);
-				deviceMap.put(id, device);
-				pixelDeviceAppeared(device);
+			for (PixelPusherDeviceIdentifier identifier : IDENTIFIERS) {
+				String id = identifier.getId(pusher);
+				if (!toRemove.remove(id)) {
+					PixelPusherDevice device = new PixelPusherDevice(this, pusher, identifier);
+					deviceList.add(device);
+					deviceMap.put(id, device);
+					pixelDeviceAppeared(device);
+				}
 			}
 		}
 		for (String id : toRemove) {
