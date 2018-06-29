@@ -14,6 +14,7 @@ public enum DeviceType {
 	SMART_LAMP("Smart Lamp"),
 	SMART_LED_PANEL("Smart LED Panel"),
 	PIXELPUSHER("PixelPusher"),
+	OSCILLOSCOPE("Oscilloscope"),
 	TEST_DEVICE("Test Device");
 	
 	private final String toString;
