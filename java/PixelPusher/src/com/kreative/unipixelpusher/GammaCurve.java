@@ -30,6 +30,16 @@ public interface GammaCurve {
 		}
 		
 		@Override
+		public boolean equals(Object o) {
+			return (o instanceof Linear);
+		}
+		
+		@Override
+		public int hashCode() {
+			return Double.valueOf(1.0).hashCode();
+		}
+		
+		@Override
 		public String toString() {
 			return "Linear";
 		}
@@ -51,6 +61,16 @@ public interface GammaCurve {
 			int g = (int)Math.round(255.0 * Math.pow(((color >>  8) & 0xFF) / 255.0, power));
 			int b = (int)Math.round(255.0 * Math.pow(((color >>  0) & 0xFF) / 255.0, power));
 			return (a << 24) | (r << 16) | (g << 8) | (b << 0);
+		}
+		
+		@Override
+		public boolean equals(Object o) {
+			return (o instanceof Power) && (((Power)o).power == this.power);
+		}
+		
+		@Override
+		public int hashCode() {
+			return Double.valueOf(power).hashCode();
 		}
 		
 		@Override
@@ -90,6 +110,21 @@ public interface GammaCurve {
 			int gi = (int)Math.round(255.0 * g);
 			int bi = (int)Math.round(255.0 * b);
 			return 0xFF000000 | (ri << 16) | (gi << 8) | (bi << 0);
+		}
+		
+		@Override
+		public boolean equals(Object o) {
+			return (o instanceof Quasipower)
+			    && (((Quasipower)o).power == this.power)
+			    && (((Quasipower)o).p1 == this.p1)
+			    && (((Quasipower)o).p2 == this.p2);
+		}
+		
+		@Override
+		public int hashCode() {
+			return Double.valueOf(power).hashCode()
+			     + Double.valueOf(p1).hashCode()
+			     + Double.valueOf(p2).hashCode();
 		}
 		
 		@Override
