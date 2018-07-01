@@ -16,7 +16,7 @@ public class PixelPusherString extends AbstractDeviceString {
 	public PixelPusherString(PixelPusherDevice parent, Strip strip) {
 		super(parent);
 		this.strip = strip;
-		this.id = "pixelpusher://" + strip.getMacAddress() + "/" + strip.getStripNumber();
+		this.id = parent.id() + "/" + strip.getStripNumber();
 		loadConfig(id);
 		this.type = config.get(id, "type", StringType.class, StringType.UNKNOWN);
 		this.length = config.get(id, "length", strip.getLength());
