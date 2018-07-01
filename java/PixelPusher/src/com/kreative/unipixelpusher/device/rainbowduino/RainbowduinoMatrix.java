@@ -57,6 +57,11 @@ public class RainbowduinoMatrix extends AbstractDeviceMatrix {
 	}
 	
 	@Override
+	protected void loadConfig(String id) {
+		super.loadConfig(id);
+	}
+	
+	@Override
 	protected int getPixelImpl(int row, int col) {
 		return (row >= 0 && row < 8 && col >= 0 && col < 8) ? uppBuffer[row][col] : 0;
 	}

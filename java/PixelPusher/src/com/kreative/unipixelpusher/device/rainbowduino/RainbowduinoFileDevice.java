@@ -29,6 +29,12 @@ public class RainbowduinoFileDevice extends RainbowduinoDevice {
 	}
 	
 	@Override
+	protected void loadConfig(String id) {
+		super.loadConfig(id);
+		if (string != null) string.loadConfig(id);
+	}
+	
+	@Override
 	public DeviceString getString(int i) {
 		if (this.string != null) {
 			return this.string;
