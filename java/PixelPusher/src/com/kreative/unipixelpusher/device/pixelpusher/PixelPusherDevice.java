@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import com.heroicrobot.dropbit.devices.pixelpusher.PixelPusher;
 import com.kreative.unipixelpusher.AbstractPixelDevice;
-import com.kreative.unipixelpusher.DeviceString;
 import com.kreative.unipixelpusher.DeviceType;
 
 public class PixelPusherDevice extends AbstractPixelDevice {
@@ -24,6 +23,10 @@ public class PixelPusherDevice extends AbstractPixelDevice {
 		for (int i = 0; i < stringCount; i++) {
 			this.strings[i] = new PixelPusherString(this, pusher.getStrip(i));
 		}
+	}
+	
+	protected PixelPusher pusher() {
+		return pusher;
 	}
 	
 	@Override
@@ -54,12 +57,12 @@ public class PixelPusherDevice extends AbstractPixelDevice {
 	}
 	
 	@Override
-	public DeviceString getString(int i) {
+	public PixelPusherString getString(int i) {
 		return strings[i];
 	}
 	
 	@Override
-	public Iterable<? extends DeviceString> getStrings() {
+	public Iterable<PixelPusherString> getStrings() {
 		return Collections.unmodifiableCollection(Arrays.asList(strings));
 	}
 }
