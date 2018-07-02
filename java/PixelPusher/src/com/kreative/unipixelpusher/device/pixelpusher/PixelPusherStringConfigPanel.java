@@ -1,6 +1,8 @@
 package com.kreative.unipixelpusher.device.pixelpusher;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,23 +46,25 @@ public class PixelPusherStringConfigPanel extends JPanel {
 		
 		JPanel lengthPanel = new JPanel();
 		lengthPanel.setLayout(new BoxLayout(lengthPanel, BoxLayout.LINE_AXIS));
-		lengthPanel.add(new JSpinner(lengthModel = new SpinnerNumberModel(0, 0, 10000, 1)));
+		lengthPanel.add(new JSpinner(lengthModel = new SpinnerNumberModel(0, 0, 9999, 1)));
 		lengthPanel.add(Box.createHorizontalStrut(8));
 		lengthPanel.add(reversedCheckbox = new JCheckBox("Reversed"));
-		lengthPanel.add(Box.createHorizontalGlue());
-		add(lengthPanel);
+		JPanel lengthPanel2 = new JPanel(new BorderLayout());
+		lengthPanel2.add(lengthPanel, BorderLayout.LINE_START);
+		add(lengthPanel2);
 		
 		JPanel sizePanel = new JPanel();
 		sizePanel.setLayout(new BoxLayout(sizePanel, BoxLayout.LINE_AXIS));
 		sizePanel.add(new JLabel("Rows:"));
 		sizePanel.add(Box.createHorizontalStrut(4));
-		sizePanel.add(new JSpinner(rowCountModel = new SpinnerNumberModel(0, 0, 10000, 1)));
+		sizePanel.add(new JSpinner(rowCountModel = new SpinnerNumberModel(0, 0, 9999, 1)));
 		sizePanel.add(Box.createHorizontalStrut(8));
-		sizePanel.add(new JLabel("Columns:"));
+		sizePanel.add(new JLabel("Cols:"));
 		sizePanel.add(Box.createHorizontalStrut(4));
-		sizePanel.add(new JSpinner(columnCountModel = new SpinnerNumberModel(0, 0, 10000, 1)));
-		sizePanel.add(Box.createHorizontalGlue());
-		add(sizePanel);
+		sizePanel.add(new JSpinner(columnCountModel = new SpinnerNumberModel(0, 0, 9999, 1)));
+		JPanel sizePanel2 = new JPanel(new BorderLayout());
+		sizePanel2.add(sizePanel, BorderLayout.LINE_START);
+		add(sizePanel2);
 		
 		add(windingOrderPopup = new EnumPopupMenu(WindingOrder.class, WindingOrder.values()));
 		add(gammaPopup = new GammaPopupMenu());
@@ -71,11 +75,13 @@ public class PixelPusherStringConfigPanel extends JPanel {
 		
 		nameField.setText(string.name());
 		typePopup.setSelectedItem(string.type());
+		typePopup.setPreferredSize(new Dimension(1, 1));
 		lengthModel.setValue(string.length());
 		reversedCheckbox.setSelected(string.getReversed());
 		rowCountModel.setValue(string.getRowCount());
 		columnCountModel.setValue(string.getColumnCount());
 		windingOrderPopup.setSelectedItem(string.getWindingOrder());
+		windingOrderPopup.setPreferredSize(new Dimension(1, 1));
 		gammaPopup.setSelectedItem(string.getGammaCurve());
 		
 		nameField.getDocument().addDocumentListener(new DocumentListener() {

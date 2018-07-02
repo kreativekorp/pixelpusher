@@ -22,6 +22,14 @@ public class DeviceList extends JList {
 		loader.addPixelDeviceListener(new Listener(loader));
 	}
 	
+	public DeviceInfo getSelectedDeviceInfo() {
+		return (DeviceInfo)getSelectedValue();
+	}
+	
+	public PixelDevice getSelectedDevice() {
+		return getSelectedDeviceInfo().device();
+	}
+	
 	private class Renderer extends DefaultListCellRenderer {
 		private static final long serialVersionUID = 1L;
 		@Override

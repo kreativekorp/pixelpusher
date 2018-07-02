@@ -52,16 +52,16 @@ public class PixelPusherConfigPanel extends JPanel {
 		}
 		
 		JPanel stringTopPanel = new JPanel(new GridLayout(1, 4));
-		stringTopPanel.add(new JLabel("Strip 1"));
-		stringTopPanel.add(new JLabel("Strip 2"));
-		stringTopPanel.add(new JLabel("Strip 3"));
-		stringTopPanel.add(new JLabel("Strip 4"));
+		stringTopPanel.add(center(new JLabel("Strip 1")));
+		stringTopPanel.add(center(new JLabel("Strip 2")));
+		stringTopPanel.add(center(new JLabel("Strip 3")));
+		stringTopPanel.add(center(new JLabel("Strip 4")));
 		
 		JPanel stringBottomPanel = new JPanel(new GridLayout(1, 4));
-		stringBottomPanel.add(new JLabel("Strip 5"));
-		stringBottomPanel.add(new JLabel("Strip 6"));
-		stringBottomPanel.add(new JLabel("Strip 7"));
-		stringBottomPanel.add(new JLabel("Strip 8"));
+		stringBottomPanel.add(center(new JLabel("Strip 5")));
+		stringBottomPanel.add(center(new JLabel("Strip 6")));
+		stringBottomPanel.add(center(new JLabel("Strip 7")));
+		stringBottomPanel.add(center(new JLabel("Strip 8")));
 		
 		JPanel stringRightPanel = new JPanel(new BorderLayout(8, 8));
 		stringRightPanel.add(stringTopPanel, BorderLayout.PAGE_START);
@@ -72,7 +72,7 @@ public class PixelPusherConfigPanel extends JPanel {
 		stringPanel.add(stringLeftPanel, BorderLayout.LINE_START);
 		stringPanel.add(stringRightPanel, BorderLayout.CENTER);
 		
-		setLayout(new BorderLayout(12, 12));
+		setLayout(new BorderLayout(20, 20));
 		add(devicePanel, BorderLayout.PAGE_START);
 		add(stringPanel, BorderLayout.CENTER);
 		
@@ -90,5 +90,10 @@ public class PixelPusherConfigPanel extends JPanel {
 			@Override public void insertUpdate(DocumentEvent e) { changedUpdate(e); }
 			@Override public void removeUpdate(DocumentEvent e) { changedUpdate(e); }
 		});
+	}
+	
+	private static JLabel center(JLabel l) {
+		l.setHorizontalAlignment(JLabel.CENTER);
+		return l;
 	}
 }

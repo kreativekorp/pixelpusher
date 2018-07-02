@@ -1,5 +1,6 @@
 package com.kreative.unipixelpusher.device.rainbowduino;
 
+import java.awt.Component;
 import java.util.Arrays;
 import java.util.Collections;
 import com.kreative.unipixelpusher.AbstractPixelDevice;
@@ -51,5 +52,15 @@ public abstract class RainbowduinoDevice extends AbstractPixelDevice {
 	@Override
 	public Iterable<? extends DeviceString> getStrings() {
 		return Collections.unmodifiableCollection(Arrays.asList(getString(0)));
+	}
+	
+	@Override
+	public boolean hasConfigurationPanel() {
+		return true;
+	}
+	
+	@Override
+	public Component createConfigurationPanel() {
+		return new RainbowduinoConfigPanel(this.config, this);
 	}
 }

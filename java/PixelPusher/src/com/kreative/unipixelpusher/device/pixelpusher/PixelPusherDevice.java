@@ -1,5 +1,6 @@
 package com.kreative.unipixelpusher.device.pixelpusher;
 
+import java.awt.Component;
 import java.util.Arrays;
 import java.util.Collections;
 import com.heroicrobot.dropbit.devices.pixelpusher.PixelPusher;
@@ -64,5 +65,15 @@ public class PixelPusherDevice extends AbstractPixelDevice {
 	@Override
 	public Iterable<PixelPusherString> getStrings() {
 		return Collections.unmodifiableCollection(Arrays.asList(strings));
+	}
+	
+	@Override
+	public boolean hasConfigurationPanel() {
+		return true;
+	}
+	
+	@Override
+	public Component createConfigurationPanel() {
+		return new PixelPusherConfigPanel(this);
 	}
 }

@@ -35,7 +35,7 @@ public class PixelPusherString extends AbstractDeviceString {
 	@Override
 	public String name() {
 		if (this.name != null) return this.name;
-		return Integer.toString(strip.getStripNumber());
+		return "Strip " + Integer.toString(strip.getStripNumber() + 1);
 	}
 	
 	@Override

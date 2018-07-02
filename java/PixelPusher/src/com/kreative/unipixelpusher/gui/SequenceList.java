@@ -17,6 +17,10 @@ public class SequenceList extends JList {
 		this.setCellRenderer(new Renderer());
 	}
 	
+	public SequenceInfo getSelectedSequenceInfo() {
+		return (SequenceInfo)getSelectedValue();
+	}
+	
 	private class Renderer extends DefaultListCellRenderer {
 		private static final long serialVersionUID = 1L;
 		@Override

@@ -1,5 +1,6 @@
 package com.kreative.unipixelpusher;
 
+import java.awt.Component;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -234,6 +235,8 @@ public class PixelProgram implements PixelDeviceListener {
 		@Override public synchronized int getStringCount() { return (strings != null) ? strings.size() : 0; }
 		@Override public synchronized DeviceStringInfo getString(int i) { return (strings != null) ? strings.get(i) : null; }
 		@Override public synchronized Iterable<DeviceStringInfo> getStrings() { return (strings != null) ? Collections.unmodifiableList(strings) : null; }
+		@Override public synchronized boolean hasConfigurationPanel() { return (device != null) ? device.hasConfigurationPanel() : false; }
+		@Override public synchronized Component createConfigurationPanel() { return (device != null) ? device.createConfigurationPanel() : null; }
 	}
 	
 	public final class DeviceStringInfo implements DeviceString {

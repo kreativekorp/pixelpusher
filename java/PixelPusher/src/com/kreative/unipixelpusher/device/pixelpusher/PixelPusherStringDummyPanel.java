@@ -12,6 +12,7 @@ public class PixelPusherStringDummyPanel extends JPanel {
 	public PixelPusherStringDummyPanel(int stripNumber) {
 		JLabel label = new JLabel("Strip " + stripNumber + " Not Installed");
 		label.setForeground(Color.gray);
+		label.setHorizontalAlignment(JLabel.CENTER);
 		
 		setLayout(new GridLayout(1, 1));
 		add(label);
