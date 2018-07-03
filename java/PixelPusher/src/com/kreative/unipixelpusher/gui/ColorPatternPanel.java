@@ -24,7 +24,7 @@ import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.mmxl.MMXLColorPattern;
 import com.kreative.unipixelpusher.mmxl.MMXLParser;
 
-public class ColorListPanel extends JPanel {
+public class ColorPatternPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	private final PixelSequence.ColorPattern sequence;
@@ -40,7 +40,7 @@ public class ColorListPanel extends JPanel {
 	private final JButton rightButton;
 	private boolean updating;
 	
-	public ColorListPanel(MMXLParser mmxl, ColorListCellRenderer lcr, PixelSequence.ColorPattern seq) {
+	public ColorPatternPanel(MMXLParser mmxl, ColorListCellRenderer lcr, PixelSequence.ColorPattern seq) {
 		this.sequence = seq;
 		this.presetNames = mmxl.getColorPatternNames();
 		this.presetColors = new MMXLColorPattern[presetNames.length];
@@ -229,10 +229,10 @@ public class ColorListPanel extends JPanel {
 		Image left;
 		Image right;
 		try {
-			add = ImageIO.read(ColorListPanel.class.getResource("list-add.png"));
-			remove = ImageIO.read(ColorListPanel.class.getResource("list-remove.png"));
-			left = ImageIO.read(ColorListPanel.class.getResource("go-previous.png"));
-			right = ImageIO.read(ColorListPanel.class.getResource("go-next.png"));
+			add = ImageIO.read(ColorPatternPanel.class.getResource("list-add.png"));
+			remove = ImageIO.read(ColorPatternPanel.class.getResource("list-remove.png"));
+			left = ImageIO.read(ColorPatternPanel.class.getResource("go-previous.png"));
+			right = ImageIO.read(ColorPatternPanel.class.getResource("go-next.png"));
 		} catch (IOException e) {
 			add = null;
 			remove = null;
