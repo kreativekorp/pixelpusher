@@ -40,7 +40,7 @@ public class ColorPatternPanel extends JPanel {
 	private final JButton rightButton;
 	private boolean updating;
 	
-	public ColorPatternPanel(MMXLParser mmxl, ColorListCellRenderer lcr, PixelSequence.ColorPattern seq) {
+	public ColorPatternPanel(MMXLParser mmxl, ColorListCellRenderer lcr, PixelSequence.ColorPattern seq, boolean title) {
 		this.sequence = seq;
 		this.presetNames = mmxl.getColorPatternNames();
 		this.presetColors = new MMXLColorPattern[presetNames.length];
@@ -91,10 +91,13 @@ public class ColorPatternPanel extends JPanel {
 		JPanel bottomPanel = new JPanel(new BorderLayout(4, 4));
 		bottomPanel.add(colorPanel, BorderLayout.LINE_START);
 		bottomPanel.add(buttonPanel, BorderLayout.LINE_END);
+		JPanel mainPanel = new JPanel(new BorderLayout(8, 8));
+		mainPanel.add(topPanel, BorderLayout.PAGE_START);
+		mainPanel.add(colorPane, BorderLayout.CENTER);
+		mainPanel.add(bottomPanel, BorderLayout.PAGE_END);
 		setLayout(new BorderLayout(8, 8));
-		add(topPanel, BorderLayout.PAGE_START);
-		add(colorPane, BorderLayout.CENTER);
-		add(bottomPanel, BorderLayout.PAGE_END);
+		if (title) add(new JLabel("Color Pattern:"), BorderLayout.PAGE_START);
+		add(mainPanel, BorderLayout.CENTER);
 		
 		updating = false;
 		presetPopup.addItemListener(new ItemListener() {

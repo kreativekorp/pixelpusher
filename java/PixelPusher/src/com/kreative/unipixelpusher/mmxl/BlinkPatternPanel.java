@@ -1,4 +1,4 @@
-package com.kreative.unipixelpusher.gui;
+package com.kreative.unipixelpusher.mmxl;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -34,7 +34,7 @@ public class BlinkPatternPanel extends JPanel {
 	private final JTable patternTable;
 	private boolean updating;
 	
-	public BlinkPatternPanel(MMXLParser mmxl, MMXLSequence seq) {
+	public BlinkPatternPanel(MMXLParser mmxl, MMXLSequence seq, boolean title) {
 		this.sequence = seq;
 		this.presetNames = mmxl.getBlinkPatternNames();
 		this.presetPatterns = new MMXLBlinkPattern[presetNames.length];
@@ -83,9 +83,12 @@ public class BlinkPatternPanel extends JPanel {
 		JPanel topPanel = new JPanel(new BorderLayout(4, 4));
 		topPanel.add(presetPanel, BorderLayout.LINE_START);
 		topPanel.add(dimensionPanel, BorderLayout.LINE_END);
+		JPanel mainPanel = new JPanel(new BorderLayout(8, 8));
+		mainPanel.add(topPanel, BorderLayout.PAGE_START);
+		mainPanel.add(patternPane, BorderLayout.CENTER);
 		setLayout(new BorderLayout(8, 8));
-		add(topPanel, BorderLayout.PAGE_START);
-		add(patternPane, BorderLayout.CENTER);
+		if (title) add(new JLabel("Blink Pattern:"), BorderLayout.PAGE_START);
+		add(mainPanel, BorderLayout.CENTER);
 		
 		updating = false;
 		presetPopup.addItemListener(new ItemListener() {
