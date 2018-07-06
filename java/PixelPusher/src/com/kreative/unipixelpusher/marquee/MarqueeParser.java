@@ -32,6 +32,17 @@ import com.kreative.unipixelpusher.Base64InputStream;
 import com.kreative.unipixelpusher.ColorUtilities;
 
 public class MarqueeParser {
+	private static MarqueeParser instance = null;
+	
+	public static MarqueeParser getInstance() {
+		if (instance == null) {
+			instance = new MarqueeParser();
+			try { instance.parse(); } catch (IOException e) {}
+			try { instance.parse(new File(".")); } catch (IOException e) {}
+		}
+		return instance;
+	}
+	
 	private final SortedMap<String,MarqueeItem> messages;
 	
 	public MarqueeParser() {
@@ -53,9 +64,19 @@ public class MarqueeParser {
 	}
 	
 	public void parse(File file) throws IOException {
-		InputStream in = new FileInputStream(file);
-		parse(file.getParentFile(), file.getName(), in);
-		in.close();
+		if (file.isDirectory()) {
+			for (File f : file.listFiles()) {
+				String name = f.getName().toLowerCase();
+				if (name.endsWith(".ppmqx") || (f.isDirectory() && !name.startsWith("."))) {
+					try { parse(f); }
+					catch (IOException e) { e.printStackTrace(); }
+				}
+			}
+		} else {
+			InputStream in = new FileInputStream(file);
+			parse(file.getParentFile(), file.getName(), in);
+			in.close();
+		}
 	}
 	
 	public void parse(File parentDir, String name, InputStream in) throws IOException {

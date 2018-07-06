@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mmxl PUBLIC "-//Kreative//DTD MoreMoreXmasLights 1.0//EN" "http://www.kreativekorp.com/dtd/mmxlx.dtd">
+<mmxl>
+	<color-pattern name="Magic">
+		<color r="192" g="0"   b="255" />
+		<color r="64"  g="0"   b="255" />
+		<color r="255" g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Laughter">
+		<color r="255" g="128" b="255" />
+		<color r="255" g="0"   b="255" />
+		<color r="0"   g="255" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Loyalty">
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="128" b="0"   />
+		<color r="255" g="255" b="0"   />
+		<color r="0"   g="255" b="0"   />
+		<color r="0"   g="0"   b="255" />
+		<color r="128" g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Honesty">
+		<color r="255" g="128" b="0"   />
+		<color r="255" g="255" b="128" />
+		<color r="0"   g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Generosity">
+		<color r="255" g="255" b="255" />
+		<color r="128" g="0"   b="255" />
+		<color r="0"   g="128" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Kindness">
+		<color r="255" g="255" b="128" />
+		<color r="255" g="128" b="255" />
+		<color r="0"   g="255" b="128" />
+	</color-pattern>
+
+	<color-pattern name="Harmony">
+		<color r="255" g="128" b="255" />
+		<color r="255" g="192" b="128" />
+		<color r="255" g="255" b="128" />
+		<color r="255" g="255" b="255" />
+		<color r="128" g="255" b="255" />
+		<color r="192" g="128" b="255" />
+	</color-pattern>
+</mmxl>

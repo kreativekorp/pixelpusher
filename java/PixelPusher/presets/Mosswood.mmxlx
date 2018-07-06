@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mmxl PUBLIC "-//Kreative//DTD MoreMoreXmasLights 1.0//EN" "http://www.kreativekorp.com/dtd/mmxlx.dtd">
+<mmxl>
+	<color-pattern name="Mosswood 1">
+		<color r="0"   g="255" b="0"   /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="255" b="255" /><!-- trans -->
+		<color r="255" g="128" b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- trans -->
+		<color r="255" g="255" b="0"   /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="255" g="255" b="255" /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="0"   g="255" b="0"   /><!-- trans -->
+		<color r="0"   g="255" b="0"   /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- solid -->
+		<color r="0"   g="255" b="0"   /><!-- solid -->
+		<color r="255" g="255" b="0"   /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="0"   g="0"   b="255" /><!-- solid -->
+	</color-pattern>
+
+	<color-pattern name="Mosswood 2">
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="0"   g="0"   b="255" /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="0"   g="255" b="128" /><!-- solid --><!-- aquamarine bulb is best bulb <3 -->
+		<color r="255" g="128" b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- trans -->
+		<color r="0"   g="255" b="0"   /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- solid -->
+		<color r="0"   g="255" b="0"   /><!-- solid -->
+		<color r="255" g="255" b="255" /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="255" g="255" b="255" /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="255" g="255" b="0"   /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- trans -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="255" g="0"   b="0"   /><!-- solid -->
+		<color r="0"   g="255" b="0"   /><!-- trans -->
+		<color r="255" g="128" b="0"   /><!-- solid -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="0"   g="0"   b="255" /><!-- trans -->
+		<color r="255" g="255" b="255" /><!-- trans -->
+	</color-pattern>
+</mmxl>

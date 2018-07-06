@@ -22,6 +22,17 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 public class MMXLParser {
+	private static MMXLParser instance = null;
+	
+	public static MMXLParser getInstance() {
+		if (instance == null) {
+			instance = new MMXLParser();
+			try { instance.parse(); } catch (IOException e) {}
+			try { instance.parse(new File(".")); } catch (IOException e) {}
+		}
+		return instance;
+	}
+	
 	private final SortedMap<String, MMXLColorPattern> colorPatterns;
 	private final SortedMap<String, MMXLBlinkPattern> blinkPatterns;
 	
@@ -53,9 +64,19 @@ public class MMXLParser {
 	}
 	
 	public void parse(File file) throws IOException {
-		InputStream in = new FileInputStream(file);
-		parse(file.getName(), in);
-		in.close();
+		if (file.isDirectory()) {
+			for (File f : file.listFiles()) {
+				String name = f.getName().toLowerCase();
+				if (name.endsWith(".mmxlx") || (f.isDirectory() && !name.startsWith("."))) {
+					try { parse(f); }
+					catch (IOException e) { e.printStackTrace(); }
+				}
+			}
+		} else {
+			InputStream in = new FileInputStream(file);
+			parse(file.getName(), in);
+			in.close();
+		}
 	}
 	
 	public void parse(String name, InputStream in) throws IOException {

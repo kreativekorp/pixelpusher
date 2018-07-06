@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE messages PUBLIC "-//Kreative//DTD PixelPusherMarquee 1.0//EN" "http://www.kreativekorp.com/dtd/ppmqx.dtd">
+<messages>
+	<message name="MLP">
+		<image type="image/png" enc="ascii85">
+			<![CDATA[
+				M,6r;%14!\!!!!.8Ou6I!!!!)!!!!)#Qk&,!;"T5\GuU0)0A;LFAm*iFE_/6AH5#,Ddm9#8SqmKAQ!)J
+				A9i1:ANTqm!#8=(<(-ce!<<*!!!*'!!!*'!!+ohTAcMgENF*D#!!"WC6pXdsg,+V:#llXf_R-cKs5[2#
+				!g4ZkEX+\9-:V!.0K#trk?i!e;HJAL!"8r0>[hH9fDkmO!(fUS7'8jaJc
+			]]>
+		</image>
+		<text padding="1 4 1 4" color="#66FFFF">BIG ADVENTURE</text>
+
+		<image type="image/png" enc="ascii85">
+			<![CDATA[
+				M,6r;%14!\!!!!.8Ou6I!!!!)!!!!)#Qk&,!;"T5\GuU0)0A;LFAm*iFE_/6AH5#,Ddm9#8SqmKAQ!)J
+				A9i1:ANTqm!"Vn"<(-ce!<<'!!+ogCs8Q\C!;9</DZBb;/4i5q<-[+ra>"/)!!pHWUAk2;6C_9j;LfWP
+				'iOBnZ2U9a7ZemDafYUG!"5P%6U>cgRfEEg!(fUS7'8jaJc
+			]]>
+		</image>
+		<text padding="1 4 1 4" color="#FF66FF">TONS OF FUN</text>
+
+		<image type="image/png" enc="ascii85">
+			<![CDATA[
+				M,6r;%14!\!!!!.8Ou6I!!!!)!!!!)#Qk&,!;"T5\GuU0)0A;LFAm*iFE_/6AH5#,Ddm9#8SqmKAQ!)J
+				A9i1:ANTqm!"Vn"<(-ce!!!!T!+u621M-Xersk2\bQ%VC/4i5q<-[+BMLc3:0F5OWmf/cSd)62jBgH;m
+				%=ZT702rL.,4\ppaa=*n!!l$o6b0sB,ldoF!(fUS7'8jaJc
+			]]>
+		</image>
+		<text padding="1 4 1 4" color="#FFFFFF">A BEAUTIFUL HEART</text>
+
+		<image type="image/png" enc="ascii85">
+			<![CDATA[
+				M,6r;%14!\!!!!.8Ou6I!!!!)!!!!)#Qk&,!;"T5\GuU0)0A;LFAm*iFE_/6AH5#,Ddm9#8SqmKAQ!)J
+				A9i1:ANTqm!";[t<(-ce!<3$!AcMf2AcRsp)nQ(M!%(9*5u`*_@UK0:Ad/NKA:i5p!"ijQKSqWR`PEOe
+				3(spO!t\i?"Y]p).Bj$hz8OZBBY!QNJ
+			]]>
+		</image>
+		<text padding="1 4 1 4" color="#FF9933">FAITHFUL &amp; STRONG</text>
+
+		<image type="image/png" enc="ascii85">
+			<![CDATA[
+				M,6r;%14!\!!!!.8Ou6I!!!!)!!!!)#Qk&,!;"T5\GuU0)0A;LFAm*iFE_/6AH5#,Ddm9#8SqmKAQ!)J
+				A9i1:ANTqm!";[t<(-ce!!*%2rrE'T!&IaPhb=(N!%CK-5u`*_@UNSO"@=eM@Ut'EQl2=N,)cpA#aPXp
+				!6Kgm^dWbR+M[s^('$D8h\,GZ!!!!j78?7R6=>B
+			]]>
+		</image>
+		<text padding="1 4 1 4" color="#FFFF66">SHARING KINDNESS (IT'S AN EASY FEAT)</text>
+
+		<image type="image/png" enc="ascii85">
+			<![CDATA[
+				M,6r;%14!\!!!!.8Ou6I!!!!)!!!!)#Qk&,!;"T5\GuU0)0A;LFAm*iFE_/6AH5#,Ddm9#8SqmKAQ!)J
+				A9i1:ANTqm!"Vn"<(-ce!<3'!AcQHCs8OkT1H$&2@fQK//P/>r<-[+bMa7gQ0F5N&qYrLTRu&,8U]>u%
+				L(]=W==l>i-2\C2DS5]V?iUR"!)J.F#Fkbo!!#SZ:.26O@"J
+			]]>
+		</image>
+		<text padding="1 4 1 4" color="#9933FF">AND MAGIC MAKES IT ALL COMPLETE</text>
+	</message>
+</messages>
