@@ -62,6 +62,10 @@ public interface DigitalClockDisplayMode {
 				}
 			}
 		}
+		@Override
+		public String toString() {
+			return "Segmented";
+		}
 	}
 	
 	public static class Pipped implements DigitalClockDisplayMode {
@@ -91,6 +95,10 @@ public interface DigitalClockDisplayMode {
 				ps.setPixel(y2, x1, color);
 			}
 		}
+		@Override
+		public String toString() {
+			return "Pipped";
+		}
 	}
 	
 	public static class Unary implements DigitalClockDisplayMode {
@@ -109,6 +117,10 @@ public interface DigitalClockDisplayMode {
 					}
 				}
 			}
+		}
+		@Override
+		public String toString() {
+			return "Unary";
 		}
 	}
 }

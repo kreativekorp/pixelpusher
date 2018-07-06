@@ -15,7 +15,7 @@ public class DigitalClockSequence implements PixelSequence {
 	private boolean flashSeparators = true;
 	private boolean showSeconds = false;
 	private DigitalClockColorMode colorMode = new DigitalClockColorMode.Monochrome();
-	private DigitalClockDisplayMode displayMode = new DigitalClockDisplayMode.Segmented();
+	private DigitalClockDisplayMode displayMode = DigitalClockDisplayMode.SEGMENTED;
 	private HashMap<String,int[]> lastValues = null;
 	
 	public boolean getIs24Hour() { return this.is24Hour; }
@@ -343,13 +343,13 @@ public class DigitalClockSequence implements PixelSequence {
 		
 		String displayMode = config.get("displayMode", "SEGMENTED");
 		if (displayMode.equalsIgnoreCase("SEGMENTED")) {
-			this.displayMode = new DigitalClockDisplayMode.Segmented();
+			this.displayMode = DigitalClockDisplayMode.SEGMENTED;
 		} else if (displayMode.equalsIgnoreCase("PIPPED")) {
-			this.displayMode = new DigitalClockDisplayMode.Pipped();
+			this.displayMode = DigitalClockDisplayMode.PIPPED;
 		} else if (displayMode.equalsIgnoreCase("UNARY")) {
-			this.displayMode = new DigitalClockDisplayMode.Unary();
+			this.displayMode = DigitalClockDisplayMode.UNARY;
 		} else {
-			this.displayMode = new DigitalClockDisplayMode.Segmented();
+			this.displayMode = DigitalClockDisplayMode.SEGMENTED;
 		}
 		
 		this.lastValues = null;

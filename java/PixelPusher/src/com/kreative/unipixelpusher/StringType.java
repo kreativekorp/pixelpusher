@@ -34,6 +34,10 @@ public enum StringType {
 	EL_TAPE("EL Tape"),
 	EL_PANEL("EL Panel"),
 	BACKLIGHT("Backlight"),
+	STANDARD_MOTOR("Standard Motor"),
+	STEPPING_MOTOR("Stepping Motor"),
+	SERVO_MOTOR("Servo Motor"),
+	LINEAR_ACTUATOR("Linear Actuator"),
 	TEST_DEVICE("Test Device");
 	
 	private final String toString;
