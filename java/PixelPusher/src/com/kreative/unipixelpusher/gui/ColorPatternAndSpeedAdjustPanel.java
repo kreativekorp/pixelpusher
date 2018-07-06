@@ -9,12 +9,13 @@ import com.kreative.unipixelpusher.mmxl.MMXLParser;
 public class ColorPatternAndSpeedAdjustPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
-	public ColorPatternAndSpeedAdjustPanel(MMXLParser p, PixelSequence s) {
-		ColorPatternPanel cpp = new ColorPatternPanel(
-			p, new ColorListCellRenderer.LargeCircle(),
-			(PixelSequence.ColorPattern)s, true
-		);
-		SpeedAdjustPanel sap = new SpeedAdjustPanel((PixelSequence.SpeedAdjust)s, true);
+	public ColorPatternAndSpeedAdjustPanel(
+		MMXLParser p,
+		PixelSequence.ColorPattern scp,
+		PixelSequence.SpeedAdjust ssa
+	) {
+		ColorPatternPanel cpp = new ColorPatternPanel(p, new ColorListCellRenderer.LargeCircle(), scp, true);
+		SpeedAdjustPanel sap = new SpeedAdjustPanel(ssa, true);
 		JPanel bottomPanel = new JPanel(new BorderLayout(8, 8));
 		bottomPanel.add(sap, BorderLayout.CENTER);
 		bottomPanel.add(new JSeparator(), BorderLayout.PAGE_START);
