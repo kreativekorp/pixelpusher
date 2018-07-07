@@ -40,6 +40,10 @@ public class ColorPatternPanel extends JPanel {
 	private final JButton rightButton;
 	private boolean updating;
 	
+	public ColorPatternPanel(PixelSequence.ColorPattern seq) {
+		this(MMXLParser.getInstance(), new ColorListCellRenderer.LargeCircle(), seq, true);
+	}
+	
 	public ColorPatternPanel(MMXLParser mmxl, ColorListCellRenderer lcr, PixelSequence.ColorPattern seq, boolean title) {
 		this.sequence = seq;
 		this.presetNames = mmxl.getColorPatternNames();

@@ -1,5 +1,6 @@
 package com.kreative.unipixelpusher.animation;
 
+import java.awt.Component;
 import java.awt.image.BufferedImage;
 import com.kreative.imagetool.animation.Animation;
 import com.kreative.imagetool.animation.AnimationFrame;
@@ -210,6 +211,16 @@ public class AnimationSequence implements PixelSequence {
 		config.put("scrollVertical", scrollDirectionVertical);
 		config.put("speedHorizontal", scrollMsHorizontal);
 		config.put("speedVertical", scrollMsVertical);
+	}
+	
+	@Override
+	public boolean hasConfigurationPanel() {
+		return true;
+	}
+	
+	@Override
+	public Component createConfigurationPanel() {
+		return new AnimationConfigPanel(this);
 	}
 	
 	@Override

@@ -1,5 +1,9 @@
 package com.kreative.unipixelpusher;
 
+import java.awt.Component;
+import com.kreative.unipixelpusher.gui.ColorPatternAndSpeedAdjustPanel;
+import com.kreative.unipixelpusher.gui.SpeedAdjustPanel;
+
 public abstract class AbstractPixelSequence implements PixelSequence.SpeedAdjust {
 	protected float speedAdjust = 1;
 	protected boolean initialized = false;
@@ -57,6 +61,16 @@ public abstract class AbstractPixelSequence implements PixelSequence.SpeedAdjust
 		config.put("speedAdjust", speedAdjust);
 	}
 	
+	@Override
+	public boolean hasConfigurationPanel() {
+		return true;
+	}
+	
+	@Override
+	public Component createConfigurationPanel() {
+		return new SpeedAdjustPanel(this, true);
+	}
+	
 	public static abstract class ColorPattern extends AbstractPixelSequence implements PixelSequence.ColorPattern {
 		protected int[] colorPattern = new int[]{-1};
 		
@@ -80,6 +94,11 @@ public abstract class AbstractPixelSequence implements PixelSequence.SpeedAdjust
 		public void saveConfiguration(SequenceConfiguration config) {
 			super.saveConfiguration(config);
 			config.put("colorPattern", colorPattern);
+		}
+		
+		@Override
+		public Component createConfigurationPanel() {
+			return new ColorPatternAndSpeedAdjustPanel(this, this);
 		}
 		
 		protected int color(int index) {

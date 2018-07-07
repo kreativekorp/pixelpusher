@@ -16,6 +16,14 @@ public abstract class ColorPatternAndIntegerAndSpeedAdjustPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	public ColorPatternAndIntegerAndSpeedAdjustPanel(
+		PixelSequence.ColorPattern scp,
+		PixelSequence.SpeedAdjust ssa,
+		String label, int min, int max
+	) {
+		this(MMXLParser.getInstance(), scp, ssa, label, min, max);
+	}
+	
+	public ColorPatternAndIntegerAndSpeedAdjustPanel(
 		MMXLParser p,
 		PixelSequence.ColorPattern scp,
 		PixelSequence.SpeedAdjust ssa,

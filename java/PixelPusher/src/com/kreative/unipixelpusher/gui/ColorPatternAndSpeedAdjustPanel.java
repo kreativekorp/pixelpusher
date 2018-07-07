@@ -10,6 +10,13 @@ public class ColorPatternAndSpeedAdjustPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	public ColorPatternAndSpeedAdjustPanel(
+		PixelSequence.ColorPattern scp,
+		PixelSequence.SpeedAdjust ssa
+	) {
+		this(MMXLParser.getInstance(), scp, ssa);
+	}
+	
+	public ColorPatternAndSpeedAdjustPanel(
 		MMXLParser p,
 		PixelSequence.ColorPattern scp,
 		PixelSequence.SpeedAdjust ssa

@@ -1,5 +1,6 @@
 package com.kreative.unipixelpusher.audiospectrum;
 
+import java.awt.Component;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
@@ -117,6 +118,8 @@ public class AudioSpectrumSequence implements PixelSequence {
 	
 	@Override public void loadConfiguration(SequenceConfiguration config) {}
 	@Override public void saveConfiguration(SequenceConfiguration config) {}
+	@Override public boolean hasConfigurationPanel() { return false; }
+	@Override public Component createConfigurationPanel() { return null; }
 	
 	@Override
 	public String toString() {

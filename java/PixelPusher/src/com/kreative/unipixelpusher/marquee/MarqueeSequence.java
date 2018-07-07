@@ -1,5 +1,6 @@
 package com.kreative.unipixelpusher.marquee;
 
+import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.DataInputStream;
@@ -126,6 +127,11 @@ public class MarqueeSequence extends AbstractPixelSequence {
 			config.put("item", item.getClass());
 			item.saveConfiguration(config, "item");
 		}
+	}
+	
+	@Override
+	public Component createConfigurationPanel() {
+		return new MarqueeConfigPanel(MarqueeParser.getInstance(), this);
 	}
 	
 	@Override

@@ -1,5 +1,6 @@
 package com.kreative.unipixelpusher.xlm;
 
+import java.awt.Component;
 import com.kreative.unipixelpusher.ColorConstants;
 import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
@@ -74,6 +75,16 @@ public class XLMSequence implements PixelSequence {
 		for (int i = 0; i < channels.length; i++) {
 			channels[i].saveConfiguration(config, "channels.ch" + i);
 		}
+	}
+	
+	@Override
+	public boolean hasConfigurationPanel() {
+		return true;
+	}
+	
+	@Override
+	public Component createConfigurationPanel() {
+		return new XLMConfigPanel(this);
 	}
 	
 	@Override

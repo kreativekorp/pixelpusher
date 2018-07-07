@@ -1,5 +1,6 @@
 package com.kreative.unipixelpusher.colorbars;
 
+import java.awt.Component;
 import com.kreative.unipixelpusher.ColorConstants;
 import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
@@ -132,6 +133,8 @@ public class ColorBarsSequence implements PixelSequence {
 	
 	@Override public void loadConfiguration(SequenceConfiguration config) {}
 	@Override public void saveConfiguration(SequenceConfiguration config) {}
+	@Override public boolean hasConfigurationPanel() { return false; }
+	@Override public Component createConfigurationPanel() { return null; }
 	
 	@Override
 	public String toString() {

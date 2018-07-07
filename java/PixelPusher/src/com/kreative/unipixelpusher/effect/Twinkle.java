@@ -1,9 +1,11 @@
 package com.kreative.unipixelpusher.effect;
 
+import java.awt.Component;
 import java.util.Random;
 import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 import com.kreative.unipixelpusher.SequenceConfiguration;
+import com.kreative.unipixelpusher.gui.ColorPatternAndIntegerAndSpeedAdjustPanel;
 
 public class Twinkle extends AbstractPixelSequence.ColorPattern {
 	public static final String name = "Twinkle";
@@ -53,6 +55,15 @@ public class Twinkle extends AbstractPixelSequence.ColorPattern {
 	public void saveConfiguration(SequenceConfiguration config) {
 		super.saveConfiguration(config);
 		config.put("count", count);
+	}
+	
+	@Override
+	public Component createConfigurationPanel() {
+		return new ColorPatternAndIntegerAndSpeedAdjustPanel(this, this, "Max Twinkles:", 0, 999) {
+			private static final long serialVersionUID = 1L;
+			@Override public int getValue() { return count; }
+			@Override public void setValue(int value) { count = value; }
+		};
 	}
 	
 	@Override

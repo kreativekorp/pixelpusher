@@ -1,5 +1,6 @@
 package com.kreative.unipixelpusher.clock;
 
+import java.awt.Component;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
@@ -401,6 +402,16 @@ public class DigitalClockSequence implements PixelSequence {
 		} else if (displayMode instanceof DigitalClockDisplayMode.Unary) {
 			config.put("displayMode", "UNARY");
 		}
+	}
+	
+	@Override
+	public boolean hasConfigurationPanel() {
+		return true;
+	}
+	
+	@Override
+	public Component createConfigurationPanel() {
+		return new DigitalClockConfigPanel(this);
 	}
 	
 	@Override

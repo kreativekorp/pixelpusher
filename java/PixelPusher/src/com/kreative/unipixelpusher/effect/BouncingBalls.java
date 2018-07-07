@@ -1,8 +1,11 @@
 package com.kreative.unipixelpusher.effect;
 
+import java.awt.Component;
 import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 import com.kreative.unipixelpusher.SequenceConfiguration;
+import com.kreative.unipixelpusher.gui.ColorPatternAndIntegerPanel;
+import com.kreative.unipixelpusher.gui.ColorPatternPanel;
 
 public abstract class BouncingBalls implements PixelSequence.ColorPattern {
 	protected static final double START_HEIGHT = 1;
@@ -26,7 +29,11 @@ public abstract class BouncingBalls implements PixelSequence.ColorPattern {
 		}
 		
 		public void setCount(int count) {
-			this.count = count;
+			this.count           = count;
+			this.height          = null;
+			this.impactVelocity  = null;
+			this.dampening       = null;
+			this.timeSinceBounce = null;
 		}
 		
 		@Override
@@ -44,6 +51,15 @@ public abstract class BouncingBalls implements PixelSequence.ColorPattern {
 		public void saveConfiguration(SequenceConfiguration config) {
 			super.saveConfiguration(config);
 			config.put("count", count);
+		}
+		
+		@Override
+		public Component createConfigurationPanel() {
+			return new ColorPatternAndIntegerPanel(this, "Balls:", 0, 999) {
+				private static final long serialVersionUID = 1L;
+				@Override public int getValue() { return getCount(); }
+				@Override public void setValue(int value) { setCount(value); }
+			};
 		}
 		
 		@Override
@@ -93,6 +109,16 @@ public abstract class BouncingBalls implements PixelSequence.ColorPattern {
 	@Override
 	public void saveConfiguration(SequenceConfiguration config) {
 		config.put("colorPattern", colorPattern);
+	}
+	
+	@Override
+	public boolean hasConfigurationPanel() {
+		return true;
+	}
+	
+	@Override
+	public Component createConfigurationPanel() {
+		return new ColorPatternPanel(this);
 	}
 	
 	protected void render(PixelString ps, long tick, int ballCount, boolean multiColor) {

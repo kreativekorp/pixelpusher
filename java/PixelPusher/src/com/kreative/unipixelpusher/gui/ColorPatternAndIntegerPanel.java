@@ -15,6 +15,13 @@ public abstract class ColorPatternAndIntegerPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
 	public ColorPatternAndIntegerPanel(
+		PixelSequence.ColorPattern s,
+		String label, int min, int max
+	) {
+		this(MMXLParser.getInstance(), s, label, min, max);
+	}
+	
+	public ColorPatternAndIntegerPanel(
 		MMXLParser p,
 		PixelSequence.ColorPattern s,
 		String label, int min, int max

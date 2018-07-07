@@ -1,5 +1,6 @@
 package com.kreative.unipixelpusher.mmxl;
 
+import java.awt.Component;
 import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.ColorUtilities;
 import com.kreative.unipixelpusher.PixelString;
@@ -84,6 +85,11 @@ public class MMXLSequence extends AbstractPixelSequence.ColorPattern {
 		super.saveConfiguration(config);
 		config.put("frameDuration", frameDuration);
 		config.put("levels", levels);
+	}
+	
+	@Override
+	public Component createConfigurationPanel() {
+		return new MMXLConfigPanel(MMXLParser.getInstance(), this);
 	}
 	
 	@Override

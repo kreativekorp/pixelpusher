@@ -1,5 +1,6 @@
 package com.kreative.unipixelpusher.clock;
 
+import java.awt.Component;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import com.kreative.unipixelpusher.ColorConstants;
@@ -76,6 +77,16 @@ public class AnalogClockSequence implements PixelSequence {
 		config.put("minuteColor", minuteColor);
 		config.put("secondColor", secondColor);
 		config.put("mode", mode);
+	}
+	
+	@Override
+	public boolean hasConfigurationPanel() {
+		return true;
+	}
+	
+	@Override
+	public Component createConfigurationPanel() {
+		return new AnalogClockConfigPanel(this);
 	}
 	
 	@Override
