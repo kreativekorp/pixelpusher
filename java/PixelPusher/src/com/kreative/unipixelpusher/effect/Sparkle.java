@@ -1,31 +1,25 @@
 package com.kreative.unipixelpusher.effect;
 
-import java.awt.Component;
 import java.util.Random;
-import com.kreative.unipixelpusher.PixelSequence;
+import com.kreative.unipixelpusher.ColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
-import com.kreative.unipixelpusher.SequenceConfiguration;
-import com.kreative.unipixelpusher.gui.ColorPatternPanel;
 
-public class Sparkle implements PixelSequence.ColorPattern {
+public class Sparkle extends ColorPatternPixelSequence {
 	public static final String name = "Sparkle";
 	
 	protected Random random = new Random();
-	protected int[] colorPattern = new int[]{-1};
+	
+	@Override
+	protected int[] defaultColorPattern() {
+		return white();
+	}
 	
 	@Override
 	public void update(PixelString ps, long tick) {
 		int n = ps.length();
 		int si = random.nextInt(n);
-		if (colorPattern == null || colorPattern.length == 0) {
-			for (int i = 0; i < n; i++) {
-				ps.setPixel(i, (i == si) ? -1 : 0);
-			}
-		} else {
-			for (int i = 0; i < n; i++) {
-				int ci = i % colorPattern.length;
-				ps.setPixel(i, (i == si) ? colorPattern[ci] : 0);
-			}
+		for (int i = 0; i < n; i++) {
+			ps.setPixel(i, (i == si) ? color(i) : 0);
 		}
 		ps.push();
 	}
@@ -33,36 +27,6 @@ public class Sparkle implements PixelSequence.ColorPattern {
 	@Override
 	public long getUpdateInterval() {
 		return 0;
-	}
-	
-	@Override
-	public int[] getColorPattern() {
-		return this.colorPattern;
-	}
-	
-	@Override
-	public void setColorPattern(int[] colors) {
-		this.colorPattern = colors;
-	}
-	
-	@Override
-	public void loadConfiguration(SequenceConfiguration config) {
-		this.colorPattern = config.get("colorPattern", new int[]{-1});
-	}
-	
-	@Override
-	public void saveConfiguration(SequenceConfiguration config) {
-		config.put("colorPattern", colorPattern);
-	}
-	
-	@Override
-	public boolean hasConfigurationPanel() {
-		return true;
-	}
-	
-	@Override
-	public Component createConfigurationPanel() {
-		return new ColorPatternPanel(this);
 	}
 	
 	@Override

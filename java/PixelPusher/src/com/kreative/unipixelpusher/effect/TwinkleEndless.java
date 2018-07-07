@@ -1,13 +1,18 @@
 package com.kreative.unipixelpusher.effect;
 
 import java.util.Random;
-import com.kreative.unipixelpusher.AbstractPixelSequence;
+import com.kreative.unipixelpusher.FrameBasedColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
-public class TwinkleEndless extends AbstractPixelSequence.ColorPattern {
+public class TwinkleEndless extends FrameBasedColorPatternPixelSequence {
 	public static final String name = "Endless Twinkle";
 	
 	protected Random random = new Random();
+	
+	@Override
+	protected int[] defaultColorPattern() {
+		return rainbow();
+	}
 	
 	@Override
 	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {

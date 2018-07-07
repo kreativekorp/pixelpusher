@@ -1,9 +1,9 @@
 package com.kreative.unipixelpusher.effect;
 
-import com.kreative.unipixelpusher.AbstractPixelSequence;
+import com.kreative.unipixelpusher.FrameBasedColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
-public class Cycle extends AbstractPixelSequence.ColorPattern {
+public class Cycle extends FrameBasedColorPatternPixelSequence {
 	public static class OnOff extends Cycle {
 		public static final String name = "Cycle On/Off";
 		
@@ -28,6 +28,11 @@ public class Cycle extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	public static final String name = "Cycle";
+	
+	@Override
+	protected int[] defaultColorPattern() {
+		return rainbow();
+	}
 	
 	@Override
 	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {

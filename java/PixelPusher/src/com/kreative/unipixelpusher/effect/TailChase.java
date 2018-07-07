@@ -1,10 +1,10 @@
 package com.kreative.unipixelpusher.effect;
 
-import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.ColorUtilities;
+import com.kreative.unipixelpusher.FrameBasedColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
-public abstract class TailChase extends AbstractPixelSequence.ColorPattern {
+public abstract class TailChase extends FrameBasedColorPatternPixelSequence {
 	public static class Left extends TailChase {
 		public static final String name = "Tail Chase Left";
 		
@@ -45,6 +45,11 @@ public abstract class TailChase extends AbstractPixelSequence.ColorPattern {
 		public String toString() {
 			return name;
 		}
+	}
+	
+	@Override
+	protected int[] defaultColorPattern() {
+		return rainbow();
 	}
 	
 	@Override

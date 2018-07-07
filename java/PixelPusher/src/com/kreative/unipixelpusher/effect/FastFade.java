@@ -1,12 +1,17 @@
 package com.kreative.unipixelpusher.effect;
 
-import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.ColorUtilities;
+import com.kreative.unipixelpusher.FrameBasedColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
-public abstract class FastFade extends AbstractPixelSequence.ColorPattern {
+public abstract class FastFade extends FrameBasedColorPatternPixelSequence {
 	public static class InOut extends FastFade {
 		public static final String name = "Fast Fade In/Out";
+		
+		@Override
+		protected int[] defaultColorPattern() {
+			return white();
+		}
 		
 		@Override
 		public void updateFrame(PixelString ps, long frame, boolean frameChanged) {
@@ -76,6 +81,11 @@ public abstract class FastFade extends AbstractPixelSequence.ColorPattern {
 		public String toString() {
 			return name;
 		}
+	}
+	
+	@Override
+	protected int[] defaultColorPattern() {
+		return rainbow();
 	}
 	
 	@Override

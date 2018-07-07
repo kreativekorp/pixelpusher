@@ -1,14 +1,19 @@
 package com.kreative.unipixelpusher.effect;
 
 import java.util.Random;
-import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.ColorUtilities;
+import com.kreative.unipixelpusher.FrameBasedColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
-public class SnowSparkle extends AbstractPixelSequence.ColorPattern {
+public class SnowSparkle extends FrameBasedColorPatternPixelSequence {
 	public static final String name = "Snow Sparkle";
 	
 	protected Random random = new Random();
+	
+	@Override
+	protected int[] defaultColorPattern() {
+		return white();
+	}
 	
 	@Override
 	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {

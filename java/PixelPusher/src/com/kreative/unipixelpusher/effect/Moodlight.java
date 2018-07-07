@@ -1,16 +1,21 @@
 package com.kreative.unipixelpusher.effect;
 
 import java.util.Random;
-import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.ColorUtilities;
+import com.kreative.unipixelpusher.FrameBasedColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
-public class Moodlight extends AbstractPixelSequence.ColorPattern {
+public class Moodlight extends FrameBasedColorPatternPixelSequence {
 	public static final String name = "Moodlight";
 	
 	protected Random random = new Random();
 	protected int[] fromColor = null;
 	protected int[] toColor = null;
+	
+	@Override
+	protected int[] defaultColorPattern() {
+		return rainbow();
+	}
 	
 	@Override
 	public void updateFrame(PixelString ps, long dnu1, boolean dnu2) {

@@ -1,9 +1,9 @@
 package com.kreative.unipixelpusher.effect;
 
-import com.kreative.unipixelpusher.AbstractPixelSequence;
+import com.kreative.unipixelpusher.FrameBasedColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
-public class ColorWipe extends AbstractPixelSequence.ColorPattern {
+public class ColorWipe extends FrameBasedColorPatternPixelSequence {
 	public static class OnOff extends ColorWipe {
 		public static final String name = "Color Wipe On/Off";
 		
@@ -31,6 +31,11 @@ public class ColorWipe extends AbstractPixelSequence.ColorPattern {
 	}
 	
 	public static final String name = "Color Wipe";
+	
+	@Override
+	protected int[] defaultColorPattern() {
+		return rgb();
+	}
 	
 	@Override
 	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {

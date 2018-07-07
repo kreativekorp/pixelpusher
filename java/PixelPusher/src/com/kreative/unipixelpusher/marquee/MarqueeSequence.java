@@ -9,11 +9,11 @@ import java.io.InputStream;
 import com.kreative.imagetool.animation.Animation;
 import com.kreative.imagetool.animation.AnimationIO;
 import com.kreative.imagetool.gif.GIFFile;
-import com.kreative.unipixelpusher.AbstractPixelSequence;
+import com.kreative.unipixelpusher.FrameBasedPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 import com.kreative.unipixelpusher.SequenceConfiguration;
 
-public class MarqueeSequence extends AbstractPixelSequence {
+public class MarqueeSequence extends FrameBasedPixelSequence {
 	public static final String name = "Marquee";
 	
 	private static MarqueeItem createHelloWorld() {

@@ -1,13 +1,13 @@
 package com.kreative.unipixelpusher.effect;
 
 import java.awt.Component;
-import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.ColorUtilities;
+import com.kreative.unipixelpusher.FrameBasedColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 import com.kreative.unipixelpusher.SequenceConfiguration;
 import com.kreative.unipixelpusher.gui.ColorPatternAndIntegerAndSpeedAdjustPanel;
 
-public abstract class LarsonScanner extends AbstractPixelSequence.ColorPattern {
+public abstract class LarsonScanner extends FrameBasedColorPatternPixelSequence {
 	protected int eyeSize = 0;
 	
 	public int getEyeSize() {
@@ -74,6 +74,11 @@ public abstract class LarsonScanner extends AbstractPixelSequence.ColorPattern {
 		public String toString() {
 			return name;
 		}
+	}
+	
+	@Override
+	protected int[] defaultColorPattern() {
+		return red();
 	}
 	
 	@Override

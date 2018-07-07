@@ -2,12 +2,12 @@ package com.kreative.unipixelpusher.effect;
 
 import java.awt.Component;
 import java.util.Random;
-import com.kreative.unipixelpusher.AbstractPixelSequence;
+import com.kreative.unipixelpusher.FrameBasedColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 import com.kreative.unipixelpusher.SequenceConfiguration;
 import com.kreative.unipixelpusher.gui.ColorPatternAndIntegerAndSpeedAdjustPanel;
 
-public class Twinkle extends AbstractPixelSequence.ColorPattern {
+public class Twinkle extends FrameBasedColorPatternPixelSequence {
 	public static final String name = "Twinkle";
 	
 	protected Random random = new Random();
@@ -19,6 +19,11 @@ public class Twinkle extends AbstractPixelSequence.ColorPattern {
 	
 	public void setCount(int count) {
 		this.count = count;
+	}
+	
+	@Override
+	protected int[] defaultColorPattern() {
+		return white();
 	}
 	
 	@Override

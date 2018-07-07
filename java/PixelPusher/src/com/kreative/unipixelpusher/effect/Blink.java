@@ -1,10 +1,15 @@
 package com.kreative.unipixelpusher.effect;
 
-import com.kreative.unipixelpusher.AbstractPixelSequence;
+import com.kreative.unipixelpusher.FrameBasedColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
-public class Blink extends AbstractPixelSequence.ColorPattern {
+public class Blink extends FrameBasedColorPatternPixelSequence {
 	public static final String name = "Blink";
+	
+	@Override
+	protected int[] defaultColorPattern() {
+		return white();
+	}
 	
 	@Override
 	public void updateFrame(PixelString ps, long frame, boolean frameChanged) {

@@ -1,12 +1,12 @@
 package com.kreative.unipixelpusher.mmxl;
 
 import java.awt.Component;
-import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.ColorUtilities;
+import com.kreative.unipixelpusher.FrameBasedColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 import com.kreative.unipixelpusher.SequenceConfiguration;
 
-public class MMXLSequence extends AbstractPixelSequence.ColorPattern {
+public class MMXLSequence extends FrameBasedColorPatternPixelSequence {
 	public static final String name = "MoreMore Christmas Lights (MMXL)";
 	
 	protected long frameDuration;
@@ -14,12 +14,12 @@ public class MMXLSequence extends AbstractPixelSequence.ColorPattern {
 	
 	public MMXLSequence() {
 		this.frameDuration = 1000;
-		this.levels = new int[][]{{255}};
+		this.levels = new int[][]{{255},{0}};
 	}
 	
-	public MMXLSequence(long frameDuration, int[][] levels) {
-		this.frameDuration = frameDuration;
-		this.levels = levels;
+	@Override
+	protected int[] defaultColorPattern() {
+		return white();
 	}
 	
 	@Override

@@ -1,10 +1,10 @@
 package com.kreative.unipixelpusher.effect;
 
-import com.kreative.unipixelpusher.AbstractPixelSequence;
 import com.kreative.unipixelpusher.ColorUtilities;
+import com.kreative.unipixelpusher.FrameBasedColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
-public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
+public abstract class RunningLights extends FrameBasedColorPatternPixelSequence {
 	public static abstract class A extends RunningLights {
 		public static class Left extends A {
 			public static final String name = "Running Lights A Left";
@@ -42,6 +42,11 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 			public String toString() {
 				return name;
 			}
+		}
+		
+		@Override
+		protected int[] defaultColorPattern() {
+			return white();
 		}
 		
 		@Override
@@ -89,6 +94,11 @@ public abstract class RunningLights extends AbstractPixelSequence.ColorPattern {
 			public String toString() {
 				return name;
 			}
+		}
+		
+		@Override
+		protected int[] defaultColorPattern() {
+			return rainbow();
 		}
 		
 		@Override

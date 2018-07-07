@@ -1,9 +1,9 @@
 package com.kreative.unipixelpusher.effect;
 
-import com.kreative.unipixelpusher.AbstractPixelSequence;
+import com.kreative.unipixelpusher.FrameBasedColorPatternPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
-public abstract class Hop extends AbstractPixelSequence.ColorPattern {
+public abstract class Hop extends FrameBasedColorPatternPixelSequence {
 	public static class Left extends Hop {
 		public static final String name = "Hop Left";
 		
@@ -40,6 +40,11 @@ public abstract class Hop extends AbstractPixelSequence.ColorPattern {
 		public String toString() {
 			return name;
 		}
+	}
+	
+	@Override
+	protected int[] defaultColorPattern() {
+		return white();
 	}
 	
 	@Override

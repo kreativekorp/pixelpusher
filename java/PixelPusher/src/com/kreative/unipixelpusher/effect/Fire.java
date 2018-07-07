@@ -1,10 +1,10 @@
 package com.kreative.unipixelpusher.effect;
 
 import java.util.Random;
-import com.kreative.unipixelpusher.AbstractPixelSequence;
+import com.kreative.unipixelpusher.FrameBasedPixelSequence;
 import com.kreative.unipixelpusher.PixelString;
 
-public class Fire extends AbstractPixelSequence {
+public class Fire extends FrameBasedPixelSequence {
 	public static final String name = "Fire";
 	
 	protected static final int COOLING = 55;
