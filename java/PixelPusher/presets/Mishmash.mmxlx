@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mmxl PUBLIC "-//Kreative//DTD MoreMoreXmasLights 1.0//EN" "http://www.kreativekorp.com/dtd/mmxlx.dtd">
+<mmxl>
+	<color-pattern name="Rainbow Deluxe">
+		<color r="255" g="0"   b="128" />
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="64"  b="0"   />
+		<color r="255" g="128" b="0"   />
+		<color r="255" g="192" b="0"   />
+		<color r="255" g="255" b="0"   />
+		<color r="128" g="255" b="0"   />
+		<color r="0"   g="255" b="0"   />
+		<color r="0"   g="255" b="128" />
+		<color r="0"   g="255" b="255" />
+		<color r="0"   g="128" b="255" />
+		<color r="0"   g="0"   b="255" />
+		<color r="64"  g="0"   b="255" />
+		<color r="128" g="0"   b="255" />
+		<color r="192" g="0"   b="255" />
+		<color r="255" g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Beckie's Colors">
+		<color r="192" g="128" b="255" />
+		<color r="255" g="128" b="255" />
+		<color r="128" g="255" b="255" />
+		<color r="255" g="255" b="128" />
+		<color r="255" g="255" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Primaries">
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="255" b="0"   />
+		<color r="0"   g="0"   b="255" />
+		<color r="0"   g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="RGB">
+		<color r="255" g="0"   b="0"   />
+		<color r="0"   g="255" b="0"   />
+		<color r="0"   g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Powell Station">
+		<color r="255" g="128" b="0"   />
+		<color r="255" g="0"   b="255" />
+		<color r="255" g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Festive Bow Tree">
+		<color r="255" g="0"   b="255" />
+		<color r="255" g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Red Alert">
+		<color r="255" g="0"   b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Under Construction">
+		<color r="255" g="192" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Clover">
+		<color r="0"   g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Blue Light Special">
+		<color r="0"   g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Law &amp; Order">
+		<color r="255" g="0"   b="0"   />
+		<color r="0"   g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Barber Pole">
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="255" b="255" />
+		<color r="0"   g="0"   b="255" />
+		<color r="255" g="255" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Genova">
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="255" b="255" />
+		<color r="0"   g="255" b="0"   />
+	</color-pattern>
+</mmxl>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mmxl PUBLIC "-//Kreative//DTD MoreMoreXmasLights 1.0//EN" "http://www.kreativekorp.com/dtd/mmxlx.dtd">
+<mmxl>
+	<color-pattern name="Autumn">
+		<color r="153" g="102" b="51"  />
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="128" b="0"   />
+		<color r="255" g="255" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Pumpkin">
+		<color r="255" g="128" b="0"   />
+	</color-pattern>
+
+	<color-pattern name="Summer">
+		<color r="255" g="255" b="0"   />
+		<color r="255" g="255" b="128" />
+	</color-pattern>
+
+	<color-pattern name="Independence">
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="255" b="255" />
+		<color r="0"   g="0"   b="255" />
+	</color-pattern>
+
+	<color-pattern name="Spring">
+		<color r="255" g="255" b="255" />
+		<color r="255" g="255" b="0"   />
+		<color r="128" g="255" b="0"   />
+		<color r="0"   g="255" b="0"   />
+		<color r="128" g="255" b="128" />
+		<color r="255" g="255" b="128" />
+	</color-pattern>
+
+	<color-pattern name="True Love">
+		<color r="255" g="255" b="255" />
+		<color r="255" g="128" b="255" />
+		<color r="255" g="0"   b="255" />
+		<color r="255" g="0"   b="128" />
+		<color r="255" g="0"   b="0"   />
+		<color r="255" g="128" b="128" />
+	</color-pattern>
+
+	<color-pattern name="Winter">
+		<color r="255" g="255" b="255" />
+		<color r="0"   g="255" b="255" />
+		<color r="0"   g="128" b="255" />
+		<color r="0"   g="0"   b="255" />
+		<color r="128" g="128" b="255" />
+		<color r="128" g="255" b="255" />
+	</color-pattern>
+
+	<color-pattern name="Tammy Day">
+		<color r="128" g="0"   b="255" />
+		<color r="192" g="0"   b="255" />
+	</color-pattern>
+</mmxl>
