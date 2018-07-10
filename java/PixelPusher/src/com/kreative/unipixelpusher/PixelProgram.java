@@ -34,12 +34,32 @@ public class PixelProgram implements PixelDeviceListener {
 	private final List<DeviceInfo> devices;
 	private final Map<String,DeviceInfo> deviceMap;
 	private final PusherThreadPool threadPool;
+	private final List<PixelProgramListener> listeners;
 	
 	public PixelProgram() {
 		this.sequences = new ArrayList<PixelSequence>();
 		this.devices = new ArrayList<DeviceInfo>();
 		this.deviceMap = new HashMap<String,DeviceInfo>();
 		this.threadPool = new PusherThreadPool();
+		this.listeners = new ArrayList<PixelProgramListener>();
+	}
+	
+	public void addPixelProgramListener(PixelProgramListener listener) {
+		this.listeners.add(listener);
+	}
+	
+	public void removePixelProgramListener(PixelProgramListener listener) {
+		this.listeners.remove(listener);
+	}
+	
+	public PixelProgramListener[] getPixelProgramListeners() {
+		return listeners.toArray(new PixelProgramListener[listeners.size()]);
+	}
+	
+	private void pixelProgramChanged() {
+		for (PixelProgramListener listener : listeners) {
+			listener.pixelProgramChanged(this);
+		}
 	}
 	
 	public synchronized void clear() {
@@ -47,11 +67,13 @@ public class PixelProgram implements PixelDeviceListener {
 		this.devices.clear();
 		this.deviceMap.clear();
 		this.threadPool.disconnectAll();
+		pixelProgramChanged();
 	}
 	
 	public synchronized void addSequence(PixelSequence sequence) {
 		if (sequences.contains(sequence)) return;
 		sequences.add(sequence);
+		pixelProgramChanged();
 	}
 	
 	public synchronized List<PixelSequence> getSequences() {
@@ -61,6 +83,7 @@ public class PixelProgram implements PixelDeviceListener {
 	public synchronized void removeSequence(PixelSequence sequence) {
 		sequences.remove(sequence);
 		threadPool.disconnect(sequence);
+		pixelProgramChanged();
 	}
 	
 	public synchronized DeviceInfo addDevice(PixelDevice device) {
@@ -73,6 +96,7 @@ public class PixelProgram implements PixelDeviceListener {
 			devices.add(info);
 			deviceMap.put(id, info);
 		}
+		pixelProgramChanged();
 		return info;
 	}
 	
@@ -98,26 +122,32 @@ public class PixelProgram implements PixelDeviceListener {
 				}
 			}
 		}
+		pixelProgramChanged();
 	}
 	
 	public synchronized void connect(PixelSequence sequence, DeviceStringInfo string) {
 		threadPool.connect(sequence, string);
+		pixelProgramChanged();
 	}
 	
 	public synchronized void disconnect(PixelSequence sequence, PixelString string) {
 		threadPool.disconnect(sequence, string);
+		pixelProgramChanged();
 	}
 	
 	public synchronized void disconnect(PixelSequence sequence) {
 		threadPool.disconnect(sequence);
+		pixelProgramChanged();
 	}
 	
 	public synchronized void disconnect(PixelString string) {
 		threadPool.disconnect(string);
+		pixelProgramChanged();
 	}
 	
 	public synchronized void disconnectAll() {
 		threadPool.disconnectAll();
+		pixelProgramChanged();
 	}
 	
 	public synchronized Set<PusherThread> threadSet() {
@@ -131,6 +161,7 @@ public class PixelProgram implements PixelDeviceListener {
 			if (info != null) info.update(dev.device());
 		}
 		loader.addPixelDeviceListener(this);
+		pixelProgramChanged();
 	}
 	
 	@Override
@@ -138,6 +169,7 @@ public class PixelProgram implements PixelDeviceListener {
 		String id = dev.id();
 		DeviceInfo info = deviceMap.get(id);
 		if (info != null) info.update(dev);
+		pixelProgramChanged();
 	}
 	
 	@Override
@@ -145,6 +177,7 @@ public class PixelProgram implements PixelDeviceListener {
 		String id = dev.id();
 		DeviceInfo info = deviceMap.get(id);
 		if (info != null) info.update(dev);
+		pixelProgramChanged();
 	}
 	
 	@Override
@@ -152,6 +185,7 @@ public class PixelProgram implements PixelDeviceListener {
 		String id = dev.id();
 		DeviceInfo info = deviceMap.get(id);
 		if (info != null) info.update(null);
+		pixelProgramChanged();
 	}
 	
 	public final class DeviceInfo implements PixelDevice {
@@ -334,6 +368,7 @@ public class PixelProgram implements PixelDeviceListener {
 				if (ctype.equalsIgnoreCase("program")) {
 					if (child.hasAttributes() || child.hasChildNodes()) {
 						parseProgram(child);
+						pixelProgramChanged();
 						return;
 					}
 				} else {
