@@ -44,21 +44,27 @@ public class PixelProgram implements PixelDeviceListener {
 		this.listeners = new ArrayList<PixelProgramListener>();
 	}
 	
-	public void addPixelProgramListener(PixelProgramListener listener) {
+	public synchronized void addPixelProgramListener(PixelProgramListener listener) {
 		this.listeners.add(listener);
 	}
 	
-	public void removePixelProgramListener(PixelProgramListener listener) {
+	public synchronized void removePixelProgramListener(PixelProgramListener listener) {
 		this.listeners.remove(listener);
 	}
 	
-	public PixelProgramListener[] getPixelProgramListeners() {
+	public synchronized PixelProgramListener[] getPixelProgramListeners() {
 		return listeners.toArray(new PixelProgramListener[listeners.size()]);
 	}
 	
-	private void pixelProgramChanged() {
+	private synchronized void pixelProgramChanged() {
 		for (PixelProgramListener listener : listeners) {
 			listener.pixelProgramChanged(this);
+		}
+	}
+	
+	private synchronized void pixelDevicesChanged() {
+		for (PixelProgramListener listener : listeners) {
+			listener.pixelDevicesChanged(this);
 		}
 	}
 	
@@ -150,6 +156,14 @@ public class PixelProgram implements PixelDeviceListener {
 		pixelProgramChanged();
 	}
 	
+	public synchronized PusherThread getThread(PixelSequence sequence) {
+		return threadPool.getThread(sequence);
+	}
+	
+	public synchronized PusherThread getThread(PixelString string) {
+		return threadPool.getThread(string);
+	}
+	
 	public synchronized Set<PusherThread> threadSet() {
 		return threadPool.threadSet();
 	}
@@ -161,7 +175,7 @@ public class PixelProgram implements PixelDeviceListener {
 			if (info != null) info.update(dev.device());
 		}
 		loader.addPixelDeviceListener(this);
-		pixelProgramChanged();
+		pixelDevicesChanged();
 	}
 	
 	@Override
@@ -169,7 +183,7 @@ public class PixelProgram implements PixelDeviceListener {
 		String id = dev.id();
 		DeviceInfo info = deviceMap.get(id);
 		if (info != null) info.update(dev);
-		pixelProgramChanged();
+		pixelDevicesChanged();
 	}
 	
 	@Override
@@ -177,7 +191,7 @@ public class PixelProgram implements PixelDeviceListener {
 		String id = dev.id();
 		DeviceInfo info = deviceMap.get(id);
 		if (info != null) info.update(dev);
-		pixelProgramChanged();
+		pixelDevicesChanged();
 	}
 	
 	@Override
@@ -185,7 +199,7 @@ public class PixelProgram implements PixelDeviceListener {
 		String id = dev.id();
 		DeviceInfo info = deviceMap.get(id);
 		if (info != null) info.update(null);
-		pixelProgramChanged();
+		pixelDevicesChanged();
 	}
 	
 	public final class DeviceInfo implements PixelDevice {
@@ -262,6 +276,7 @@ public class PixelProgram implements PixelDeviceListener {
 			}
 		}
 		
+		public synchronized boolean isActive() { return device != null; }
 		@Override public synchronized PixelDeviceRegistry parent() { return (device != null) ? (parent = device.parent()) : parent; }
 		@Override public synchronized String id() { return (device != null) ? (id = device.id()) : id; }
 		@Override public synchronized String name() { return (device != null) ? (name = device.name()) : name; }

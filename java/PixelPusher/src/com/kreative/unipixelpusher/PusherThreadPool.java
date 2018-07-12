@@ -57,6 +57,14 @@ public class PusherThreadPool {
 		this.threads = new HashSet<PusherThread>();
 	}
 	
+	public synchronized PusherThread getThread(PixelSequence sequence) {
+		return sequenceThreads.get(sequence);
+	}
+	
+	public synchronized PusherThread getThread(PixelString string) {
+		return stringThreads.get(string);
+	}
+	
 	public synchronized Set<PusherThread> threadSet() {
 		return Collections.unmodifiableSet(new HashSet<PusherThread>(threads));
 	}
