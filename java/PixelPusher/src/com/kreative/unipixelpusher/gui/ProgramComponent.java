@@ -136,7 +136,10 @@ public class ProgramComponent extends JComponent {
 		}
 		sequencesHeight += lastKnownInsets.bottom;
 		devicesHeight += lastKnownInsets.bottom;
-		calcSize = new Dimension(preferredWidth, Math.max(sequencesHeight, devicesHeight));
+		int totalHeight = Math.max(sequencesHeight, devicesHeight);
+		int minimumHeight = lastKnownInsets.top + lastKnownInsets.bottom + 400;
+		int preferredHeight = Math.max(totalHeight, minimumHeight);
+		calcSize = new Dimension(preferredWidth, preferredHeight);
 	}
 	
 	@Override

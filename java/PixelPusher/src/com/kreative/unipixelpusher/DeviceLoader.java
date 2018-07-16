@@ -64,6 +64,12 @@ public class DeviceLoader {
 		return nameMap.get(name);
 	}
 	
+	public void update() {
+		for (PixelDeviceRegistry r : registries) {
+			r.update();
+		}
+	}
+	
 	public void addPixelDeviceListener(PixelDeviceListener listener) {
 		listeners.add(listener);
 	}
@@ -151,27 +157,5 @@ public class DeviceLoader {
 		public String toString() {
 			return this.name;
 		}
-	}
-	
-	public static void main(String[] args) {
-		DeviceConfiguration config = new DeviceConfiguration();
-		DeviceLoader loader = new DeviceLoader(config);
-		for (String name : loader.getDeviceNames()) {
-			System.out.println("  " + name);
-		}
-		loader.addPixelDeviceListener(new PixelDeviceListener() {
-			@Override
-			public void pixelDeviceAppeared(PixelDevice dev) {
-				System.out.println("+ " + dev.name());
-			}
-			@Override
-			public void pixelDeviceChanged(PixelDevice dev) {
-				System.out.println("* " + dev.name());
-			}
-			@Override
-			public void pixelDeviceDisappeared(PixelDevice dev) {
-				System.out.println("- " + dev.name());
-			}
-		});
 	}
 }

@@ -71,11 +71,4 @@ public class SequenceLoader {
 			return this.name;
 		}
 	}
-	
-	public static void main(String[] args) {
-		SequenceLoader loader = new SequenceLoader();
-		for (String name : loader.getSequenceNames()) {
-			System.out.println(name);
-		}
-	}
 }

@@ -76,6 +76,10 @@ public class PixelProgram implements PixelDeviceListener {
 		pixelProgramChanged();
 	}
 	
+	public synchronized boolean isEmpty() {
+		return (this.sequences.isEmpty() && this.devices.isEmpty() && this.deviceMap.isEmpty());
+	}
+	
 	public synchronized void addSequence(PixelSequence sequence) {
 		if (sequences.contains(sequence)) return;
 		sequences.add(sequence);
@@ -579,8 +583,7 @@ public class PixelProgram implements PixelDeviceListener {
 				id = ("s" + Integer.toString(nextId++));
 				stringIds.put(string, id);
 				out.println("\t\t<string id=\"" + id + "\" string=\"" + xmls(string.id()) + "\" name=\"" + xmls(string.name()) + "\" type=\"" + string.type().name() + "\"");
-				out.println("\t\t        length=\"" + string.length() + "\" row-count=\"" + string.getRowCount() + "\" column-count=\"" + string.getColumnCount() + "\">");
-				out.println("\t\t</string>");
+				out.println("\t\t        length=\"" + string.length() + "\" row-count=\"" + string.getRowCount() + "\" column-count=\"" + string.getColumnCount() + "\"/>");
 			}
 			out.println("\t</device>");
 		}

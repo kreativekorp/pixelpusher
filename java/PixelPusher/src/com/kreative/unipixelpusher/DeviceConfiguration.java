@@ -29,6 +29,14 @@ import org.xml.sax.SAXParseException;
 public class DeviceConfiguration {
 	private Map<String,Map<String,String>> config;
 	
+	public void clear() {
+		this.config = null;
+	}
+	
+	public boolean isEmpty() {
+		return (config == null || config.isEmpty());
+	}
+	
 	public String get(String id, String key) {
 		if (config == null) return null;
 		Map<String,String> subcon = config.get(id);
