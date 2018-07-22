@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import com.kreative.unipixelpusher.PixelProgram;
+import com.kreative.unipixelpusher.PixelProgramListener;
 import com.kreative.unipixelpusher.PixelSequence;
 
 public class ConfigureItemMenuItem extends JMenuItem {
@@ -28,7 +29,12 @@ public class ConfigureItemMenuItem extends JMenuItem {
 	public void doMenu() {
 		Object o = pc.getSelectedItem();
 		if (o instanceof PixelSequence) {
-			SequenceConfigurationFrame.open((PixelSequence)o);
+			if (SequenceConfigurationFrame.open((PixelSequence)o) != null) {
+				PixelProgram pp = pc.getProgram();
+				for (PixelProgramListener l : pp.getPixelProgramListeners()) {
+					l.pixelProgramChanged(pp);
+				}
+			}
 		} else if (o instanceof PixelProgram.DeviceInfo) {
 			DeviceConfigurationFrame.open((PixelProgram.DeviceInfo)o);
 		}

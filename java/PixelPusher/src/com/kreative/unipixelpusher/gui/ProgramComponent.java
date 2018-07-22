@@ -408,7 +408,11 @@ public class ProgramComponent extends JComponent {
 		public void mouseClicked(MouseEvent e) {
 			if (e.getClickCount() > 1) {
 				if (selection instanceof PixelSequence) {
-					SequenceConfigurationFrame.open((PixelSequence)selection);
+					if (SequenceConfigurationFrame.open((PixelSequence)selection) != null) {
+						for (PixelProgramListener l : program.getPixelProgramListeners()) {
+							l.pixelProgramChanged(program);
+						}
+					}
 				} else if (selection instanceof PixelProgram.DeviceInfo) {
 					DeviceConfigurationFrame.open((PixelProgram.DeviceInfo)selection);
 				}
