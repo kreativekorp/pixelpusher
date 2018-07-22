@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<string>true</string>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>UniPixelPusher</string>
+	<key>CFBundleGetInfoString</key>
+	<string>UniPixelPusher © 2018 Kreative Software</string>
+	<key>CFBundleIconFile</key>
+	<string>UniPixelPusher.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.kreative.unipixelpusher</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>UniPixelPusher</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>PP∫r</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>JavaX</key>
+	<dict>
+		<key>ClassPath</key>
+		<string>$JAVAROOT/imagetool.jar:$JAVAROOT/nrserial.jar:$JAVAROOT/PixelPusher.jar:$JAVAROOT/UniPixelPusher.jar</string>
+		<key>JVMVersion</key>
+		<string>1.5+</string>
+		<key>MainClass</key>
+		<string>com.kreative.unipixelpusher.gui.Main</string>
+		<key>Properties</key>
+		<dict>
+			<key>apple.awt.graphics.UseQuartz</key>
+			<string>false</string>
+			<key>apple.laf.useScreenMenuBar</key>
+			<string>true</string>
+		</dict>
+		<key>VMOptions</key>
+		<string>-Xmx1024M</string>
+		<key>WorkingDirectory</key>
+		<string>$APP_PACKAGE/..</string>
+	</dict>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>ppgmx</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>UniPixelPusher Program</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>PixelProgram</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>ppdcx</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>UniPixelPusher Device Configuration</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>DeviceConfiguration</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>mmxlx</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>UniPixelPusher Pattern Presets</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>MMXLPresets</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>ppmqx</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>UniPixelPusher Marquee Presets</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>MarqueePresets</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+	</array>
+</dict>
+</plist>

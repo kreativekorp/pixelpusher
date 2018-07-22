@@ -1,33 +1,43 @@
-SRCFILES := $(shell find src/com -type f \! -path \*/.\* -name \*.java)
-RESFILES := $(shell find src/com -type f \! -path \*/.\* \! -name \*.java | sed s/^src\\///)
-PACKAGES := $(shell find src/com/kreative/pixelpusher -type d \! -path \*/.\* | sed s/^src\\/// | tr / .)
+SRCFILES := $(shell find src/com/kreative/unipixelpusher -type f \! -path \*/.\* -name \*.java)
+RESFILES := $(shell find src/com/kreative/unipixelpusher -type f \! -path \*/.\* \! -name \*.java | sed s/^src\\///)
+PACKAGES := $(shell find src/com/kreative/unipixelpusher -type d \! -path \*/.\* | sed s/^src\\/// | tr / .)
 
-all: clean bin doc PixelPusherCLI.jar
+all: clean bin doc UniPixelPusher.jar UniPixelPusher.app
 
-eclipseall: eclipseclean PixelPusherCLI.jar
+eclipseall: eclipseclean UniPixelPusher.jar UniPixelPusher.app
 
 clean:
 	rm -rf bin
 	rm -rf doc
-	rm -rf PixelPusherCLI.jar
+	rm -rf UniPixelPusher.jar
+	rm -rf UniPixelPusher.app
 
 eclipseclean:
-	rm -rf PixelPusherCLI.jar
+	rm -rf UniPixelPusher.jar
+	rm -rf UniPixelPusher.app
 
 bin: src
 	mkdir -p bin
-	javac -classpath dep/nrserial.jar:dep/PixelPusher.jar -sourcepath src $(SRCFILES) -d bin
+	javac -classpath dep/imagetool.jar:dep/nrserial.jar:dep/PixelPusher.jar:dep/orange-extensions.jar -sourcepath src $(SRCFILES) -d bin
 	$(foreach res,$(RESFILES),cp src/$(res) bin/$(res);)
 
 doc: src
 	mkdir -p doc
-	javadoc -classpath dep/nrserial.jar:dep/PixelPusher.jar -sourcepath src $(PACKAGES) -d doc
+	javadoc -classpath dep/imagetool.jar:dep/nrserial.jar:dep/PixelPusher.jar:dep/orange-extensions.jar -sourcepath src $(PACKAGES) -d doc
 
-PixelPusherCLI.jar: src bin
+UniPixelPusher.jar: src bin
 	export COPYFILE_DISABLE=true
 	find src -name .DS_Store -delete
 	find bin -name .DS_Store -delete
-	jar cmf dep/MANIFEST.MF PixelPusherCLI.jar -C src META-INF -C bin com/kreative/pixelpusher
+	jar cmf dep/MANIFEST.MF UniPixelPusher.jar -C src META-INF -C bin com/kreative/unipixelpusher
 
- .PHONY: all eclipseall clean eclipseclean
- 
+UniPixelPusher.app: dep UniPixelPusher.jar
+	mkdir -p UniPixelPusher.app/Contents/MacOS
+	mkdir -p UniPixelPusher.app/Contents/Resources/Java
+	cp -f dep/PkgInfo UniPixelPusher.app/Contents
+	cp -f dep/Info.plist UniPixelPusher.app/Contents
+	cp -f dep/universalJavaApplicationStub UniPixelPusher.app/Contents/MacOS/UniPixelPusher
+	cp -f dep/*.jar UniPixelPusher.app/Contents/Resources/Java
+	cp -f UniPixelPusher.jar UniPixelPusher.app/Contents/Resources/Java
+
+.PHONY: all eclipseall clean eclipseclean

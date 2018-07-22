@@ -12,7 +12,7 @@ import com.kreative.unipixelpusher.SequenceLoader;
 
 public class Main {
 	public static void main(String[] args) {
-		try { System.setProperty("com.apple.mrj.application.apple.menu.about.name", "PixelPusher"); } catch (Exception e) {}
+		try { System.setProperty("com.apple.mrj.application.apple.menu.about.name", "UniPixelPusher"); } catch (Exception e) {}
 		try { System.setProperty("apple.awt.graphics.UseQuartz", "false"); } catch (Exception e) {}
 		try { System.setProperty("apple.laf.useScreenMenuBar", "true"); } catch (Exception e) {}
 		try { UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); } catch (Exception e) {}
