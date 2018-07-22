@@ -38,6 +38,7 @@ UniPixelPusher.app: dep UniPixelPusher.jar
 	cp -f dep/Info.plist UniPixelPusher.app/Contents
 	cp -f dep/universalJavaApplicationStub UniPixelPusher.app/Contents/MacOS/UniPixelPusher
 	cp -f dep/*.jar UniPixelPusher.app/Contents/Resources/Java
+	cp -Rf presets UniPixelPusher.app/Contents/Resources/Presets
 	cp -f UniPixelPusher.jar UniPixelPusher.app/Contents/Resources/Java
 
 .PHONY: all eclipseall clean eclipseclean
