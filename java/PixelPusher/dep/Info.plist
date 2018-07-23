@@ -58,7 +58,7 @@
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
 			<key>CFBundleTypeIconFile</key>
-			<string>PixelProgram</string>
+			<string>UniPixelPusherDoc</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 		</dict>
@@ -72,7 +72,7 @@
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
 			<key>CFBundleTypeIconFile</key>
-			<string>DeviceConfiguration</string>
+			<string>UniPixelPusherDoc</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 		</dict>
@@ -86,7 +86,7 @@
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
 			<key>CFBundleTypeIconFile</key>
-			<string>MMXLPresets</string>
+			<string>UniPixelPusherDoc</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 		</dict>
@@ -100,7 +100,7 @@
 			<key>LSHandlerRank</key>
 			<string>Owner</string>
 			<key>CFBundleTypeIconFile</key>
-			<string>MarqueePresets</string>
+			<string>UniPixelPusherDoc</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 		</dict>
