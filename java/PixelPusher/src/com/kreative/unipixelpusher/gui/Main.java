@@ -56,5 +56,14 @@ public class Main {
 				System.exit(0);
 			}
 		});
+		
+		if (SwingUtils.IS_MAC_OS) {
+			try {
+				Class<?> cls = Class.forName("com.kreative.unipixelpusher.gui.mac.MyApplicationListener");
+				cls.getConstructor(DeviceConfiguration.class, SaveManager.class).newInstance(dc, f.getSaveManager());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

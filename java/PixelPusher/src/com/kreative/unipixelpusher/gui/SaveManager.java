@@ -61,6 +61,7 @@ public class SaveManager {
 	
 	public boolean open(File file) {
 		if (file == null) return open();
+		if (!clear()) return false;
 		this.file = file;
 		return read();
 	}
