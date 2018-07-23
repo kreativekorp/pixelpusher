@@ -15,6 +15,8 @@ import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.geom.CubicCurve2D;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
@@ -23,16 +25,20 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.imageio.ImageIO;
 import javax.swing.JComponent;
+import com.kreative.unipixelpusher.DeviceLoader;
 import com.kreative.unipixelpusher.DeviceType;
 import com.kreative.unipixelpusher.PixelProgram;
 import com.kreative.unipixelpusher.PixelProgramListener;
 import com.kreative.unipixelpusher.PixelSequence;
 import com.kreative.unipixelpusher.PusherThread;
+import com.kreative.unipixelpusher.SequenceLoader;
 import com.kreative.unipixelpusher.StringType;
 
 public class ProgramComponent extends JComponent {
 	private static final long serialVersionUID = 1L;
 	
+	private DeviceLoader deviceLoader;
+	private SequenceLoader sequenceLoader;
 	private PixelProgram program;
 	private Object selection;
 	private Map<Rectangle,PixelSequence> sequenceRects;
@@ -52,15 +58,20 @@ public class ProgramComponent extends JComponent {
 	private PixelSequence tempWireSequence;
 	private PixelProgram.DeviceStringInfo tempWireDevice;
 	
-	public ProgramComponent() {
+	public ProgramComponent(DeviceLoader deviceLoader, SequenceLoader sequenceLoader, PixelProgram progrem) {
+		this.deviceLoader = deviceLoader;
+		this.sequenceLoader = sequenceLoader;
+		this.setProgram(progrem);
 		this.addMouseListener(mouseListener);
 		this.addMouseMotionListener(mouseListener);
 	}
 	
-	public ProgramComponent(PixelProgram progrem) {
-		this.setProgram(progrem);
-		this.addMouseListener(mouseListener);
-		this.addMouseMotionListener(mouseListener);
+	public DeviceLoader getDeviceLoader() {
+		return this.deviceLoader;
+	}
+	
+	public SequenceLoader getSequenceLoader() {
+		return this.sequenceLoader;
 	}
 	
 	public PixelProgram getProgram() {
@@ -407,16 +418,64 @@ public class ProgramComponent extends JComponent {
 		@Override
 		public void mouseClicked(MouseEvent e) {
 			if (e.getClickCount() > 1) {
-				if (selection instanceof PixelSequence) {
-					if (SequenceConfigurationFrame.open((PixelSequence)selection) != null) {
-						for (PixelProgramListener l : program.getPixelProgramListeners()) {
-							l.pixelProgramChanged(program);
-						}
+				if (selection != null) {
+					openConfiguration();
+				} else {
+					int x = e.getX() - lastKnownInsets.left;
+					if (x >= lastKnownSize.width - 200) {
+						openAddDevice();
+					} else if (x < 200) {
+						openAddSequence();
 					}
-				} else if (selection instanceof PixelProgram.DeviceInfo) {
-					DeviceConfigurationFrame.open((PixelProgram.DeviceInfo)selection);
 				}
 			}
 		}
+	}
+	
+	private AddSequenceFrame addSequenceFrame;
+	private AddDeviceFrame addDeviceFrame;
+	
+	public void openAddSequence() {
+		if (addSequenceFrame == null) {
+			addSequenceFrame = new AddSequenceFrame(sequenceLoader, program);
+			addSequenceFrame.addWindowListener(new WindowAdapter() {
+				@Override
+				public void windowClosed(WindowEvent e) {
+					addSequenceFrame = null;
+				}
+			});
+		}
+		addSequenceFrame.setVisible(true);
+	}
+	
+	public void openAddDevice() {
+		if (addDeviceFrame == null) {
+			addDeviceFrame = new AddDeviceFrame(deviceLoader, program);
+			addDeviceFrame.addWindowListener(new WindowAdapter() {
+				@Override
+				public void windowClosed(WindowEvent e) {
+					addDeviceFrame = null;
+				}
+			});
+		}
+		addDeviceFrame.setVisible(true);
+	}
+	
+	public void openConfiguration() {
+		if (selection instanceof PixelSequence) {
+			if (SequenceConfigurationFrame.open((PixelSequence)selection) != null) {
+				for (PixelProgramListener l : program.getPixelProgramListeners()) {
+					l.pixelProgramChanged(program);
+				}
+			}
+		} else if (selection instanceof PixelProgram.DeviceInfo) {
+			DeviceConfigurationFrame.open((PixelProgram.DeviceInfo)selection);
+		}
+	}
+	
+	@Override
+	public void finalize() {
+		if (addSequenceFrame != null) addSequenceFrame.dispose();
+		if (addDeviceFrame != null) addDeviceFrame.dispose();
 	}
 }

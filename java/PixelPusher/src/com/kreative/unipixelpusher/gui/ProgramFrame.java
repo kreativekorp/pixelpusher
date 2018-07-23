@@ -25,14 +25,14 @@ public class ProgramFrame extends JFrame {
 		this.dl = dl;
 		this.sl = sl;
 		this.pp = new PixelProgram();
-		this.pc = new ProgramComponent(pp);
+		this.pc = new ProgramComponent(dl, sl, pp);
 		this.sm = new SaveManager(this, null, pp, dl);
 		
 		JPanel mainPanel = new JPanel(new BorderLayout());
 		mainPanel.add(pc, BorderLayout.CENTER);
 		mainPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		setContentPane(mainPanel);
-		setJMenuBar(new ProgramMenuBar(sm, this, dc, sl, dl, pp, pc));
+		setJMenuBar(new ProgramMenuBar(sm, this, dc, pc));
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setResizable(true);
 		pack();
