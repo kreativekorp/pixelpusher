@@ -19,7 +19,7 @@ public class EffectFactory implements PixelSequenceFactory {
 		TailChase.Left.class, TailChase.Right.class,
 		LarsonScanner.A.class, LarsonScanner.B.class,
 		BouncingBalls.A.class, BouncingBalls.B.class,
-		Fire.class, MeteorRain.class
+		Flicker.class, Fire.class, MeteorRain.class
 	};
 	
 	private static final String[] NAMES = {
@@ -36,7 +36,7 @@ public class EffectFactory implements PixelSequenceFactory {
 		TailChase.Left.name, TailChase.Right.name,
 		LarsonScanner.A.name, LarsonScanner.B.name,
 		BouncingBalls.A.name, BouncingBalls.B.name,
-		Fire.name, MeteorRain.name
+		Flicker.name, Fire.name, MeteorRain.name
 	};
 	
 	@Override

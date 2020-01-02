@@ -7,6 +7,9 @@ public abstract class ColorPatternPixelSequence implements PixelSequence.ColorPa
 	protected static int[] white() { return new int[]{
 		ColorConstants.WHITE
 	}; }
+	protected static int[] warmWhite() { return new int[]{
+		ColorConstants.WARM_WHITE_LED
+	}; }
 	protected static int[] red() { return new int[]{
 		ColorConstants.RED
 	}; }
