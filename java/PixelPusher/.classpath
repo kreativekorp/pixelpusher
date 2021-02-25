@@ -5,5 +5,7 @@
 	<classpathentry kind="lib" path="dep/nrserial.jar"/>
 	<classpathentry kind="lib" path="dep/PixelPusher.jar"/>
 	<classpathentry kind="lib" path="dep/imagetool.jar"/>
+	<classpathentry kind="lib" path="dep/ual.jar"/>
+	<classpathentry kind="lib" path="dep/joda-time-2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

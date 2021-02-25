@@ -29,7 +29,7 @@
 	<key>JavaX</key>
 	<dict>
 		<key>ClassPath</key>
-		<string>$JAVAROOT/imagetool.jar:$JAVAROOT/nrserial.jar:$JAVAROOT/PixelPusher.jar:$JAVAROOT/UniPixelPusher.jar</string>
+		<string>$JAVAROOT/imagetool.jar:$JAVAROOT/joda-time-2.1.jar:$JAVAROOT/nrserial.jar:$JAVAROOT/ual.jar:$JAVAROOT/PixelPusher.jar:$JAVAROOT/UniPixelPusher.jar</string>
 		<key>JVMVersion</key>
 		<string>1.5+</string>
 		<key>MainClass</key>

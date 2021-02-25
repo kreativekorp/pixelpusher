@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
 Created-By: 1.0 (Kreative Software)
 Main-Class: com.kreative.unipixelpusher.gui.Main
-Class-Path: imagetool.jar nrserial.jar PixelPusher.jar dep/imagetool.jar dep/nrserial.jar dep/PixelPusher.jar
+Class-Path: imagetool.jar joda-time-2.1.jar nrserial.jar ual.jar PixelPusher.jar dep/imagetool.jar dep/joda-time-2.1.jar dep/nrserial.jar dep/ual.jar dep/PixelPusher.jar
