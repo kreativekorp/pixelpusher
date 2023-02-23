@@ -22,11 +22,13 @@ public class OpenDeviceConfigurationMenuItem extends JMenuItem {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				FileDialog fd = new FileDialog(frame, "Load Device Configuration", FileDialog.LOAD);
+				if (SaveManager.lastOpenDirectory != null) fd.setDirectory(SaveManager.lastOpenDirectory);
 				fd.setVisible(true);
 				String parent = fd.getDirectory();
 				String name = fd.getFile();
+				fd.dispose();
 				if (parent == null || name == null) return;
-				File file = new File(parent, name);
+				File file = new File((SaveManager.lastOpenDirectory = parent), name);
 				try {
 					dc.read(file);
 				} catch (IOException ioe) {

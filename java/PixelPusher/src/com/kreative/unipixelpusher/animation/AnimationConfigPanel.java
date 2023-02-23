@@ -35,6 +35,8 @@ import com.kreative.imagetool.animation.AnimationIO;
 public class AnimationConfigPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
+	private static String lastOpenDirectory = null;
+	
 	private AnimationSequence sequence;
 	private JTextField animationPath;
 	private JButton animationBrowse;
@@ -143,11 +145,14 @@ public class AnimationConfigPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				Frame owner = getOwner();
 				FileDialog fd = new FileDialog(owner, "Load Animation", FileDialog.LOAD);
+				if (lastOpenDirectory != null) fd.setDirectory(lastOpenDirectory);
 				fd.setVisible(true);
-				if (fd.getDirectory() != null && fd.getFile() != null) {
-					File f = new File(fd.getDirectory(), fd.getFile());
-					setFile(owner, f);
-				}
+				String parent = fd.getDirectory();
+				String name = fd.getFile();
+				fd.dispose();
+				if (parent == null || name == null) return;
+				File file = new File((lastOpenDirectory = parent), name);
+				setFile(owner, file);
 			}
 		});
 		hscrollNone.addActionListener(new ActionListener() {

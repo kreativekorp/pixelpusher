@@ -12,6 +12,9 @@ import com.kreative.unipixelpusher.PixelProgram;
 import com.kreative.unipixelpusher.PixelProgramListener;
 
 public class SaveManager {
+	protected static String lastOpenDirectory = null;
+	protected static String lastSaveDirectory = null;
+	
 	private JFrame frame;
 	private File file;
 	private PixelProgram program;
@@ -69,11 +72,13 @@ public class SaveManager {
 	public boolean open() {
 		if (!clear()) return false;
 		FileDialog fd = new FileDialog(frame, "Open Program", FileDialog.LOAD);
+		if (lastOpenDirectory != null) fd.setDirectory(lastOpenDirectory);
 		fd.setVisible(true);
 		String parent = fd.getDirectory();
 		String name = fd.getFile();
+		fd.dispose();
 		if (parent == null || name == null) return false;
-		file = new File(parent, name);
+		file = new File((lastOpenDirectory = parent), name);
 		return read();
 	}
 	
@@ -115,12 +120,14 @@ public class SaveManager {
 	
 	public boolean saveAs() {
 		FileDialog fd = new FileDialog(frame, "Save Program", FileDialog.SAVE);
+		if (lastSaveDirectory != null) fd.setDirectory(lastSaveDirectory);
 		fd.setVisible(true);
 		String parent = fd.getDirectory();
 		String name = fd.getFile();
+		fd.dispose();
 		if (parent == null || name == null) return false;
 		if (!name.toLowerCase().endsWith(".ppgmx")) name += ".ppgmx";
-		file = new File(parent, name);
+		file = new File((lastSaveDirectory = parent), name);
 		return write();
 	}
 	

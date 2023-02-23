@@ -22,12 +22,14 @@ public class SaveDeviceConfigurationAsMenuItem extends JMenuItem {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				FileDialog fd = new FileDialog(frame, "Save Device Configuration", FileDialog.SAVE);
+				if (SaveManager.lastSaveDirectory != null) fd.setDirectory(SaveManager.lastSaveDirectory);
 				fd.setVisible(true);
 				String parent = fd.getDirectory();
 				String name = fd.getFile();
+				fd.dispose();
 				if (parent == null || name == null) return;
 				if (!name.toLowerCase().endsWith(".ppdcx")) name += ".ppdcx";
-				File file = new File(parent, name);
+				File file = new File((SaveManager.lastSaveDirectory = parent), name);
 				try {
 					dc.write(file);
 				} catch (IOException ioe) {
